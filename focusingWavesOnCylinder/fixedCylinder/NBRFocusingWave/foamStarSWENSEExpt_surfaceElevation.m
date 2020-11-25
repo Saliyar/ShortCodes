@@ -34,19 +34,20 @@ for i=1:3
     j=i+4;
     Y_axis1=Eta_foamStar1(:,i);
     Y_axis2=Eta_SWENSE1(:,i);
-    Expt_yaxis=WP_Expt(indices,i);
+    Expt_yaxis=WP_Expt(ExptPressureIndices,i);
 
 figure()
     plot(dt_foamStar1,Y_axis1,'LineWidth',3)
     hold on;
-    % plot(dt_SWENSE1,Y_axis2,'LineWidth',3) hold on;
-    plot(pl_timeB,Expt_yaxis,'LineWidth',3)
+    plot(dt_SWENSE1,Y_axis2,'LineWidth',3)
+    hold on;
+    plot(pl_timeWB,Expt_yaxis,'LineWidth',3)
     xlim([0.05 5])
     ylabel('surface elevation [m]','FontSize',32)
     xlabel('Time [s]','FontSize',32)
     set(gca,'Fontsize',32)
     title(['WP ',num2str(j)],'FontSize',32)
-    legend ('foamStar','Experiment','FontSize',32);
+    legend ('foamStar','SWENSE','Experiment','FontSize',32);
     grid on;
 
 end

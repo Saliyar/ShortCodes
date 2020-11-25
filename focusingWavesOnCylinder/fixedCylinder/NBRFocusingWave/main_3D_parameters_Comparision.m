@@ -20,18 +20,18 @@ clear all
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Input details
 number = '2'; % Choose the number stages 
-parameter = 'D' % Chose the parameters to be compared
+parameter = 'C' % Chose the parameters to be compared
 
 %%Experiment  details
-Exptforcepath=fullfile(/home/saliyar/Documents/Working/ISOPEtestcase/Category A/Case23003/,'cylinnonbreak23003_2ndorder_9600Hz.MAT');
+Exptforcepath=fullfile('/home/saliyar/Documents/Working/ISOPEtestcase/CategoryA/Case23003/','cylinnonbreak23003_2ndorder_9600Hz.MAT');
 ExptIndices=355212:403205;
 
-Exptpressurepath=fullfile(/home/saliyar/Documents/Working/ISOPEtestcase/Category A/Case23003/,'catA_23003.mat');
+Exptpressurepath=fullfile('/home/saliyar/Documents/Working/ISOPEtestcase/CategoryA/Case23003/','catA_23003.mat');
 ExptPressureIndices=3702:4202;
 
 %%foamStar Test case path
 foamStarfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/foamStar_NBR_fixedWithForce/postProcessing/';
-SWENSEfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/foamStar_NBR_fixedWithForce/postProcessing/';
+SWENSEfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/SWENSE_NBR_fixed/postProcessing/';
 
 %Constant phase shift  between experiment and numerics
 cps = 0.14; 
@@ -42,15 +42,14 @@ PP_static=[0 17.93 8.49 0 0 8.49 8.49 8.49];
 switch(number)
     case '1'
     {
-        switch(parameter)
-        case 
+        
         
     }   
         
     ExptfoamStar();
     
     case '2'
-    {
+    
             switch(parameter)
             case 'A'
                 foamStarSWENSEExpt_force(Exptforcepath,ExptIndices,foamStarfile,SWENSEfile,cps);
@@ -62,8 +61,8 @@ switch(number)
                 foamStarSWENSEExpt_compAll(Exptforcepath,ExptIndices,foamStarfile,SWENSEfile,cps,PP_static,Exptpressurepath,ExptPressureIndices);
             otherwise
                 disp('Only between A-D');
-    }
-            
+    
+            end
     
     otherwise
     disp('Select Properly');
