@@ -1,4 +1,4 @@
-function foamStarSWENSEHOS_onecase(HOSpath,foamStarfile,SWENSEfile)
+function foamStarSWENSEHOS_onecase(HOSpath,foamStarfile,SWENSEfile,Ux,Uy,Co)
 
 %% Loading data HOS, foamStar and SWENSE 
 data_HOS=readtable(HOSpath);
@@ -13,12 +13,7 @@ data1=readtable(foamStarfullfile);
 dt_foamStar=data1{:,1};
 Eta_foamStar=data1{:,2:end};
 
-if(any(dt_foamStar==37))
-	foamStarIndices=find(dt_foamStar==37):find(dt_foamStar==42);
-else
-	foamStarIndices=find(dt_foamStar==0):find(dt_foamStar==5);
-end
-
+foamStarIndices=foamStarSWENSEIndicesRange(dt_foamStar,Meshsize,Ux,Uy,Co,starttime);
 
 
 SWENSEfullfile=fullfile(SWENSEfile,'waveProbe/0/surfaceElevation.dat')
@@ -26,11 +21,8 @@ data2=readtable(SWENSEfullfile);
 dt_SWENSE=data2{:,1};
 Eta_SWENSE=data2{:,2:end};
 
-if(any(dt_SWENSE==37))
-	SWENSEIndices=find(dt_SWENSE==37):find(dt_SWENSE==42);
-else
-	SWENSEIndices=find(dt_SWENSE==0):find(dt_SWENSE==5);
-end
+SWENSEIndices=foamStarSWENSEIndicesRange(dt_SWENSE,Meshsize,Ux,Uy,Co,starttime);
+
 
 
 %% Index for HOSplot(dt_foamStar,Y_axis1,'LineWidth',2)
