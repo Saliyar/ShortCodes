@@ -1,4 +1,4 @@
-function foamStarSWENSEHOS_onecase(HOSpath,foamStarfile,SWENSEfile,Ux,Uy,Co)
+function foamStarSWENSEHOS_onecase(HOSpath,foamStarfile,SWENSEfile,Ux,Uy,Co,Meshsize,dataNotedforTimestep)
 
 %% Loading data HOS, foamStar and SWENSE 
 data_HOS=readtable(HOSpath);
@@ -10,10 +10,10 @@ HOSIndices=find(dt_HOS==37):find(dt_HOS==42);
 
 foamStarfullfile=fullfile(foamStarfile,'waveProbe/0/surfaceElevation.dat')
 data1=readtable(foamStarfullfile);
-dt_foamStar=data1{:,1};
+dt_foamStar=data1{:,1}
 Eta_foamStar=data1{:,2:end};
 
-foamStarIndices=foamStarSWENSEIndicesRange(dt_foamStar,Meshsize,Ux,Uy,Co,starttime);
+foamStarIndices=foamStarSWENSEIndicesRange(dt_foamStar,Meshsize,Ux,Uy,Co,dataNotedforTimestep);
 
 
 SWENSEfullfile=fullfile(SWENSEfile,'waveProbe/0/surfaceElevation.dat')
@@ -21,7 +21,7 @@ data2=readtable(SWENSEfullfile);
 dt_SWENSE=data2{:,1};
 Eta_SWENSE=data2{:,2:end};
 
-SWENSEIndices=foamStarSWENSEIndicesRange(dt_SWENSE,Meshsize,Ux,Uy,Co,starttime);
+SWENSEIndices=foamStarSWENSEIndicesRange(dt_SWENSE,Meshsize,Ux,Uy,Co,dataNotedforTimestep);
 
 
 
@@ -33,6 +33,8 @@ for i=1:3
 	
 
 	%% HOS file processing
+    length(dt_foamStar)
+    dt_foamStar(foamStarIndices)
 	
 	Y_axis1=interp1(dt_foamStar(foamStarIndices),Eta_foamStar(foamStarIndices,probe_CFD),dt_SWENSE(SWENSEIndices),'spline');
 	Y_axis2=interp1(dt_SWENSE,Eta_SWENSE(SWENSEIndices,probe_CFD),dt_SWENSE(SWENSEIndices),'spline');
