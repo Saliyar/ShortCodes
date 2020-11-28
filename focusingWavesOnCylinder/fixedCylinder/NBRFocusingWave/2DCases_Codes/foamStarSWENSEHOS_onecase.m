@@ -1,7 +1,6 @@
 function foamStarSWENSEHOS_onecase(HOSpath,HOSIndices,foamStarfile,SWENSEfile)
 
 %% Loading data HOS, foamStar and SWENSE 
-data2=readtable('waveProbe/0/surfaceElevation.dat');
 data_HOS=readtable(HOSpath);
 dt_HOS=data_HOS{:,1};
 dt_HOS1=dt_HOS-dt_HOS(1);
