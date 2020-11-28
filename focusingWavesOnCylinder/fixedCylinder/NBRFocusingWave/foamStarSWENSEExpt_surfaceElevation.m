@@ -16,7 +16,7 @@ pl_timeWB=pl_timeWA-pl_timeWA(1);
 foamStarfullfile=fullfile(foamStarfile,'waveProbe/0/surfaceElevation.dat')
 data=readtable(foamStarfullfile);
 
-dt_foamStar1=data{:,1};
+dt_foamStar1=data{:,1}+cps;
 Eta_foamStar1=data{:,2:end};
 
 
@@ -24,7 +24,7 @@ Eta_foamStar1=data{:,2:end};
 SWENSEfullfile=fullfile(SWENSEfile,'waveProbe/0/surfaceElevation.dat')
 data1=readtable(SWENSEfullfile);
 
-dt_SWENSE1=data1{:,1};
+dt_SWENSE1=data1{:,1}+cps;
 Eta_SWENSE1=data1{:,2:end};
 
 
