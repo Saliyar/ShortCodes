@@ -29,9 +29,7 @@ HOSIndices=355212:403205;
 %%foamStar Test case path
 foamStarfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/foamStar_2D_ParamtericStudy/foamStar2D_Dx25MeshCo1/postProcessing/';
 SWENSEfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/foamStar_2D_ParamtericStudy/SWENSE_2D_Check/SWENSE_Mesh25Co0.5/postProcessing/';
-
-%Constant phase shift  between experiment and numerics
-cps = 0.14; 
+ 
 
 
 
@@ -49,13 +47,13 @@ switch(number)
     
             switch(parameter)
             case 'A'
-                foamStarSWENSEHOS_onecase(HOSpath,HOSIndices,foamStarfile,SWENSEfile,cps);
+                foamStarSWENSEHOS_onecase(HOSpath,HOSIndices,foamStarfile,SWENSEfile);
             case 'B'
-                foamStarSWENSEHOS_onecasewithdiffCo(HOSpath,HOSIndices,foamStarfile,SWENSEfile,cps);
+                foamStarSWENSEHOS_onecasewithdiffCo(HOSpath,HOSIndices,foamStarfile,SWENSEfile);
             case 'C'
-                Error_parametric_study_Overall_2DCases(HOSpath,HOSIndices,foamStarfile,SWENSEfile,cps);
+                Error_parametric_study_Overall_2DCases(HOSpath,HOSIndices,foamStarfile,SWENSEfile);
             case 'D'
-                foamStarSWENSEHOS_onecase(HOSpath,HOSIndices,foamStarfile,SWENSEfile,cps);
+                foamStarSWENSEHOS_onecase(HOSpath,HOSIndices,foamStarfile,SWENSEfile);
             otherwise
                 disp('Only between A-D');
     
