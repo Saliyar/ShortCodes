@@ -24,11 +24,12 @@ parameter = 'A' % Chose the parameters to be compared
 
 %%Experiment  details
 HOSpath=fullfile('/home/saliyar/Documents/Working/ISOPEtestcase/CategoryA/Case23003/HOSWaveprobedetails/probes1.dat');
-HOSIndices=355212:403205;
+HOSIndices=find(probes1==37):find(probes1==42);
 
 %%foamStar Test case path
 foamStarfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/foamStar_2D_ParamtericStudy/foamStar2D_Dx100MeshCo1/postProcessing/';
 SWENSEfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/SWENSE_2D_ParamtericStudy/SWENSE2D_Dx100MeshCo1/postProcessing/';
+
  
 
 
@@ -47,7 +48,7 @@ switch(number)
     
             switch(parameter)
             case 'A'
-                foamStarSWENSEHOS_onecase(HOSpath,HOSIndices,foamStarfile,SWENSEfile);
+                foamStarSWENSEHOS_onecase(HOSpath,HOSIndices,foamStarfile,SWENSEfile,foamStarIndices,SWENSEIndices);
             case 'B'
                 foamStarSWENSEHOS_onecasewithdiffCo(HOSpath,HOSIndices,foamStarfile,SWENSEfile);
             case 'C'
