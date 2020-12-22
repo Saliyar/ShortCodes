@@ -42,7 +42,7 @@ figure()
     plot(dt_SWENSE1,Y_axis2,'LineWidth',3)
     hold on;
     plot(pl_timeWB,Expt_yaxis,'LineWidth',3)
-    xlim([0.05 5])
+    xlim([0.05 4])
     ylabel('surface elevation [m]','FontSize',32)
     xlabel('Time [s]','FontSize',32)
     set(gca,'Fontsize',32)

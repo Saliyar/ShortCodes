@@ -16,21 +16,21 @@ clear all
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Input details
 number = '1'; % Choose the number stages 
-parameter = 'C' % Chose the parameters to be compared
+parameter = 'G' % Chose the parameters to be compared
 
 %%Experiment  details
 Exptforcepath=fullfile('/home/saliyar/PhD_SithikAliyar/Cylinder_NonBreaking_focussingwave/Moving_cylinder/Wave_generation_Experiement_details','cylinmovfnonbreak25002_1_9600Hz.MAT');
 ExptIndices=187140:331140;
 
-Exptpressurepath=fullfile('/home/saliyar/PhD_SithikAliyar/Cylinder_NonBreaking_focussingwave/Moving_cylinder/Wave_generation_Experiement_details','cylinmovfnonbreak25002_1_9600Hz.MAT');
-ExptPressureIndices=3702:4202;
+Exptpressurepath=fullfile('/home/saliyar/PhD_SithikAliyar/Cylinder_NonBreaking_focussingwave/Moving_cylinder/Wave_generation_Experiement_details/Category_B/speed025','catB_25.mat');
+ExptPressureIndices=6589:6989; %6589:6989 for 0.33 ms case 
 
 %%foamStar Test case path
 % Comparing foamStar files 
-foamStarfile1='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_cases/SnappyHexMesh_Cases/MovingCylinder_CoarseMesh/postProcessing/';
-foamStarfile2='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_cases/SnappyHexMesh_Cases/MovingCylinder_CoarseMesh_CN095/postProcessing/';
+foamStarfile1='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_cases/3D_test_drive_NBR_fine_025/postProcessing/';
+foamStarfile2='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_cases/SnappyHexMesh_Cases/MovingCylinderTestcase4/postProcessing/';
 
-%General foamstar Test case path 
+%General foamstar Test case path  
 foamStarmovgenfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_cases/SnappyHexMesh_Cases/MovingCylinderTestcase';
 nStart=1;
 nEnd=1;
@@ -41,7 +41,7 @@ SWENSEfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/SWENSE_NBR_fixe
 %Constant phase shift  between experiment and numerics
 cps = 0.14; 
 
-PP_static=[0 17.93 8.49 0 0 8.49 8.49 8.49];
+PP_static=[27.9585 18.1485 8.3385 0 0 8.3385 8.3385 8.3385];
 
 %Drag coefficient details
 rho=1000;
@@ -62,9 +62,15 @@ switch(number)
             case 'C'
                 foamStarMovDiffCases(Exptforcepath,ExptIndices,foamStarmovgenfile,nStart,nEnd,cps,Exptpressurepath,PP_static);
             case 'D'
-               foamStarExpt_compAll(Exptforcepath,ExptIndices,foamStarfile1,foamStarfile2,cps);
+               foamStarExpt_compAll(Exptforcepath,ExptIndices,foamStarfile1,foamStarfile2,cps,PP_static,Exptpressurepath,ExptPressureIndices);
+            case 'E'
+                movfoamStarExpt_compPressure(foamStarfile1,foamStarfile2,cps,PP_static,Exptpressurepath,ExptPressureIndices);
+            case 'F'
+                movfoamStarExpt_compSurfaceElevation(foamStarfile1,foamStarfile2,cps,Exptpressurepath,ExptPressureIndices);
+            case 'G'
+                movfoamStarExpt_PressureAndSurfaceElevation(foamStarfile1,foamStarfile2,cps,PP_static,Exptpressurepath,ExptPressureIndices);
             otherwise
-                disp('Only between A-D');
+                disp('Only between A-E');
              end
    
     

@@ -1,4 +1,4 @@
-function foamStarExpt_compAll(Exptforcepath,ExptIndices,foamStarfile1,foamStarfile2,cps);
+function foamStarExpt_compAll(Exptforcepath,ExptIndices,foamStarfile1,foamStarfile2,cps,PP_static,Exptpressurepath,ExptPressureIndices);
 
 %% Code to compare the force results between foamStar and SWENSE
 
@@ -19,7 +19,7 @@ foamStar_dtForce1=data{2:end,1}+cps; % Added the constant phase shift
 %Adding Pressure x component and Viscous x componenet
 %Also ignoring the first term spike
 
-foamStar_TotalForce1=data{2:end,2}+data{2:end,5};
+foamStar_TotalForce1=2*(data{2:end,2}+data{2:end,5}); % Multiply 2 for symmtry mesh blockMesh case
 %% foamStar NBR focusing fixed cylinder force results loading First results 
 
 foamStarfullfile=fullfile(foamStarfile2,'forces/0/forces1.dat')
@@ -63,3 +63,9 @@ set(gca,'Fontsize',32)
 title('Totalforce X' ,'FontSize',32)
 legend ('foamStar - Euler','foamStar - CN 0.95','Experiment','FontSize',32);
 grid on;
+
+
+
+
+
+
