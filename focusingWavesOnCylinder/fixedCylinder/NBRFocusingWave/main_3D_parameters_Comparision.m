@@ -21,7 +21,7 @@ clear all
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Input details
 number = '2'; % Choose the number stages 
-parameter = 'D' % Chose the parameters to be compared
+parameter = 'C' % Chose the parameters to be compared
 
 %%Experiment  details
 Exptforcepath=fullfile('/home/saliyar/Documents/Working/ISOPEtestcase/CategoryA/Case23003/','cylinnonbreak23003_2ndorder_9600Hz.MAT');
@@ -31,9 +31,9 @@ Exptpressurepath=fullfile('/home/saliyar/Documents/Working/ISOPEtestcase/Categor
 ExptPressureIndices=3702:4202;
 
 %%foamStar Test case path
-foamStarfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/foamStar_NBR_fixedWithForce/postProcessing/';
-SWENSEfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/SWENSE_NBR_fixed/postProcessing/';
-
+foamStarfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Fixed_NBR_focusing/SnappyHexMesh_TestCases/NBR_fixed_foamStar_Euler/postProcessing/';
+SWENSEfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Fixed_NBR_focusing/SnappyHexMesh_TestCases/NBR_fixed_SWENSE_Euler_AdvMesh/postProcessing';
+sym=1 % 1 for no symmetry ; 2 for symmetry
 %Constant phase shift  between experiment and numerics
 cps = 0.14; 
 
@@ -61,13 +61,13 @@ switch(number)
     
             switch(parameter)
             case 'A'
-                foamStarSWENSEExpt_force(Exptforcepath,ExptIndices,foamStarfile,SWENSEfile,cps);
+                foamStarSWENSEExpt_force(Exptforcepath,ExptIndices,foamStarfile,SWENSEfile,cps,sym);
             case 'B'
                 foamStarSWENSEExpt_pressure(Exptpressurepath,ExptPressureIndices,foamStarfile,SWENSEfile,cps,PP_static);
             case 'C'
                 foamStarSWENSEExpt_surfaceElevation(Exptpressurepath,ExptPressureIndices,foamStarfile,SWENSEfile,cps);
             case 'D'
-                foamStarSWENSEExpt_compAll(Exptforcepath,ExptIndices,foamStarfile,SWENSEfile,cps,PP_static,Exptpressurepath,ExptPressureIndices);
+                foamStarSWENSEExpt_compAll(Exptforcepath,ExptIndices,foamStarfile,SWENSEfile,cps,PP_static,Exptpressurepath,ExptPressureIndices,sym);
             otherwise
                 disp('Only between A-D');
     

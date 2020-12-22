@@ -1,4 +1,4 @@
-function foamStarSWENSEExpt_force(Exptforcepath,ExptIndices,foamStarfile,SWENSEfile,cps,sym);
+function foamStarExpt_force(Exptforcepath,ExptIndices,foamStarfile,cps);
 
 %% Code to compare the force results between foamStar and SWENSE
 
@@ -56,7 +56,7 @@ foamStar_dtForce=data{2:end,1}+cps; % Added the constant phase shift
 %Adding Pressure x component and Viscous x componenet
 %Also ignoring the first term spike
 
-foamStar_TotalForce=sym*data{2:end,2}+data{2:end,5};
+foamStar_TotalForce=2*data{2:end,2}+data{2:end,5};
 
 
 %% SWENSE NBR focusing fixed cylinder force results loading
@@ -72,7 +72,7 @@ SWENSE_dtForce=data{2:end,1}+cps; % Added the constant phase shift given ISOPE t
 %Adding Pressure x component and Viscous x componenet
 %Also ignoring the first term spike
 
-SWENSE_TotalForce=sym*data{2:end,2}+data{2:end,5}; % Cancelling two if there is no symmetric mesh
+SWENSE_TotalForce=2*data{2:end,2}+data{2:end,5};
 
 
 

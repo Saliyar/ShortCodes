@@ -12,29 +12,31 @@ clear all
 
 %number - 1 for case comparing Experiment and foamStar
 %number - 2 for case comparing Experiment,foamStar and SWENSE 
-%parameter - A for Comparing the forces only 
-%parameter - B for comparing the pressure only
-%parameter - C for comparing the surface elevation only 
-%parameter - D for comparing everything together 
-%parameter - E for generating drag coefficient
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Input details
-number = '2'; % Choose the number stages 
-parameter = 'E' % Chose the parameters to be compared
+number = '1'; % Choose the number stages 
+parameter = 'C' % Chose the parameters to be compared
 
 %%Experiment  details
-Exptforcepath=fullfile('/home/saliyar/Documents/Working/ISOPEtestcase/CategoryA/Case23003/','cylinnonbreak23003_2ndorder_9600Hz.MAT');
-ExptIndices=355212:403205;
+Exptforcepath=fullfile('/home/saliyar/PhD_SithikAliyar/Cylinder_NonBreaking_focussingwave/Moving_cylinder/Wave_generation_Experiement_details','cylinmovfnonbreak25002_1_9600Hz.MAT');
+ExptIndices=187140:331140;
 
-Exptpressurepath=fullfile('/home/saliyar/Documents/Working/ISOPEtestcase/CategoryA/Case23003/','catA_23003.mat');
+Exptpressurepath=fullfile('/home/saliyar/PhD_SithikAliyar/Cylinder_NonBreaking_focussingwave/Moving_cylinder/Wave_generation_Experiement_details','cylinmovfnonbreak25002_1_9600Hz.MAT');
 ExptPressureIndices=3702:4202;
 
 %%foamStar Test case path
 % Comparing foamStar files 
 foamStarfile1='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_cases/SnappyHexMesh_Cases/MovingCylinder_CoarseMesh/postProcessing/';
 foamStarfile2='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_cases/SnappyHexMesh_Cases/MovingCylinder_CoarseMesh_CN095/postProcessing/';
-SWENSEfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/SWENSE_NBR_fixed/postProcessing/';
+
+%General foamstar Test case path 
+foamStarmovgenfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_cases/SnappyHexMesh_Cases/MovingCylinderTestcase';
+nStart=1;
+nEnd=1;
+% Change the legend as per the Story
+
+SWENSEfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/SWENSE_NBR_fixed/postProcessing/MovingCylinderTestcase';
 
 %Constant phase shift  between experiment and numerics
 cps = 0.14; 
@@ -52,12 +54,19 @@ V=0.33; %Moving cylinder speed
 %%%%%%%%%%%%%%%%%%Main code%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 switch(number)
     case '1'
-    {
-        
-        
-    }   
-        
-    ExptfoamStar();
+        switch(parameter)
+            case 'A'
+               Expt_force(Exptforcepath,ExptIndices);
+            case 'B'
+                Expt_CylMovement(Exptforcepath);
+            case 'C'
+                foamStarMovDiffCases(Exptforcepath,ExptIndices,foamStarmovgenfile,nStart,nEnd,cps,Exptpressurepath,PP_static);
+            case 'D'
+               foamStarExpt_compAll(Exptforcepath,ExptIndices,foamStarfile1,foamStarfile2,cps);
+            otherwise
+                disp('Only between A-D');
+             end
+   
     
     case '2'
     
