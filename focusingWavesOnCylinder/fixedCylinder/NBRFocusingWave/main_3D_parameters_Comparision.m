@@ -20,8 +20,8 @@ clear all
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Input details
-number = '2'; % Choose the number stages 
-parameter = 'C' % Chose the parameters to be compared
+number = '1'; % Choose the number stages 
+parameter = 'B' % Chose the parameters to be compared
 
 %%Experiment  details
 Exptforcepath=fullfile('/home/saliyar/Documents/Working/ISOPEtestcase/CategoryA/Case23003/','cylinnonbreak23003_2ndorder_9600Hz.MAT');
@@ -32,8 +32,21 @@ ExptPressureIndices=3702:4202;
 
 %%foamStar Test case path
 foamStarfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Fixed_NBR_focusing/SnappyHexMesh_TestCases/NBR_fixed_foamStar_Euler/postProcessing/';
-SWENSEfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Fixed_NBR_focusing/SnappyHexMesh_TestCases/NBR_fixed_SWENSE_Euler_AdvMesh/postProcessing';
-sym=1 % 1 for no symmetry ; 2 for symmetry
+SWENSEfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Fixed_NBR_focusing/SnappyHexMesh_TestCases/NBR_fixed_SWENSE_Euler_AdvMesh4/postProcessing';
+SWENSEsameMeshfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Fixed_NBR_focusing/SWENSE_NBR_fixed/postProcessing';
+
+%% Number of cases for foamStar 
+numfoamStar=5;
+
+BaseName='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Fixed_NBR_focusing/foamStarTestCase';
+for k=1:2
+foamStarFileName=[BaseName,num2str(k)];
+end
+
+
+%% Number of cases for SWENSE 
+sym=1; % 1 for no symmetry ; 2 for symmetry
+
 %Constant phase shift  between experiment and numerics
 cps = 0.14; 
 
@@ -50,10 +63,23 @@ V=0.33; %Moving cylinder speed
 %%%%%%%%%%%%%%%%%%Main code%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 switch(number)
     case '1'
-    {
         
-        
-    }   
+     switch(parameter)
+            case 'A'
+                foamStarSWENSEExpt_force(Exptforcepath,ExptIndices,foamStarfile,SWENSEfile,cps,sym);
+            case 'B'
+                foamStarSWENSEExpt_pressure(Exptpressurepath,ExptPressureIndices,foamStarFileName);
+            case 'C'
+                foamStarSWENSEExpt_surfaceElevation(Exptpressurepath,ExptPressureIndices,foamStarfile,SWENSEfile,SWENSEsameMeshfile,cps);
+            case 'D'
+                foamStarSWENSEExpt_compAll(Exptforcepath,ExptIndices,foamStarfile,SWENSEfile,SWENSEsameMeshfile,cps,PP_static,Exptpressurepath,ExptPressureIndices,sym1,sym2,sym3);
+            otherwise
+                disp('Only between A-D');
+    
+            end
+    
+    otherwise
+    disp('Select Properly');
         
     ExptfoamStar();
     
@@ -63,11 +89,11 @@ switch(number)
             case 'A'
                 foamStarSWENSEExpt_force(Exptforcepath,ExptIndices,foamStarfile,SWENSEfile,cps,sym);
             case 'B'
-                foamStarSWENSEExpt_pressure(Exptpressurepath,ExptPressureIndices,foamStarfile,SWENSEfile,cps,PP_static);
+                foamStarSWENSEExpt_pressure(Exptpressurepath,ExptPressureIndices,foamStarfile,SWENSEfile,SWENSEsameMeshfile,cps,PP_static);
             case 'C'
-                foamStarSWENSEExpt_surfaceElevation(Exptpressurepath,ExptPressureIndices,foamStarfile,SWENSEfile,cps);
+                foamStarSWENSEExpt_surfaceElevation(Exptpressurepath,ExptPressureIndices,foamStarfile,SWENSEfile,SWENSEsameMeshfile,cps);
             case 'D'
-                foamStarSWENSEExpt_compAll(Exptforcepath,ExptIndices,foamStarfile,SWENSEfile,cps,PP_static,Exptpressurepath,ExptPressureIndices,sym);
+                foamStarSWENSEExpt_compAll(Exptforcepath,ExptIndices,foamStarfile,SWENSEfile,SWENSEsameMeshfile,cps,PP_static,Exptpressurepath,ExptPressureIndices,sym1,sym2,sym3);
             otherwise
                 disp('Only between A-D');
     

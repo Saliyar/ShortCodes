@@ -1,0 +1,5 @@
+function movfoamStarExpt_PressureAndSurfaceElevation(foamStarfile1,foamStarfile2,cps,PP_static,Exptpressurepath,ExptPressureIndices)
+
+movfoamStarExpt_compSurfaceElevation(foamStarfile1,foamStarfile2,cps,Exptpressurepath,ExptPressureIndices);
+
+movfoamStarExpt_compPressure(foamStarfile1,foamStarfile2,cps,PP_static,Exptpressurepath,ExptPressureIndices);

@@ -1,4 +1,4 @@
-function foamStarSWENSEExpt_pressure(Exptpressurepath,ExptPressureIndices,foamStarfile,SWENSEfile,cps,PP_static)
+function foamStarSWENSEExpt_pressure(Exptpressurepath,ExptPressureIndices,foamStarfile,SWENSEfile,SWENSEsameMeshfile,cps,PP_static)
 
 %% Code to check the Pressure probe results between foamStar and SWENSE
 %% Experimental results loading
@@ -29,19 +29,30 @@ data1=readtable(SWENSEfullfile);
 dt_PP_S=data1{:,1};
 PP_SWENSE=data1{:,2:end};
 
+SWENSEfullfile2=fullfile(SWENSEsameMeshfile,'/probes/0/p')
+data1=readtable(SWENSEfullfile2);
+
+dt_PP_S1=data1{:,1};
+PP_SWENSE1=data1{:,2:end};
+
 
 for i=2:8
     
     PP1_foamStarA=PP_foamStar(:,i);
     PP1_SWENSE=PP_SWENSE(:,i);
     Expt_yaxis=PP_Expt(ExptPressureIndices,i);
+    PP2_SWENSE=PP_SWENSE1(:,i);
+    
     PP1_foamStarB=(PP1_foamStarA)*0.01-PP_static(i);  % Converting kg/ms2 to mbar
     PP1_SWENSEB=(PP1_SWENSE).*0.01-PP_static(i);  % Converting kg/ms2 to mbar
-
-    figure()
+    PP2_SWENSEB=(PP2_SWENSE).*0.01-PP_static(i); 
+    
+    FigH = figure('Position', get(0, 'Screensize'));
     plot(dt_PP,PP1_foamStarB,'LineWidth',3)
     hold on 
     plot(dt_PP_S,PP1_SWENSEB,'LineWidth',3) 
+    hold on
+    plot(dt_PP_S1,PP2_SWENSEB,'LineWidth',3) 
     hold on
     plot(pl_timeB,Expt_yaxis,'LineWidth',3)
     xlim([0.05 5])
@@ -49,8 +60,10 @@ for i=2:8
     xlabel('Time [s]','FontSize',32)
     set(gca,'Fontsize',32)
     title(['PP ',num2str(i)],'FontSize',32)
-    legend ('foamStar','SWENSE','Experiment','FontSize',32);
+    legend ('foamStar','SWENSE CoarseMesh','SWENSE SameMesh','Experiment','FontSize',32);
     grid on;
+    
+    saveas(FigH, ['PP ',num2str(i)],'png');
 end
 
  

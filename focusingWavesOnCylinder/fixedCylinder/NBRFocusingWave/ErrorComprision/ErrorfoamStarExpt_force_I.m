@@ -1,7 +1,4 @@
-function foamStarSWENSEExpt_force(Exptforcepath,ExptIndices,foamStarfile,SWENSEfile,cps,sym)
-
-%% Code to compare the force results between foamStar and SWENSE
-
+function ErrorfoamStarExpt_force_I(Exptforcepath,ExptIndices,foamStarfile,SWENSEfile,cps,sym)
 %% Experimental force NBR focusing fixed cylinder - results loading
 load(Exptforcepath)
 Expt_time=Channel_10_Data;
@@ -76,6 +73,8 @@ SWENSE_TotalForce=sym*data{2:end,2}+data{2:end,5}; % Cancelling two if there is 
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 figure()
 plot(foamStar_dtForce,foamStar_TotalForce,'LineWidth',3);
 hold on
@@ -89,3 +88,4 @@ set(gca,'Fontsize',32)
 title('Totalforce X' ,'FontSize',32)
 legend ('foamStar','Experiment','SWENSE','FontSize',32);
 grid on;
+
