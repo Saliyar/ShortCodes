@@ -16,7 +16,7 @@ clear all
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Input details
 number = '1'; % Choose the number stages 
-parameter = 'G' % Chose the parameters to be compared
+parameter = 'C' % Chose the parameters to be compared
 
 %%Experiment  details
 Exptforcepath=fullfile('/home/saliyar/PhD_SithikAliyar/Cylinder_NonBreaking_focussingwave/Moving_cylinder/Wave_generation_Experiement_details','cylinmovfnonbreak25002_1_9600Hz.MAT');

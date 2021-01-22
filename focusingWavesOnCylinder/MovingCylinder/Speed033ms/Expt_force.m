@@ -42,11 +42,11 @@ Expt_yaxis= filtfilt(sos,g,Expt_force_N(ExptIndices,1));
 Expt_yaxis=fft_And_Ifft(Expt_yaxis,length(Expt_yaxis),1/(Expt_time_corrected_filtered(2)-Expt_time_corrected_filtered(1)));
 
 %% Plot - Uncomment if required
-% figure()
-% plot(Expt_time_corrected,Expt_yaxis,'LineWidth',3);
-% ylabel('Force(N)','FontSize',32)
-% xlabel('Time [s]','FontSize',32)
-% xlim([0.5 15])
-% set(gca,'Fontsize',32)
-% title('Totalforce X' ,'FontSize',32)
-% grid on;
+figure()
+plot(Expt_time_corrected,Expt_yaxis,'LineWidth',3);
+ylabel('Force(N)','FontSize',32)
+xlabel('Time [s]','FontSize',32)
+xlim([0.5 15])
+set(gca,'Fontsize',32)
+title('Totalforce X' ,'FontSize',32)
+grid on;

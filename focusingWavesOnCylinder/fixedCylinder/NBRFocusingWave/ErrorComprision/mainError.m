@@ -20,8 +20,8 @@ clear all
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Input details
-number = '1'; % Choose the number stages 
-parameter = 'C'; % Chose the parameters to be compared
+number = '3'; % Choose the number stages 
+parameter = 'B'; % Chose the parameters to be compared
 ErrorValue = 'E3'; 
 
 %%Experiment  details
@@ -48,12 +48,30 @@ rho=1000;
 D=0.22; %Diameter of the cylinder 
 V=0.33; %Moving cylinder speed
 
-%%Computational cost
-CPUTime=[18053.67 21787.83];
-Np=[80 6];
-T_sim=2.5;
 
-ccost=[CPUTime(1)*Np(1)/T_sim CPUTime(2)*Np(2)/T_sim]
+
+%% For N Number of cases
+%% Number of cases for foamStar 
+numfoamStar=4;
+nSWENSE=4;
+BaseName_foamStar='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Fixed_NBR_focusing/foamStar/foamStarTestCase';
+BaseName_SWENSE='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Fixed_NBR_focusing/SWENSE/SWENSETestCase';
+
+nstart=0.1;
+nend=2.5; 
+
+%%Computational cost
+CPUTime=[38703.84 18053.67 10890 4507 54216.35 31932 24720 22062];
+Np=[80 80 6 6 80 80 6 1];
+T_sim=[5 2.5 2.5 2.5 5 3 4 2.5];
+
+for i=1:numfoamStar+nSWENSE
+ccost(:,i)=CPUTime(i)*Np(i)/T_sim(i);
+end
+
+lgd ={'foamStar-BF','foamStar-SF','foamStar-SM','foamStar-SF','SWENSE-BF','SWENSE-SF','SWENSE-SM', 'SWENSE-SC'};
+mkrs=['o';'d'];                  % the desired markers lookup table
+%% 
 
 %%%%%%%%%%%%%%%%%%Main code%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 switch(number)
@@ -101,11 +119,7 @@ switch(number)
                 ErrorfoamStarExpt_surfaceElevation(Exptpressurepath,ExptPressureIndices,foamStarfile,SWENSEfile,SWENSEsameMeshfile,cps);
             case 'D'
                 ErrorfoamStarExpt_compAll(Exptforcepath,ExptIndices,foamStarfile,SWENSEfile,SWENSEsameMeshfile,cps,PP_static,Exptpressurepath,ExptPressureIndices,sym1,sym2,sym3);
-            otherwise
-                disp('Only between A-D');
-    
     end
-    
     case '2'
     
             switch(parameter)
@@ -120,6 +134,40 @@ switch(number)
             otherwise
                 disp('Only between A-D');
     
+            end
+    
+    case '3'
+    
+            switch(parameter)
+            case 'A'
+                 switch (ErrorValue)
+                    case 'E1'
+                        Ncases_ErrorfoamStarExpt_surfaceElevation_I(Exptpressurepath,ExptPressureIndices,BaseName_foamStar,BaseName_SWENSE,cps,numfoamStar,nSWENSE,nstart,nend,ccost,lgd,mkrs);
+                    case 'E2'
+                        Ncases_ErrorfoamStarExpt_surfaceElevation_II(Exptpressurepath,ExptPressureIndices,BaseName_foamStar,BaseName_SWENSE,cps,numfoamStar,nSWENSE,nstart,nend,ccost,lgd,mkrs);
+                    case 'E3'
+                        Ncases_ErrorfoamStarExpt_surfaceElevation_III(Exptpressurepath,ExptPressureIndices,BaseName_foamStar,BaseName_SWENSE,cps,numfoamStar,nSWENSE,nstart,nend,ccost,lgd,mkrs);
+                    case 'E4'
+                       Ncases_ErrorfoamStarExpt_surfaceElevation_IV(Exptpressurepath,ExptPressureIndices,BaseName_foamStar,BaseName_SWENSE,cps,numfoamStar,nSWENSE,nstart,nend,ccost,lgd,mkrs);
+                end
+            case 'B'                
+                switch (ErrorValue)
+                    case 'E1'
+                        Ncases_ErrorfoamStarExpt_pressure_I(Exptpressurepath,ExptPressureIndices,BaseName_foamStar,BaseName_SWENSE,cps,PP_static,numfoamStar,nSWENSE,nstart,nend,ccost,lgd,mkrs);
+                    case 'E2'
+                        Ncases_ErrorfoamStarExpt_pressure_II(Exptpressurepath,ExptPressureIndices,BaseName_foamStar,BaseName_SWENSE,cps,PP_static,numfoamStar,nSWENSE,nstart,nend,ccost,lgd,mkrs);
+                    case 'E3'
+                        Ncases_ErrorfoamStarExpt_pressure_III(Exptpressurepath,ExptPressureIndices,BaseName_foamStar,BaseName_SWENSE,cps,PP_static,numfoamStar,nSWENSE,nstart,nend,ccost,lgd,mkrs);
+                    case 'E4'
+                        Ncases_ErrorfoamStarExpt_pressure_IV(Exptpressurepath,ExptPressureIndices,BaseName_foamStar,BaseName_SWENSE,cps,PP_static,numfoamStar,nSWENSE,nstart,nend,ccost,lgd,mkrs);
+                end
+                
+            case 'C'
+                Error_Ncases_foamStarSWENSEExpt_surfaceElevation(Exptpressurepath,ExptPressureIndices,BaseName_foamStar,BaseName_SWENSE,cps,numfoamStar,nSWENSE,nstart,nend);
+            case 'D'
+                Error_Ncases_foamStarSWENSEExpt_compAll(Exptforcepath,ExptIndices,foamStarfile,SWENSEfile,SWENSEsameMeshfile,cps,PP_static,Exptpressurepath,ExptPressureIndices,sym1,sym2,sym3);
+            otherwise
+                disp('Only between A-D');
             end
     
     otherwise

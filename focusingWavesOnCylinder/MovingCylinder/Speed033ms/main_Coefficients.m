@@ -32,9 +32,9 @@ foamStarfile1='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_
 %% foamStarfile2='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_cases/SnappyHexMesh_Cases/MovingCylinderTestcase5/postProcessing/';
 
 %General foamstar Test case path  
-foamStarmovgenfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_cases/SnappyHexMesh_Cases/2D_study/2D_circularCyl_SnappyHex/MG';
-nStart=6;
-nEnd=6;
+foamStarmovgenfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_cases/3D_CircularCylinder/Re55000/kOmega/3DCylinderCase';
+nStart=10;
+nEnd=10;
 % Change the legend as per the Story
 
 %% SWENSEfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/SWENSE_NBR_fixed/postProcessing/MovingCylinderTestcase';
