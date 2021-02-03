@@ -1,16 +1,31 @@
-function plotallmotion(SPAR_Postprocessing_foamStar,titl,ylbl)
+function plotallmotion(SPAR_Postprocessing_foamStar,titl,ylbl,nStart,nEnd)
 
-foamStarfullfile=fullfile(SPAR_Postprocessing_foamStar,'/motionInfo/0/cylinder.dat')
-data=readtable(foamStarfullfile);
-dt_motion=data{:,1};
-motion_foamStar=data{:,2:end};
+n=0;
+
+for j=nStart:nEnd
+   n=n+1;
+    SPAR_Postprocessing=[SPAR_Postprocessing_foamStar,num2str(j)];
+    foamStarfullfile=fullfile(SPAR_Postprocessing,'/postProcessing/motionInfo/0/cylinder1.dat');
+    data=readtable(foamStarfullfile); 
+    dt_motion{:,n}=data{:,1}
+    pp=data{:,2:end};
+    motion_foamStar(:,:,n)=pp;
+end
+
+
 
 %% Plotting motions
 for i=1:6
-    dof6=motion_foamStar(:,i);
+    FigH = figure('Position', get(0, 'Screensize'));
+    clear n
+    n=0;
+for j=nStart:nEnd   
+    
+    n=n+1;
+    dof6=motion_foamStar(:,i,n); 
 
-FigH = figure('Position', get(0, 'Screensize'));
-    plot(dt_motion,dof6,'LineWidth',3)
+
+    plot(dt_motion{:,n},dof6,'LineWidth',3)
     % xlim([0.05 20])
     ylabel(ylbl{:,i},'interpreter','latex','FontSize',32)
     xlabel('Time [s]','FontSize',32)
@@ -18,6 +33,8 @@ FigH = figure('Position', get(0, 'Screensize'));
     title (titl{:,i},'interpreter','latex','FontSize',32);
     % legend ('foamStar','SWENSE CoarseMesh','SWENSE SameMesh','Experiment','FontSize',32);
     grid on;
+    hold on
     
-    saveas(FigH, [titl{:,i}],'png');
+end
+saveas(FigH, [titl{:,i}],'png');
 end

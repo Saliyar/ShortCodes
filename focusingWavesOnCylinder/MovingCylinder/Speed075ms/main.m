@@ -34,7 +34,7 @@ foamStarfile2='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_
 %General foamstar Test case path  
 foamStarmovgenfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_cases/SnappyHexMesh_Cases/MovingCylinderTestcase';
 nStart=1;
-nEnd=1;
+nEnd=3;
 % Change the legend as per the Story
 
 SWENSEfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/SWENSE_NBR_fixed/postProcessing/MovingCylinderTestcase';
@@ -92,6 +92,25 @@ switch(number)
                 disp('Only between A-D');
     
             end
+     case '3'
+        switch(parameter)
+            case 'A'
+               Expt_force(Exptforcepath,ExptIndices);
+            case 'B'
+                Expt_CylMovement(Exptforcepath);
+            case 'C'
+                foamStarMovDiffCases(Exptforcepath,ExptIndices,foamStarmovgenfile,nStart,nEnd,cps,Exptpressurepath,PP_static);
+            case 'D'
+               OnlyMovingfoamStarExpt_compForce(Exptforcepath,ExptIndices,foamStarmovgenfile,cps);
+            case 'E'
+                movfoamStarExpt_compPressure(foamStarfile1,foamStarfile2,cps,PP_static,Exptpressurepath,ExptPressureIndices);
+            case 'F'
+                movfoamStarExpt_compSurfaceElevation(foamStarfile1,foamStarfile2,cps,Exptpressurepath,ExptPressureIndices);
+            case 'G'
+                movfoamStarExpt_PressureAndSurfaceElevation(foamStarfile1,foamStarfile2,cps,PP_static,Exptpressurepath,ExptPressureIndices);
+            otherwise
+                disp('Only between A-E');
+             end
     
     otherwise
     disp('Select Properly');

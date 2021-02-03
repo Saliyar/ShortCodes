@@ -25,10 +25,10 @@ plot(Expt_time_corrected,Expt_yaxis,'LineWidth',3);
     xlim([0.5 14.5])
     set(gca,'Fontsize',32)
     title('Totalforce X' ,'FontSize',32)
-    legend ('Euler-Laminar','CN-Laminar','Euler-fskepsilon','CN-fskepsilon','MediumMesh-Euler-Laminar','MediumMesh-CN-Laminar','FineMesh-Euler-Laminar','FineMesh-CN 095 - Laminar','Experiment','FontSize',32);
+    legend ('Euler-Laminar','CN-Laminar','Euler-fskepsilon','Experiment','CN-fskepsilon','MediumMesh-Euler-Laminar','MediumMesh-CN-Laminar','FineMesh-Euler-Laminar','FineMesh-CN 095 - Laminar','Experiment','FontSize',32);
     grid on;
 
- disp('Press a key !')  % Press a key here.You can see the message 'Paused: Press any key' in        % the lower left corner of MATLAB window.
-pause;   
+ %disp('Press a key !')  % Press a key here.You can see the message 'Paused: Press any key' in        % the lower left corner of MATLAB window.
+% pause;   
     %%%% Plotting Pressure from Experiment %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    movfoamStarExpt_pressure(Exptpressurepath,ExptIndices,foamStarmovgenfile,cps,PP_static,nStart,nEnd)
+    % movfoamStarExpt_pressure(Exptpressurepath,ExptIndices,foamStarmovgenfile,cps,PP_static,nStart,nEnd)

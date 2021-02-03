@@ -32,11 +32,14 @@ foamStarfile1='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_
 %% foamStarfile2='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_cases/SnappyHexMesh_Cases/MovingCylinderTestcase5/postProcessing/';
 
 %General foamstar Test case path  
-foamStarmovgenfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_cases/3D_CircularCylinder/Re55000/kOmega/3DCylinderCase';
-nStart=10;
-nEnd=10;
+foamStarmovgenfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_cases/3D_CircularCylinder/Re55000/LaminarModel/CourantNumber_Study/3DCylinderCase';
+nStart=1;
+nEnd=4;
 % Change the legend as per the Story
-
+% lgd ={'Coarse Mesh (cell size-1D )','Medium Mesh (cell size- 0.5D)','FineMesh (cell size -0.25D)'};
+% lgd={'linear','linearUpwindV', 'QuickV', 'upwind', 'vanLeerV'};
+lgd={'Co 1','Co 0.5','Co 0.25', 'Co 0.1'};
+nCases=nStart:nEnd
 %% SWENSEfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/SWENSE_NBR_fixed/postProcessing/MovingCylinderTestcase';
 
 %Constant phase shift  between experiment and numerics
@@ -46,8 +49,8 @@ nEnd=10;
 
 %Drag coefficient details
 %%rho=1000;
-%D=0.22; %Diameter of the cylinder 
-%V=0.33; %Moving cylinder speed
+D=0.22; %Diameter of the cylinder 
+U=1; %Moving cylinder speed
 
 
 
@@ -57,7 +60,7 @@ switch(number)
     case '1'
         switch(parameter)
             case 'A'
-               ReadCoefficients(foamStarmovgenfile,nStart,nEnd);
+               ReadCoefficients(foamStarmovgenfile,nStart,nEnd,D,U,lgd,nCases);
             otherwise
                 disp('Only between A-E');
              end
