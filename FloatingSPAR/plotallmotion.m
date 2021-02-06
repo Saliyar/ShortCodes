@@ -1,4 +1,4 @@
-function plotallmotion(SPAR_Postprocessing_foamStar,titl,ylbl,nStart,nEnd)
+function plotallmotion(SPAR_Postprocessing_foamStar,titl,ylbl,nStart,nEnd,lgd)
 
 n=0;
 
@@ -7,8 +7,8 @@ for j=nStart:nEnd
     SPAR_Postprocessing=[SPAR_Postprocessing_foamStar,num2str(j)];
     foamStarfullfile=fullfile(SPAR_Postprocessing,'/postProcessing/motionInfo/0/cylinder1.dat');
     data=readtable(foamStarfullfile); 
-    dt_motion{:,n}=data{:,1}
-    pp=data{:,2:end};
+    dt_motion{:,n}=data{1:3500,1}
+    pp=data{1:3500,2:end};
     motion_foamStar(:,:,n)=pp;
 end
 
@@ -32,6 +32,7 @@ for j=nStart:nEnd
     set(gca,'Fontsize',32)
     title (titl{:,i},'interpreter','latex','FontSize',32);
     % legend ('foamStar','SWENSE CoarseMesh','SWENSE SameMesh','Experiment','FontSize',32);
+    legend (lgd{:},'interpreter','latex','FontSize',32,'Location','southwest');
     grid on;
     hold on
     
