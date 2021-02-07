@@ -16,9 +16,9 @@ parameter = 'A'; % Chose the parameters to be compared
 Exptforcepath=fullfile('/home/saliyar/Documents/Working/ISOPEtestcase/CategoryA/Case23003/','cylinnonbreak23003_2ndorder_9600Hz.MAT');
 ExptIndices=355212:403205;
 
-SPAR_Postprocessing_foamStar=fullfile('/home/saliyar/Documents/PhD_testCases/FloatingSPAR/SPAR_Hydrostatics_R');
+SPAR_Postprocessing_foamStar=fullfile('/home/saliyar/Documents/PhD_testCases/FloatingSPAR/SPAR_VolumeCorrection');
 nStart=1;
-nEnd=2;
+nEnd=1;
 titl ={'Surge','Sway','Heave','Roll','Pitch','Yaw'}; 
 ylbl={'Motion(m)','Motion(m)','Motion(m)','Motion(deg)','Motion(deg)','Motion(deg)'};
 lgd={'Freely Floating','With Stiffness Matrix'};

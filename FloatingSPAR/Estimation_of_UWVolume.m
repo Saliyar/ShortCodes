@@ -18,7 +18,7 @@ Mass_entered=340.8;
 
 %% VaryingInput
 Overall_Draft=2.285;
-OF_alphafieldVolume=3.6114104e+01;
+OF_alphafieldVolume=3.6114093e+01;
 Domain_Length=2.7;
 Domain_width=2.7;
 Domain_Waterdepth=5;
@@ -53,7 +53,7 @@ fprintf('Theoratical Total submerged volume is %f(cu.m) \n',Total_Volume);
 
 OF_Volume=  (Domain_Length*Domain_width*Domain_Waterdepth)-OF_alphafieldVolume;
 
-
+fprintf('OF Total submerged volume is %f(cu.m) \n',OF_Volume);
 
 Diff_Volume=Total_Volume-OF_Volume;
 

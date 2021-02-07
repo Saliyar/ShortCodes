@@ -7,8 +7,8 @@ for j=nStart:nEnd
     SPAR_Postprocessing=[SPAR_Postprocessing_foamStar,num2str(j)];
     foamStarfullfile=fullfile(SPAR_Postprocessing,'/postProcessing/motionInfo/0/cylinder1.dat');
     data=readtable(foamStarfullfile); 
-    dt_motion{:,n}=data{1:3500,1}
-    pp=data{1:3500,2:end};
+    dt_motion{:,n}=data{:,1}
+    pp=data{:,2:end};
     motion_foamStar(:,:,n)=pp;
 end
 
