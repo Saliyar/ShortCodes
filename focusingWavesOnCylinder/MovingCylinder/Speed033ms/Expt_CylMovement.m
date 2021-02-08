@@ -1,9 +1,9 @@
 %% Code to check the Pressure probe results between foamStar and SWENSE
-function Expt_CylMovement(Exptforcepath);
+function Expt_CylMovement(Exptforcepath)
 
 load(Exptforcepath)
 Expt_time=Channel_1_Data;
-Expt_CylinderMoment=Channel_2_Data;
+Expt_CylinderMoment=Channel_11_Data;
 
 % Converting volts to N in Experimental results using calibration constant
 % Expt_force_N=Expt_force_volts*2455.5; % 2455.5 N/V

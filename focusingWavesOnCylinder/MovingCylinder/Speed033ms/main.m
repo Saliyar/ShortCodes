@@ -15,8 +15,8 @@ clear all
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Input details
-number = '1'; % Choose the number stages 
-parameter = 'C' % Chose the parameters to be compared
+number = '3'; % Choose the number stages 
+parameter = 'A' % Chose the parameters to be compared
 
 %%Experiment  details
 Exptforcepath=fullfile('/home/saliyar/PhD_SithikAliyar/Cylinder_NonBreaking_focussingwave/Moving_cylinder/Wave_generation_Experiement_details','cylinmovfnonbreak25002_1_9600Hz.MAT');
@@ -38,6 +38,24 @@ nEnd=1;
 
 SWENSEfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/SWENSE_NBR_fixed/postProcessing/MovingCylinderTestcase';
 
+
+%% Loading path for only reading moving cylinder case 
+% For 0.25m/s case 
+foamStar='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_cases/MovingCylinder_CurrentOnly/MovingCylinder_case1/postProcessing/';
+ExptforCheckforcePath=fullfile('/home/saliyar/PhD_SithikAliyar/Cylinder_NonBreaking_focussingwave/Moving_cylinder/Wave_generation_Experiement_details','cylinmovfnonbreak25002_1_9600Hz.MAT');
+ExptforCheckforcePath_Indices=187140:331140;
+
+%For 0.75 m/s case 
+
+foamStar='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_cases/MovingCylinder_CurrentOnly/MovingCylinder_case2/postProcessing/';
+ExptforCheckforcePath=fullfile('/home/saliyar/PhD_SithikAliyar/Cylinder_NonBreaking_focussingwave/Moving_cylinder/Wave_generation_Experiement_details','cylinmovfnonbreak25002_1_9600Hz.MAT');
+ExptforCheckforcePath_Indices=187140:331140;
+
+
+
+
+
+%% Other details 
 %Constant phase shift  between experiment and numerics
 cps = 0.14; 
 
@@ -79,6 +97,23 @@ switch(number)
             switch(parameter)
            case 'A'
                 foamStarSWENSEExpt_force(Exptforcepath,ExptIndices,foamStarfile1,SWENSEfile,cps);
+%             case 'B'
+%                 foamStarSWENSEExpt_pressure(Exptpressurepath,ExptPressureIndices,foamStarfile,SWENSEfile,cps,PP_static);
+%             case 'C'
+%                 foamStarSWENSEExpt_surfaceElevation(Exptpressurepath,ExptPressureIndices,foamStarfile,SWENSEfile,cps);
+%             case 'D'
+%                 foamStarSWENSEExpt_compAll(Exptforcepath,ExptIndices,foamStarfile,SWENSEfile,cps,PP_static,Exptpressurepath,ExptPressureIndices);
+            case 'E'
+                foamStarSWENSE_Cd(foamStarfile1,foamStarfile2);
+            otherwise
+                disp('Only between A-D');
+    
+            end
+    case '3'
+    
+            switch(parameter)
+           case 'A'
+                foamStarExpt_force025(ExptforCheckforcePath,ExptforCheckforcePath_Indices,foamStar);
 %             case 'B'
 %                 foamStarSWENSEExpt_pressure(Exptpressurepath,ExptPressureIndices,foamStarfile,SWENSEfile,cps,PP_static);
 %             case 'C'
