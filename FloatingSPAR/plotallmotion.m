@@ -1,4 +1,4 @@
-function plotallmotion(SPAR_Postprocessing_foamStar,titl,ylbl,nStart,nEnd,lgd)
+function plotallmotion(SPAR_Postprocessing_foamStar,titl,ylbl,nStart,nEnd,lgd1)
 
 n=0;
 
@@ -32,7 +32,7 @@ for j=nStart:nEnd
     set(gca,'Fontsize',32)
     title (titl{:,i},'interpreter','latex','FontSize',32);
     % legend ('foamStar','SWENSE CoarseMesh','SWENSE SameMesh','Experiment','FontSize',32);
-    legend (lgd{:},'interpreter','latex','FontSize',32,'Location','southwest');
+    legend (lgd1{:},'interpreter','latex','FontSize',32,'Location','southwest');
     grid on;
     hold on
     
