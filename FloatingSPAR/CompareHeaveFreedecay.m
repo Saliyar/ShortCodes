@@ -15,8 +15,8 @@ for j=nStart:nEnd
     SPAR_Postprocessing=[SPAR_Postprocessing_foamStar,num2str(j)];
     foamStarfullfile=fullfile(SPAR_Postprocessing,'/postProcessing/motionInfo/0/cylinder1.dat');
     data=readtable(foamStarfullfile); 
-    dt_motion_foamstar{:,n}=data{:,1}+phaseshift;
-    pp=data{:,2:end};
+    dt_motion_foamstar{:,n}=data{1:17000,1}+phaseshift;
+    pp=data{1:17000,2:end};
     pp1=pp(:,1)+16.95;
     pp2=pp(:,2)+14.84;
     pp3=pp(:,3)-1.584; % For Heave Free decay -1.535 moved 0.045  
@@ -64,7 +64,7 @@ for j=nStart:nEnd
     hold on;
 
     plot(dt_motion,dof6,'LineWidth',3)
-    % xlim([0.05 20])
+    xlim([0.05 100])
     ylabel(ylbl{:,i},'interpreter','latex','FontSize',32)
     xlabel('Time [s]','FontSize',32)
     set(gca,'Fontsize',32)

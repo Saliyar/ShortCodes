@@ -1,4 +1,4 @@
-function foamStarExpt_force025(ExptforCheckforcePath,ExptforCheckforcePath_Indices,foamStar)
+function foamStarExpt_force025(ExptforCheckforcePath,ExptforCheckforcePath_Indices,foamStar,PP_static)
 
 
 %% Code to compare the force results between foamStar and SWENSE
@@ -52,7 +52,7 @@ Y=fft(Expt_yaxis);
 
 %% foamStar NBR focusing fixed cylinder force results loading
 
-foamStarfullfile=fullfile(foamStar,'forces/0/forces1.dat')
+foamStarfullfile=fullfile(foamStar,'/postProcessing/forces/0/forces1.dat')
 data=readtable(foamStarfullfile);
 
 %% In the datafile - first col is time 
@@ -89,6 +89,7 @@ title('Totalforce X' ,'FontSize',32,'interpreter','latex')
 legend ('foamStar','Experiment','FontSize',32,'interpreter','latex');
 grid on;
 hold off;
+% saveas(FigH, ['Total Force X - MovingCylinder 0.33 m/s'],'png');
 
 %% Plotting FFT 
 
@@ -110,3 +111,60 @@ FigH = figure('Position', get(0, 'Screensize'));
 %           % 'interpreter','latex','Location','SouthWest','Orientation','vertical','NumColumns',2,'fontsize',fontsize-4)
 %     legend('boxon')
 %     hold on
+%% Plotting Pressure sensor with experiments 
+
+% Channel 1 - Time
+% Channel 2 - PP 7 
+% Channel 3 - PP8 
+% Channel 4 - PP 2 
+% Channel 5 - PP 5
+% Channel 6 - PP 3
+% Channel 7 - PP 1
+% Channel 8 - PP 4 
+% Channel 9 - PP 6 
+
+Expt_time=Channel_1_Data;
+PP_Expt=[Channel_7_Data(:,1) Channel_4_Data(:,1) Channel_6_Data(:,1) Channel_8_Data(:,1) Channel_5_Data(:,1) Channel_9_Data(:,1) Channel_2_Data(:,1) Channel_3_Data(:,1)];
+
+pl_timeA=Expt_time(ExptforCheckforcePath_Indices,1);
+
+for i=1:8
+    Expt_yaxis1=PP_Expt(:,i);
+    yaxis= Expt_yaxis1(ExptforCheckforcePath_Indices,1);
+    [Expt_yaxis1]=filterTimeSeries(yaxis);
+    Expt_yaxis_filtered(:,i)= Expt_yaxis1;
+end
+pl_timeB=pl_timeA-pl_timeA(1); %
+
+for i=1:8
+        for kk=1:length(pl_timeB)
+            Static_Pressure(kk,i)=PP_static(i);
+        end
+end
+
+for j=1:8
+            
+      FigH = figure('Position', get(0, 'Screensize'));
+     foamStarfullfile=fullfile(foamStar,'postProcessing/probes/0/p1');
+     data=readtable(foamStarfullfile);
+     dt_PP=data{:,1};
+     PP_foamStar=data{:,j+1};
+     PP1_foamStarB=(PP_foamStar)*0.01;  % Converting kg/ms2 to mbar
+            
+    plot(dt_PP,PP1_foamStarB,'LineWidth',3)
+    hold on 
+    
+
+    plot(pl_timeB,Expt_yaxis_filtered(:,j),'LineWidth',3)
+    hold on
+    plot(pl_timeB,Static_Pressure(:,j),'LineWidth',3)
+    xlim([2 15])
+    ylabel('Dynamic Pressure [mBar]','FontSize',32)
+    xlabel('Time [s]','FontSize',32)
+    set(gca,'Fontsize',32)
+    title(['PP ',num2str(j)],'FontSize',32)
+     legend ('foamstar','Experiment','FontSize',32,'interpreter','latex');
+    grid on;
+    saveas(FigH, ['PP ',num2str(i)],'png');
+   % legend ('foamStar-Coarse-Euler','foamStar-Medium-Euler','Experiment','FontSize',32);
+end

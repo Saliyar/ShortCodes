@@ -41,15 +41,17 @@ SWENSEfile='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/SWENSE_NBR_fixe
 
 %% Loading path for only reading moving cylinder case 
 % For 0.25m/s case 
-foamStar='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_cases/MovingCylinder_CurrentOnly/MovingCylinder_case1/postProcessing/';
+foamStar='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_cases/MovingCylinder_CurrentOnly/MovingCylinder_case1';
 ExptforCheckforcePath=fullfile('/home/saliyar/PhD_SithikAliyar/Cylinder_NonBreaking_focussingwave/Moving_cylinder/Wave_generation_Experiement_details','cylinmovfnonbreak25002_1_9600Hz.MAT');
 ExptforCheckforcePath_Indices=187140:331140;
+nStart=1;
+nEnd=1;
 
-%For 0.75 m/s case 
-
-foamStar='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_cases/MovingCylinder_CurrentOnly/MovingCylinder_case2/postProcessing/';
-ExptforCheckforcePath=fullfile('/home/saliyar/PhD_SithikAliyar/Cylinder_NonBreaking_focussingwave/Moving_cylinder/Wave_generation_Experiement_details','cylinmovfnonbreak25002_1_9600Hz.MAT');
-ExptforCheckforcePath_Indices=187140:331140;
+% %For 0.75 m/s case 
+% 
+% foamStar='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Moving_test_cases/MovingCylinder_CurrentOnly/MovingCylinder_case1/postProcessing/';
+% ExptforCheckforcePath=fullfile('/home/saliyar/PhD_SithikAliyar/Cylinder_NonBreaking_focussingwave/Moving_cylinder/Wave_generation_Experiement_details','cylinmovfnonbreak25002_1_9600Hz.MAT');
+% ExptforCheckforcePath_Indices=187140:331140;
 
 
 
@@ -113,7 +115,7 @@ switch(number)
     
             switch(parameter)
            case 'A'
-                foamStarExpt_force025(ExptforCheckforcePath,ExptforCheckforcePath_Indices,foamStar);
+                foamStarExpt_force025(ExptforCheckforcePath,ExptforCheckforcePath_Indices,foamStar,PP_static);
 %             case 'B'
 %                 foamStarSWENSEExpt_pressure(Exptpressurepath,ExptPressureIndices,foamStarfile,SWENSEfile,cps,PP_static);
 %             case 'C'

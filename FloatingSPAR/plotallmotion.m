@@ -23,7 +23,17 @@ for j=nStart:nEnd
     
     n=n+1;
     dof6=motion_foamStar(:,i,n); 
-
+    
+    if (any(i>=4) && any(i<=6))
+        dof6=dof6.*pi/180;
+        
+        if (i==5)
+            dof6=dof6+0.11;
+        end
+   
+    end
+    
+    
 
     plot(dt_motion{:,n},dof6,'LineWidth',3)
     % xlim([0.05 20])
@@ -32,7 +42,7 @@ for j=nStart:nEnd
     set(gca,'Fontsize',32)
     title (titl{:,i},'interpreter','latex','FontSize',32);
     % legend ('foamStar','SWENSE CoarseMesh','SWENSE SameMesh','Experiment','FontSize',32);
-    legend (lgd1{:},'interpreter','latex','FontSize',32,'Location','southwest');
+    % legend (lgd1{:},'interpreter','latex','FontSize',32,'Location','southwest');
     grid on;
     hold on
     
