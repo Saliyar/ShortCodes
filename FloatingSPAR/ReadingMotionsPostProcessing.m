@@ -10,16 +10,16 @@ clear
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Input details
 number = '2'; % Choose the number stages 
-parameter = 'A'; % Chose the parameters to be compared
+parameter = 'B'; % Chose the parameters to be compared
 
 %%Experiment  details
-Exptpath=fullfile('/home/saliyar/PhD_SithikAliyar/SPAR/Experimental_Data/Decays/','Export4CFD_SW_SPAR_Group_M_5_heave_decay_01.mat');
+Exptpath=fullfile('/home/saliyar/PhD_SithikAliyar/SPAR/Experimental_Data/Decays/','Export4CFD_SW_SPAR_ramp_steps_0_50_p_10.mat');
 % ExptIndices=355212:403205;
 
-SPAR_Postprocessing_foamStar=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/SPAR_FreeDecay/Heave_FD/Oscillation/Heave_ppcd35_freq1');
+SPAR_Postprocessing_foamStar=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/SPAR_FreeDecay/Heave_FD/Oscillation/Heave_ppcd35_freq1.5');
 nStart=1;
 nEnd=1;
-phaseshift=0;
+phaseshift=32.88+0.5;
 DOF=3;
 
 %% Mooring path

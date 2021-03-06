@@ -10,7 +10,7 @@ clc
 rho=1000; % kg per cu.m
 g=9.81;
 D=0.28; % At water plane
-omega_forcedoscillation=1.3; %w in rad/s
+omega_forcedoscillation=1.5; %w in rad/s
 ya=-0.045; % Displacement amplitude
 m=339.4; % Mass in kg for particular uncertainity level
 C=rho*g*pi/4*D^2; % rho g A_w
@@ -31,13 +31,11 @@ data=readtable(foamStarfullfile);
 %% 11 to 20 col - Moements due to(Pressure force, Viscous and porosity)
 
 foamStar_dtForce=data{W:end,1}; % Added the constant phase shift 
-
 % |t Px Py Pz Vx Vy Vz PoX Poy Poz||MPx MPy MPz MVx MVy MVz MPoX MPoy MPoz|
 %Adding Pressure z component and Viscous z componenet
 %Also ignoring the first term spike
 
 foamStar_TotalForceZ=data{W:end,4}+data{W:end,7};
-
 
 %% Displacement Time series
 
@@ -51,11 +49,20 @@ f_forced=omega_forcedoscillation/(2*pi);
      h=static_h+ya *sin(2*pi*f_forced*t1);
 
      h=h-static_h;
+%% Plot hte timeseries 
+figure()
+subplot(2,1,1)
+ plot(foamStar_dtForce,foamStar_TotalForceZ,'LineWidth',3)
+ title('Force Z direction')
+ 
+subplot(2,1,2)
+plot(foamStar_dtForce,h,'LineWidth',3)
+title('Displacement')
 %% Finding the Window for Displacement time series
  
  [pks,locs] = findpeaks(h);
  dt1=locs(peakindex_start);dt2=locs(peakindex_end);
- diff_T=round(locs(4)-locs(3));
+ diff_T=round(locs(2)-locs(1));
  index1=round(dt1+diff_T/4);
  index2=round(dt2-diff_T*3/4);
  h1=h(index1:index2);
@@ -72,20 +79,22 @@ fff=ff(1:length(ff)/2);
 xfft=Fs*(0:length(ff)/2-1)/length(ff);
 
 Abs_xfft = abs(fff)/length(xfft);
+[~,idxmax] = max(Abs_xfft);
+Phase_max = angle(fff(idxmax));
 % 
-% figure()
-% subplot(2,1,1)
-% plot(dt_h1,h1,'LineWidth',3)
-% xlabel('Time [s]')
-% ylabel('Displacement(m)')
-% title('Time Domain signal')
-%  
-% subplot(2,1,2)
-% plot(xfft,Abs_xfft,'LineWidth',3)
-% xlim([0 1])
-% xlabel('Frequency (Hz)')
-% ylabel('Amplitude')
-% title('Frequency Domain signal')
+figure()
+subplot(2,1,1)
+plot(dt_h1,h1,'LineWidth',3)
+xlabel('Time [s]')
+ylabel('Displacement(m)')
+title('Time Domain signal')
+ 
+subplot(2,1,2)
+plot(xfft,Abs_xfft,'LineWidth',3)
+xlim([0 1])
+xlabel('Frequency (Hz)')
+ylabel('Amplitude')
+title('Frequency Domain signal')
 
 
 
@@ -103,20 +112,22 @@ fff=ff(1:length(ff)/2);
 xfft=Fs*(0:length(ff)/2-1)/length(ff);
 
 Abs_xfft = abs(fff)/length(xfft);
+[~,idxmax] = max(Abs_xfft);
+Phase_max2 = angle(fff(idxmax));
 
-% figure()
-% subplot(2,1,1)
-% plot(dt_h1,foamStar_TotalForceZ1,'LineWidth',3)
-% xlabel('Time [s]')
-% ylabel('Force (N)')
-% title('Force - Time Domain signal')
-%  
-% subplot(2,1,2)
-% plot(xfft,Abs_xfft,'LineWidth',3)
-% xlim([0 1])
-% xlabel('Frequency (Hz)')
-% ylabel('Amplitude')
-% title('Frequency Domain signal')
+figure()
+subplot(2,1,1)
+plot(dt_h1,foamStar_TotalForceZ1,'LineWidth',3)
+xlabel('Time [s]')
+ylabel('Force (N)')
+title('Force - Time Domain signal')
+ 
+subplot(2,1,2)
+plot(xfft,Abs_xfft,'LineWidth',3)
+xlim([0 1])
+xlabel('Frequency (Hz)')
+ylabel('Amplitude')
+title('Frequency Domain signal')
 
 
 
@@ -133,8 +144,11 @@ PhDiff = phdiffmeasure(x, y);
 % display the phase difference
 disp(['Phase difference Y->X = ' num2str(PhDiff) ' rad'])
 
+% Phase_max-Phase_max2
+
 %% Estimation of Added mass for this case
-Num=Cz-max(foamStar_TotalForceZ1)*cos(PhDiff);
+% Num=Cz-max(foamStar_TotalForceZ1)*cos(PhDiff);
+Num=Cz-Abs_xfft(idxmax)*cos(PhDiff);
 Denom=ya*omega_forcedoscillation^2;
 Added_mass=(Num/Denom)-m;
 disp(['The added mass for this case = ' num2str(Added_mass) ' kg'])

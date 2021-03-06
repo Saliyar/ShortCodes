@@ -13,12 +13,12 @@ D_spar=0.45;
 D_tower=0.28;
 Coning_height=0.2;
 L_Spar=1.95;
-Mass_entered=340.8;
+Mass_entered=338.8;
 
 
 %% VaryingInput
 Overall_Draft=2.285;
-OF_alphafieldVolume=3.6110317e+01;
+OF_alphafieldVolume=3.6110504e+01;
 Domain_Length=2.7;
 Domain_width=2.7;
 Domain_Waterdepth=5;
