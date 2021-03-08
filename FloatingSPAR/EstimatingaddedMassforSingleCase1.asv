@@ -41,7 +41,7 @@ f_forced=omega_forcedoscillation/(2*pi);
 
 
      dt=foamStar_dtForce(2)-foamStar_dtForce(1);
-     t=(0:dt:foamStar_dtForce(end))';
+     t=(0:dt:foamStar_dtForce(end)-dt)';
      t1=t(W:end);
      h=static_h+ya *sin(2*pi*f_forced*t1);
 
@@ -52,25 +52,18 @@ subplot(2,1,1)
  plot(foamStar_dtForce,foamStar_TotalForceZ,'LineWidth',3)
  title('Force Z direction')
  
-length(foamStar_dtForce)
-length(h)
 subplot(2,1,2)
 plot(foamStar_dtForce,h,'LineWidth',3)
 title('Displacement')
 %% Finding the Window for Displacement time series
  
  [pks,locs] = findpeaks(foamStar_TotalForceZ);
-% figure()
-% findpeaks(foamStar_TotalForceZ)
- 
- dt1=locs(peakindex_start);
- dt2=locs(peakindex_end);
+ dt1=locs(peakindex_start);dt2=locs(peakindex_end);
  diff_T=round(locs(2)-locs(1));
- index1=(dt1);
- index2=(dt2);
+ index1=round(dt1);
+ index2=round(dt2);
 
- dt_h=foamStar_dtForce(index1:index2);
- dt_h1=dt_h-dt_h(1);
+ 
  
 foamStar_TotalForceZ_indexed=foamStar_TotalForceZ(index1:index2);
 foamStar_TotalForceZ1=foamStar_TotalForceZ_indexed-mean(foamStar_TotalForceZ_indexed);
