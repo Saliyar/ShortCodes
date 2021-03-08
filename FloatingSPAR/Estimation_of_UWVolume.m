@@ -24,7 +24,6 @@ Domain_width=2.7;
 Domain_Waterdepth=5;
 Density=1000;
 
-
 %% Solid Volume calucaltion
 Diff_height=Overall_Draft-L_Spar;
 r_spar=D_spar/2;

@@ -1,4 +1,4 @@
-function EstimatingaddedMassforSingleCase1(SPAR_Postprocessing_foamStar,titl,ylbl,nStart,nEnd,lgd1)
+function EstimatingaddedMassforSingleCase1(office_SPAR_Postprocessing_foamStar,W,peakindex_start,peakindex_end,omega_forcedoscillation,ya)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% To estimate the added mass for forced oscillation case %%%%%%%%%%%
 %%%% Ma = \frac{c-F_a cos(phi)}{y_a w^2} -m %%%%%%%%%%%%%%%%%%%%%%%%
@@ -10,20 +10,17 @@ clc
 rho=1000; % kg per cu.m
 g=9.81;
 D=0.28; % At water plane
-omega_forcedoscillation=1.5; %w in rad/s
-ya=-0.045; % Displacement amplitude
+
 m=339.4; % Mass in kg for particular uncertainity level
 C=rho*g*pi/4*D^2; % rho g A_w
 static_h=-2.285;
 Cz=C*ya;
 % Force timestep starting point 
-W=10;
-peakindex_start=1;
-peakindex_end=8;
+
 
 %% Estimating the Total force from openfoam
 
-foamStarfullfile=fullfile(SPAR_Postprocessing_foamStar,'/postProcessing/forces/0/forces1.dat')
+foamStarfullfile=fullfile(office_SPAR_Postprocessing_foamStar,'/postProcessing/forces/0/forces1.dat')
 data=readtable(foamStarfullfile);
 
 %% In the datafile - first col is time 
@@ -60,17 +57,32 @@ plot(foamStar_dtForce,h,'LineWidth',3)
 title('Displacement')
 %% Finding the Window for Displacement time series
  
- [pks,locs] = findpeaks(h);
+ [pks,locs] = findpeaks(foamStar_TotalForceZ);
  dt1=locs(peakindex_start);dt2=locs(peakindex_end);
  diff_T=round(locs(2)-locs(1));
- index1=round(dt1+diff_T/4);
- index2=round(dt2-diff_T*3/4);
- h1=h(index1:index2);
- dt_h=foamStar_dtForce(index1:index2);
- dt_h1=dt_h-dt_h(1);
+ index1=round(dt1);
+ index2=round(dt2);
+
+ 
+ 
+foamStar_TotalForceZ_indexed=foamStar_TotalForceZ(index1:index2);
+foamStar_TotalForceZ1=foamStar_TotalForceZ_indexed-mean(foamStar_TotalForceZ_indexed);
+
+ 
+%  [pks,locs] = findpeaks(h);
+%  dt1=locs(peakindex_start);dt2=locs(peakindex_end);
+%  diff_T=round(locs(2)-locs(1));
+%  index1=round(dt1+diff_T/4);
+%  index2=round(dt2-diff_T*3/4);
+%  h1=h(index1:index2);
+%  dt_h=foamStar_dtForce(index1:index2);
+%  dt_h1=dt_h-dt_h(1);
 
 
  %FFT of displacement  signal
+  h1=h(index1:index2);
+ dt_h=foamStar_dtForce(index1:index2);
+ dt_h1=dt_h-dt_h(1);
 Fs=1/(dt_h(2)-dt_h(1));
 
 ff=fft(h1);
@@ -102,10 +114,10 @@ title('Frequency Domain signal')
 % % Substract the mean(Hydrostatic Pressure force)
 
 
- foamStar_TotalForceZ_indexed=foamStar_TotalForceZ(index1:index2);
- foamStar_TotalForceZ1=foamStar_TotalForceZ_indexed-mean(foamStar_TotalForceZ_indexed);
- 
- %FFT of displacement  signal
+%  foamStar_TotalForceZ_indexed=foamStar_TotalForceZ(index1:index2);
+%  foamStar_TotalForceZ1=foamStar_TotalForceZ_indexed-mean(foamStar_TotalForceZ_indexed);
+%  
+%  %FFT of displacement  signal
 ff=fft(foamStar_TotalForceZ1);
 fff=ff(1:length(ff)/2);
 
@@ -140,17 +152,22 @@ x = foamStar_TotalForceZ1;
 y = h1;
 % phase difference measurement
 PhDiff = phdiffmeasure(x, y);
-% PhDiff = rad2deg(PhDiff);
+PhDiff_deg = rad2deg(PhDiff);
+In_pi=PhDiff/pi;
 % display the phase difference
-disp(['Phase difference Y->X = ' num2str(PhDiff) ' rad'])
+disp(['Phase difference Y->X = ' num2str(PhDiff) ' rad, which is ' num2str(In_pi) 'of pi'])
+
+disp(['Phase difference Y->X = ' num2str(PhDiff_deg) ' deg'])
 
 % Phase_max-Phase_max2
 
 %% Estimation of Added mass for this case
 % Num=Cz-max(foamStar_TotalForceZ1)*cos(PhDiff);
-Num=Cz-Abs_xfft(idxmax)*cos(PhDiff);
+% Num=Cz-Abs_xfft(idxmax)*cos(PhDiff);
+% Denom=ya*omega_forcedoscillation^2;
+Num=Abs_xfft(idxmax)*cos(PhDiff)-Cz;
 Denom=ya*omega_forcedoscillation^2;
-Added_mass=(Num/Denom)-m;
+Added_mass=-(Num/Denom)-m;
 disp(['The added mass for this case = ' num2str(Added_mass) ' kg'])
 
 % figure()

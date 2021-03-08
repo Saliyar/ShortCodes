@@ -16,11 +16,19 @@ parameter = 'B'; % Chose the parameters to be compared
 Exptpath=fullfile('/home/saliyar/PhD_SithikAliyar/SPAR/Experimental_Data/Decays/','Export4CFD_SW_SPAR_ramp_steps_0_50_p_10.mat');
 % ExptIndices=355212:403205;
 
-SPAR_Postprocessing_foamStar=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/SPAR_FreeDecay/Heave_FD/Oscillation/Heave_ppcd35_freq1.5');
+SPAR_Postprocessing_foamStar=fullfile('/Users/sithikaliyar/Documents/PhD_testcases/SPAR/Floating_Body_Simulation/SPAR_FreeDecay/HeaveFD/Oscillation/ExcitationFreq1.3');
+
 nStart=1;
 nEnd=1;
 phaseshift=32.88+0.5;
 DOF=3;
+%% Oscillation comparision 
+office_SPAR_Postprocessing_foamStar=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/SPAR_FreeDecay/Heave_FD/Oscillation/Heave_ppcd35_freq1.3');
+W=10;
+peakindex_start=1;
+peakindex_end=8;
+omega_forcedoscillation=1.3; %w in rad/s
+ya=0.045; % Displacement amplitude
 
 %% Mooring path
 MooringPath=fullfile('/home/saliyar/MoorDyn/source/Mooring/fLine');
@@ -77,7 +85,8 @@ switch(number)
             case 'A'
                 VisualisingMooringlines(MooringPath,nStart_Line,nEnd_Line,NumberofSegments)  
              case 'B'
-                 EstimatingaddedMassforSingleCase1(SPAR_Postprocessing_foamStar,titl,ylbl,nStart,nEnd,lgd1)
+                EstimatingaddedMassforSingleCase1(office_SPAR_Postprocessing_foamStar,W,peakindex_start,peakindex_end,omega_forcedoscillation,ya) % Displacement amplitude)
+                
          end
     case '3'
          switch(parameter)
