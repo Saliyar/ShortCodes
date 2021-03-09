@@ -59,7 +59,7 @@ plot(foamStar_dtForce,h,'LineWidth',3)
 title('Displacement')
 %% Finding the Window for Displacement time series
  
- [pks,locs] = findpeaks(foamStar_TotalForceZ);
+ [pks,locs] = findpeaks(foamStar_TotalForceZ,'MinPeakDistance',400);
 % figure()
 % findpeaks(foamStar_TotalForceZ)
  

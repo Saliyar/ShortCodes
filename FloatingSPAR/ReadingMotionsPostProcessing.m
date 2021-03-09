@@ -10,13 +10,13 @@ clear
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Input details
 number = '2'; % Choose the number stages 
-parameter = 'C'; % Chose the parameters to be compared
+parameter = 'D'; % Chose the parameters to be compared
 
 %%Experiment  details
 Exptpath=fullfile('/home/saliyar/PhD_SithikAliyar/SPAR/Experimental_Data/Decays/','Export4CFD_SW_SPAR_ramp_steps_0_50_p_10.mat');
 % ExptIndices=355212:403205;
 
-SPAR_Postprocessing_foamStar=fullfile('/Users/sithikaliyar/Documents/PhD_testcases/SPAR/Floating_Body_Simulation/SPAR_FreeDecay/HeaveFD/Oscillation/ExcitationFreq1.3');
+SPAR_Postprocessing_foamStar=fullfile('/Users/sithikaliyar/Documents/PhD_testcases/SPAR/Floating_Body_Simulation/SPAR_FreeDecay/HeaveFD/Oscillation/ExcitationFreq0.5');
 
 nStart=1;
 nEnd=1;
@@ -24,12 +24,12 @@ phaseshift=32.88+0.5;
 DOF=3;
 %% Oscillation comparision 
 office_SPAR_Postprocessing_foamStar=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/SPAR_FreeDecay/Heave_FD/Oscillation/Heave_ppcd35_freq1.3');
-mac_SPAR_Postprocessing_foamStar=fullfile('/Users/sithikaliyar/Documents/PhD_testcases/SPAR/Floating_Body_Simulation/SPAR_FreeDecay/HeaveFD/Oscillation/ExcitationFreq1.3');
+mac_SPAR_Postprocessing_foamStar=fullfile('/Users/sithikaliyar/Documents/PhD_testcases/SPAR/Floating_Body_Simulation/SPAR_FreeDecay/HeaveFD/Oscillation/ExcitationFreq0.5');
 W=150;
 peakindex_start=1;
-peakindex_end=8;
-omega_forcedoscillation=1.3; %w in rad/s
-ya=0.045; % Displacement amplitude
+peakindex_end=2;
+omega_forcedoscillation=0.5; %w in rad/s
+za=0.045; % Displacement amplitude
 
 %% Mooring path
 MooringPath=fullfile('/home/saliyar/MoorDyn/source/Mooring/fLine');
@@ -88,7 +88,9 @@ switch(number)
              case 'B'
                 EstimatingaddedMassforSingleCase1(mac_SPAR_Postprocessing_foamStar,W,peakindex_start,peakindex_end,omega_forcedoscillation,ya) % Displacement amplitude)
              case 'C'
-                 EstimatingaddedMassforSingleCase2_Gerrido(mac_SPAR_Postprocessing_foamStar,W,peakindex_start,peakindex_end,omega_forcedoscillation,ya)
+                 EstimatingaddedMassforSingleCase2_Gerrido(mac_SPAR_Postprocessing_foamStar,W,peakindex_start,peakindex_end,omega_forcedoscillation,za)
+             case 'D'
+                 EstimatingaddedMassforSingleCase2_Gerrido_Freqlessthan05Hz(mac_SPAR_Postprocessing_foamStar,W,peakindex_start,peakindex_end,omega_forcedoscillation,za)
                 
          end
     case '3'
