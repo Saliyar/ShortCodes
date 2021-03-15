@@ -10,7 +10,7 @@ clear
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Input details
 number = '2'; % Choose the number stages 
-parameter = 'A'; % Chose the parameters to be compared
+parameter = 'C'; % Chose the parameters to be compared
 
 %%Experiment  details
 Exptpath=fullfile('/home/saliyar/PhD_SithikAliyar/SPAR/Experimental_Data/Decays/','Export4CFD_SW_SPAR_ramp_steps_0_50_p_10.mat');
@@ -23,9 +23,9 @@ nEnd=1;
 phaseshift=32.88+0.5;
 DOF=3;
 %% Oscillation comparision 
-A=1;
+A=2;
 office_SPAR_Postprocessing_foamStar=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/SPAR_FreeDecay/Heave_FD/Oscillation/Heave_ppcd35_freq1.5');
-mac_SPAR_Postprocessing_foamStar=fullfile('/Users/sithikaliyar/Documents/PhD_testcases/SPAR/Floating_Body_Simulation/SPAR_FreeDecay/HeaveFD/Oscillation/ExcitationFreq0.5');
+mac_SPAR_Postprocessing_foamStar=fullfile('/Users/sithikaliyar/Documents/PhD_testcases/SPAR/Floating_Body_Simulation/SPAR_FreeDecay/HeaveFD/Oscillation/ExcitationFreq1');
     if (A==1)
         FileLocation=office_SPAR_Postprocessing_foamStar;
     else
@@ -36,7 +36,7 @@ mac_SPAR_Postprocessing_foamStar=fullfile('/Users/sithikaliyar/Documents/PhD_tes
 W=100;
 peakindex_start=1;
 peakindex_end=2;
-omega_forcedoscillation=1.5; %w in rad/s
+omega_forcedoscillation=1; %w in rad/s
 za=0.045; % Displacement amplitude
 
 %% Mooring path
