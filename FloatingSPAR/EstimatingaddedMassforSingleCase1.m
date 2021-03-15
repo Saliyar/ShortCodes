@@ -1,4 +1,4 @@
-function EstimatingaddedMassforSingleCase1(mac_SPAR_Postprocessing_foamStar,W,peakindex_start,peakindex_end,omega_forcedoscillation,ya)
+function EstimatingaddedMassforSingleCase1(FileLocation,W,peakindex_start,peakindex_end,omega_forcedoscillation,za)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% To estimate the added mass for forced oscillation case %%%%%%%%%%%
 %%%% Ma = \frac{c-F_a cos(phi)}{y_a w^2} -m %%%%%%%%%%%%%%%%%%%%%%%%
@@ -14,13 +14,13 @@ D=0.28; % At water plane
 m=339.4; % Mass in kg for particular uncertainity level
 C=rho*g*pi/4*D^2; % rho g A_w
 static_h=-2.285;
-Cz=C*ya;
+Cz=C*za;
 % Force timestep starting point 
 
 
 %% Estimating the Total force from openfoam
 
-foamStarfullfile=fullfile(mac_SPAR_Postprocessing_foamStar,'/postProcessing/forces/0/forces1.dat')
+foamStarfullfile=fullfile(FileLocation,'/postProcessing/forces/0/forces1.dat')
 data=readtable(foamStarfullfile);
 
 %% In the datafile - first col is time 
@@ -43,7 +43,7 @@ f_forced=omega_forcedoscillation/(2*pi);
      dt=foamStar_dtForce(2)-foamStar_dtForce(1);
      t=(0:dt:foamStar_dtForce(end))';
      t1=t(W:end);
-     h=static_h+ya *sin(2*pi*f_forced*t1);
+     h=static_h+za *sin(2*pi*f_forced*t1);
 
      h=h-static_h;
 %% Plot hte timeseries 
@@ -63,6 +63,13 @@ title('Displacement')
 % figure()
 % findpeaks(foamStar_TotalForceZ)
  
+force_time=(foamStar_dtForce(locs(2))-(foamStar_dtForce(locs(1))));
+force_angularFreq=2*pi/force_time;
+disp(['The input displacement freq for this case = ' num2str(omega_forcedoscillation) ' rad/s'])
+disp(['The force freq for this case = ' num2str(force_angularFreq) ' rad/s'])
+
+
+
  dt1=locs(peakindex_start);
  dt2=locs(peakindex_end);
  diff_T=round(locs(2)-locs(1));
@@ -171,9 +178,9 @@ disp(['Phase difference Y->X = ' num2str(PhDiff_deg) ' deg'])
 %% Estimation of Added mass for this case
 % Num=Cz-max(foamStar_TotalForceZ1)*cos(PhDiff);
 % Num=Cz-Abs_xfft(idxmax)*cos(PhDiff);
-% Denom=ya*omega_forcedoscillation^2;
+% Denom=za*omega_forcedoscillation^2;
 Num=Abs_xfft(idxmax)*cos(PhDiff)-Cz;
-Denom=ya*omega_forcedoscillation^2;
+Denom=za*omega_forcedoscillation^2;
 Added_mass=-(Num/Denom)-m;
 disp(['The added mass for this case = ' num2str(Added_mass) ' kg'])
 

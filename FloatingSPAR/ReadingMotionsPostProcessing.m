@@ -10,7 +10,7 @@ clear
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Input details
 number = '2'; % Choose the number stages 
-parameter = 'D'; % Chose the parameters to be compared
+parameter = 'A'; % Chose the parameters to be compared
 
 %%Experiment  details
 Exptpath=fullfile('/home/saliyar/PhD_SithikAliyar/SPAR/Experimental_Data/Decays/','Export4CFD_SW_SPAR_ramp_steps_0_50_p_10.mat');
@@ -23,19 +23,29 @@ nEnd=1;
 phaseshift=32.88+0.5;
 DOF=3;
 %% Oscillation comparision 
-office_SPAR_Postprocessing_foamStar=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/SPAR_FreeDecay/Heave_FD/Oscillation/Heave_ppcd35_freq1.3');
+A=1;
+office_SPAR_Postprocessing_foamStar=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/SPAR_FreeDecay/Heave_FD/Oscillation/Heave_ppcd35_freq1.5');
 mac_SPAR_Postprocessing_foamStar=fullfile('/Users/sithikaliyar/Documents/PhD_testcases/SPAR/Floating_Body_Simulation/SPAR_FreeDecay/HeaveFD/Oscillation/ExcitationFreq0.5');
-W=150;
+    if (A==1)
+        FileLocation=office_SPAR_Postprocessing_foamStar;
+    else
+        FileLocation=mac_SPAR_Postprocessing_foamStar;
+    end
+    
+    
+W=100;
 peakindex_start=1;
 peakindex_end=2;
-omega_forcedoscillation=0.5; %w in rad/s
+omega_forcedoscillation=1.5; %w in rad/s
 za=0.045; % Displacement amplitude
 
 %% Mooring path
 MooringPath=fullfile('/home/saliyar/MoorDyn/source/Mooring/fLine');
 nStart_Line=1;
-nEnd_Line=1;
-NumberofSegments=6;
+nEnd_Line=3;
+NumberofSegments=50;
+%% Any random 6 DOF case 
+Filelocation=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/Vineesh_testcase/Floating_BoxFD_Roll_trial1');
 
 %% Regular wave path
 foamstar2DRegularwavePath=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/RegularwaveTest/2D_Study/HOS_NWT_2DRegular/');
@@ -44,6 +54,7 @@ titl ={'Surge','Sway','Heave','Roll','Pitch','Yaw'};
 titlDecay={'Heave FreeDecay','Natural period'};
 
 ylbl={'Motion(m)','Motion(m)','Motion(m)','Motion(rad)','Motion(rad)','Motion(rad)'};
+ylbl_deg={'Motion(m)','Motion(m)','Motion(m)','Motion(deg)','Motion(deg)','Motion(deg)'};
 lgd1={'Freely Floating','With Stiffness Matrix'};
 lgd2={'foamstar-FD','Experiment-FD'};
 lgd3={'foamstar- Co 0.25','foamstar - Co 0.5','foamstar - Co 1','foamstar - Co 2','Experiment'};
@@ -86,11 +97,11 @@ switch(number)
             case 'A'
                 VisualisingMooringlines(MooringPath,nStart_Line,nEnd_Line,NumberofSegments)  
              case 'B'
-                EstimatingaddedMassforSingleCase1(mac_SPAR_Postprocessing_foamStar,W,peakindex_start,peakindex_end,omega_forcedoscillation,ya) % Displacement amplitude)
+                EstimatingaddedMassforSingleCase1(FileLocation,W,peakindex_start,peakindex_end,omega_forcedoscillation,za) % Displacement amplitude)
              case 'C'
-                 EstimatingaddedMassforSingleCase2_Gerrido(mac_SPAR_Postprocessing_foamStar,W,peakindex_start,peakindex_end,omega_forcedoscillation,za)
+                 EstimatingaddedMassforSingleCase2_Gerrido(FileLocation,W,peakindex_start,peakindex_end,omega_forcedoscillation,za)
              case 'D'
-                 EstimatingaddedMassforSingleCase2_Gerrido_Freqlessthan05Hz(mac_SPAR_Postprocessing_foamStar,W,peakindex_start,peakindex_end,omega_forcedoscillation,za)
+                 EstimatingaddedMassforSingleCase2_Gerrido_Freqlessthan05Hz(FileLocation,W,peakindex_start,peakindex_end,omega_forcedoscillation,za)
                 
          end
     case '3'
@@ -98,7 +109,7 @@ switch(number)
             case 'A'
                 RegularWave2DProbeComparision(foamstar2DRegularwavePath)  
              case 'B'
-                 EstimatingaddedMassforSingleCase1(SPAR_Postprocessing_foamStar,titl,ylbl,nStart,nEnd,lgd1)
+                 plotanycase_6DOFmotion(Filelocation,titl,ylbl_deg,lgd1)
             end
     otherwise
     disp('Select Properly');
