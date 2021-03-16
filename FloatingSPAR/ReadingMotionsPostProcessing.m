@@ -10,7 +10,7 @@ clear
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Input details
 number = '2'; % Choose the number stages 
-parameter = 'C'; % Chose the parameters to be compared
+parameter = 'B'; % Chose the parameters to be compared
 
 %%Experiment  details
 Exptpath=fullfile('/home/saliyar/PhD_SithikAliyar/SPAR/Experimental_Data/Decays/','Export4CFD_SW_SPAR_ramp_steps_0_50_p_10.mat');
@@ -19,12 +19,12 @@ Exptpath=fullfile('/home/saliyar/PhD_SithikAliyar/SPAR/Experimental_Data/Decays/
 SPAR_Postprocessing_foamStar=fullfile('/Users/sithikaliyar/Documents/PhD_testcases/SPAR/Floating_Body_Simulation/SPAR_FreeDecay/HeaveFD/Oscillation/ExcitationFreq0.5');
 
 nStart=1;
-nEnd=1;
+nEnd=7;
 phaseshift=32.88+0.5;
 DOF=3;
 %% Oscillation comparision 
-A=2;
-office_SPAR_Postprocessing_foamStar=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/SPAR_FreeDecay/Heave_FD/Oscillation/Heave_ppcd35_freq1.5');
+A=1;
+office_SPAR_Postprocessing_foamStar=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/SPAR_FreeDecay/Heave_FD/Oscillation/Heave_ppcd35_freq1.3');
 mac_SPAR_Postprocessing_foamStar=fullfile('/Users/sithikaliyar/Documents/PhD_testcases/SPAR/Floating_Body_Simulation/SPAR_FreeDecay/HeaveFD/Oscillation/ExcitationFreq1');
     if (A==1)
         FileLocation=office_SPAR_Postprocessing_foamStar;
@@ -35,8 +35,8 @@ mac_SPAR_Postprocessing_foamStar=fullfile('/Users/sithikaliyar/Documents/PhD_tes
     
 W=100;
 peakindex_start=1;
-peakindex_end=2;
-omega_forcedoscillation=1; %w in rad/s
+peakindex_end=7;
+omega_forcedoscillation=1.3; %w in rad/s
 za=0.045; % Displacement amplitude
 
 %% Mooring path
@@ -102,6 +102,8 @@ switch(number)
                  EstimatingaddedMassforSingleCase2_Gerrido(FileLocation,W,peakindex_start,peakindex_end,omega_forcedoscillation,za)
              case 'D'
                  EstimatingaddedMassforSingleCase2_Gerrido_Freqlessthan05Hz(FileLocation,W,peakindex_start,peakindex_end,omega_forcedoscillation,za)
+             case 'E'
+                 AnsysAQWAresults(za)
                 
          end
     case '3'

@@ -62,10 +62,12 @@ findpeaks(foamStar_TotalForceZ,'MinPeakDistance',400)
 
 
 
- dt1=locs(peakindex_start);
+ dt1=locs(peakindex_start);figure()
+subplot(2,1,1)
  dt2=locs(peakindex_end);
  diff_T=(locs(2)-locs(1));
- index1=(dt1);
+ index1=(dt1);figure()
+subplot(2,1,1)
  index2=(dt2);
  
  %% Verify the Frequency of the forced oscillation
