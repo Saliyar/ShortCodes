@@ -1,4 +1,4 @@
-function EstimatingaddedMassforSingleCase2_Gerrido(mac_SPAR_Postprocessing_foamStar,W,peakindex_start,peakindex_end,omega_forcedoscillation,za)
+function EstimatingaddedMassforSingleCase2_Gerrido(mac_SPAR_Postprocessing_foamStar,W,peakindex_start,peakindex_end,omega_forcedoscillation,za,peakWindow)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% To estimate the added mass for forced oscillation case %%%%%%%%%%%
 %%%% Ma = \frac{c-F_a cos(phi)}{y_a w^2} -m %%%%%%%%%%%%%%%%%%%%%%%%
@@ -55,9 +55,9 @@ plot(t1,h_acc,'LineWidth',3)
 title('Acceleration')
 %% Finding the Window for Displacement time series
  
-[pks,locs] = findpeaks(foamStar_TotalForceZ,'MinPeakDistance',400);
+[pks,locs] = findpeaks(foamStar_TotalForceZ,'MinPeakDistance',peakWindow);
 figure()
-findpeaks(foamStar_TotalForceZ,'MinPeakDistance',400)
+findpeaks(foamStar_TotalForceZ,'MinPeakDistance',peakWindow)
 
 
 

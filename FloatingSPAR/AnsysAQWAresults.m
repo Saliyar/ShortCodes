@@ -7,7 +7,7 @@ AQWA_RadiationDamping=[3.8095e-2 9.4687e-2 3.0735e-2 0.1232956 1.7080098 5.48487
 
 
 omega_freq=2*pi.*AQWA_freq;
-AQWA_AddedMassAmplified=AQWA_AddedMass.*za;
+AQWA_AddedMassAmplified=AQWA_AddedMass;
 
 
 figure()
