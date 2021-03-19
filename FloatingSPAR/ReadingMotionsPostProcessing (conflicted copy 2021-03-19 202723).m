@@ -9,8 +9,8 @@ clear
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Input details
-number = '2'; % Choose the number stages 
-parameter = 'E'; % Chose the parameters to be compared
+number = '1'; % Choose the number stages 
+parameter = 'C'; % Chose the parameters to be compared
 
 %%Experiment  details
 Exptpath=fullfile('/home/saliyar/PhD_SithikAliyar/SPAR/Experimental_Data/Decays/','Export4CFD_SW_SPAR_ramp_steps_0_50_p_10.mat');
@@ -47,7 +47,7 @@ nStart_Line=1;
 nEnd_Line=3;
 NumberofSegments=50;
 %% Any random 6 DOF case 
-Filelocation=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/Vineesh_testcase/Floating_BoxFD_Roll_trial1');
+Filelocation=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/Revision1/Hydrostatics_W_Mooring/Hydrostatics_ppcd35');
 
 %% Regular wave path
 foamstar2DRegularwavePath=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/RegularwaveTest/2D_Study/HOS_NWT_2DRegular/');
@@ -116,6 +116,8 @@ switch(number)
                 RegularWave2DProbeComparision(foamstar2DRegularwavePath)  
              case 'B'
                  plotanycase_6DOFmotion(Filelocation,titl,ylbl_deg,lgd1)
+             case 'C'
+                 BargeMotionComparision2D(Filelocation,titl,ylbl_deg,lgd1)
             end
     otherwise
     disp('Select Properly');

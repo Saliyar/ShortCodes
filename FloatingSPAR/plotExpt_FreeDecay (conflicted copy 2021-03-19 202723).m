@@ -18,12 +18,8 @@ for i=1:6
   %  FigH = figure('Position', get(0, 'Screensize'));
 
     dof6=motion_foamStar(:,i); 
-    
-%         if i==3
-%             dof6=dof6+1.535;
-%             n=1; % Number of peaks     
-%         [Tn,X,zeta]=logDecrement(dt_motion(1200:end),dof6(1200:end),n);
-%         end
+    dof6=dof6-dof6(1);
+%    
  %% Plotting the Decay 
 %      FigH = figure('Position', get(0, 'Screensize'));
 %     plot(X,zeta,'LineWidth',3)

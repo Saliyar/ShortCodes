@@ -13,12 +13,12 @@ D_spar=0.45;
 D_tower=0.28;
 Coning_height=0.2;
 L_Spar=1.95;
-Mass_entered=338.8;
+Mass_entered=339.529151;
 
 
 %% VaryingInput
 Overall_Draft=2.285;
-OF_alphafieldVolume=3.6110504e+01;
+OF_alphafieldVolume=3.6110401e+01;
 Domain_Length=2.7;
 Domain_width=2.7;
 Domain_Waterdepth=5;
@@ -36,7 +36,7 @@ if (Diff_height>0.2)
     %In any case SPAR will not come out of water - So its underwater volume is fixed 
    
     Vol_cone= 1/3 * pi * Coning_height * (r_tower^2+r_tower*r_spar+r_spar^2);
-    h_tower=Diff_height-0.2;
+    h_tower=Diff_height-0.2++0.001;
     Vol_tower = pi/4 * D_tower^2 *h_tower;
     Total_Volume= Vol_cone+Vol_SPAR+Vol_tower;
 
