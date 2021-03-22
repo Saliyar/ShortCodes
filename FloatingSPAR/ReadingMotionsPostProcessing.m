@@ -9,23 +9,23 @@ clear
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Input details
-number = '2'; % Choose the number stages 
-parameter = 'E'; % Chose the parameters to be compared
+number = '1'; % Choose the number stages 
+parameter = 'H'; % Chose the parameters to be compared
 
 %%Experiment  details
-Exptpath=fullfile('/home/saliyar/PhD_SithikAliyar/SPAR/Experimental_Data/Decays/','Export4CFD_SW_SPAR_ramp_steps_0_50_p_10.mat');
+Exptpath=fullfile('/Users/sithikaliyar/Documents/PhD_testcases/SPAR/Experimental_Data/Decays/Experimental_Data/Decays/','Export4CFD_SW_SPAR_Group_M_5_heave_decay_01.mat');
 % ExptIndices=355212:403205;
 
 SPAR_Postprocessing_foamStar=fullfile('/Users/sithikaliyar/Documents/PhD_testcases/SPAR/Floating_Body_Simulation/SPAR_FreeDecay/HeaveFD/Oscillation/ExcitationFreq0.5');
 
 nStart=1;
-nEnd=7;
-phaseshift=32.88+0.5;
+nEnd=1;
+phaseshift=6.14;
 DOF=3;
 %% Oscillation comparision 
 A=2;
 office_SPAR_Postprocessing_foamStar=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/SPAR_FreeDecay/Heave_FD/Oscillation/Heave_ppcd35_freq1.3');
-mac_SPAR_Postprocessing_foamStar=fullfile('/Users/sithikaliyar/Documents/PhD_testcases/SPAR/Floating_Body_Simulation/SPAR_FreeDecay/HeaveFD/Oscillation/ExcitationFreq1');
+mac_SPAR_Postprocessing_foamStar=fullfile('/Users/sithikaliyar/Documents/PhD_testcases/SPAR/Floating_Body_Simulation/SPAR_FreeDecay/HeaveFD/HeaveFD');
     if (A==1)
         FileLocation=office_SPAR_Postprocessing_foamStar;
     else
@@ -47,7 +47,7 @@ nStart_Line=1;
 nEnd_Line=3;
 NumberofSegments=50;
 %% Any random 6 DOF case 
-Filelocation=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/Vineesh_testcase/Floating_BoxFD_Roll_trial1');
+Filelocation=fullfile('/Users/sithikaliyar/Documents/PhD_testcases/SPAR/Floating_Body_Simulation/SPAR_FreeDecay/HeaveFD/HeaveFD/');
 
 %% Regular wave path
 foamstar2DRegularwavePath=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/RegularwaveTest/2D_Study/HOS_NWT_2DRegular/');
@@ -76,7 +76,7 @@ switch(number)
             case 'C'
                 plotExpt_FreeDecay(Exptpath,titl,ylbl,lgd2)
             case 'D'
-                CompareHeaveFreedecay(Exptpath,SPAR_Postprocessing_foamStar,titl,ylbl,nStart,nEnd,lgd2,phaseshift)
+                CompareHeaveFreedecay(Exptpath,mac_SPAR_Postprocessing_foamStar,titl,ylbl,nStart,nEnd,lgd2,phaseshift)
             case 'E'
                HeaveFDCourantNumberstudy(Exptpath,SPAR_Postprocessing_foamStar,titl,ylbl,nStart,nEnd,lgd3,phaseshift)
             case 'F'
@@ -84,7 +84,7 @@ switch(number)
              case 'G'
                HeaveFD_MOI_sensitivitystudy(Exptpath,SPAR_Postprocessing_foamStar,titl,ylbl,nStart,nEnd,lgd5,phaseshift)
             case 'H'
-                EstimateNaturalPeriod_and_DampingValues(Exptpath,SPAR_Postprocessing_foamStar,titlDecay,nStart,nEnd,lgd6,phaseshift,DOF)
+                EstimateNaturalPeriod_and_DampingValues(Exptpath,mac_SPAR_Postprocessing_foamStar,titlDecay,nStart,nEnd,lgd6,phaseshift,DOF)
             case 'I'
                 HeaveFD_ppcdStudy(Exptpath,SPAR_Postprocessing_foamStar,titl,ylbl,nStart,nEnd,lgd6,phaseshift)
             case 'J'

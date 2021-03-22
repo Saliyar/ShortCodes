@@ -1,8 +1,8 @@
 function [Tn,X,zeta]=logDecrement(Xaxis,Yaxis,n)
 
 
-[pks,locs] = findpeaks(Yaxis,'MinPeakHeight',0.0075,'MinPeakDistance',250);
-% length(pks)
+[pks,locs] = findpeaks(Yaxis,'MinPeakHeight',0.0075,'MinPeakDistance',700);
+length(pks)
 % FigH = figure('Position', get(0, 'Screensize'));
 % 
 % plot(Xaxis,Yaxis,Xaxis(locs),pks,'or','LineWidth',3)
@@ -26,7 +26,7 @@ end
 %% Determine the Natural period
 
 for i=1:length(pks)-1
-    Nat_period(i)=Xaxis(locs(i+1))-Xaxis(locs(i));
+    Nat_period(i)=Xaxis(locs(i+1))-Xaxis(locs(i))
 end
 
 Tn=mean(Nat_period);

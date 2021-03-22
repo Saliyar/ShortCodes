@@ -8,6 +8,7 @@ function  CompareHeaveFreedecay(Exptpath,SPAR_Postprocessing_foamStar,titl,ylbl,
    
    
    %% Modifying the Experiment resutls for starting point matching with CFD
+   pp_linear=pp_linear
    
    motion_Experiment=[pp_linear pp_rotation];
  
@@ -16,10 +17,10 @@ function  CompareHeaveFreedecay(Exptpath,SPAR_Postprocessing_foamStar,titl,ylbl,
     data=readtable(foamStarfullfile); 
     dt_motion_foamstar=data{:,1}+phaseshift;
     pp=data{:,2:end};
-    pp1=pp(:,1);%+16.95;
-    pp2=pp(:,2);%+14.84;
-    pp3=pp(:,3);%-1.535; % For Heave Free decay -1.535 moved 0.045  
-    pp5=pp(:,5);%-6.82965692; %Radian converted to degree since foamstar in degree
+    pp1=pp(:,1)+16.95;
+    pp2=pp(:,2)+14.84;
+    pp3=pp(:,3)-1.535; % For Heave Free decay -1.535 moved 0.045  
+    pp5=pp(:,5)-6.82965692; %Radian converted to degree since foamstar in degree
     
 %      Y=fft(pp3);
 %      L=length(dt_motion_foamstar{:,n});
@@ -45,7 +46,7 @@ function  CompareHeaveFreedecay(Exptpath,SPAR_Postprocessing_foamStar,titl,ylbl,
 % 
  
 %% Plotting motions
-for i=3
+for i=1:6
     
     dof6=motion_foamStar(:,i); 
     
@@ -53,24 +54,18 @@ for i=3
         dof6=dof6.*pi/180;   
     end
     
-    if (i==3)
-        dof6=dof6-0.045;
-    end
-    
     FigH = figure('Position', get(0, 'Screensize'));
 
     plot(dt_motion_foamstar,dof6,'LineWidth',3)
     
     
-    dof6=motion_Experiment(:,i);
-    dof6=dof6-dof6(1);
-    dof6=dof6-0.045;
+    dof6=motion_Experiment(:,i); 
     hold on;
 
     plot(dt_motion,dof6,'LineWidth',3)
-    xlim([phaseshift phaseshift+25])
+    xlim([phaseshift phaseshift+10])
     ylabel(ylbl{:,i},'interpreter','latex','FontSize',32)
-    xlabel('Time [s]','interpreter','latex','FontSize',32)
+    xlabel('Time [s]','FontSize',32)
     set(gca,'Fontsize',32)
     title (titl{:,i},'interpreter','latex','FontSize',32);
     % legend ('foamStar','SWENSE CoarseMesh','SWENSE SameMesh','Experiment','FontSize',32);

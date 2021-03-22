@@ -31,42 +31,39 @@ function EstimateNaturalPeriod_and_DampingValues(Exptpath,SPAR_Postprocessing_fo
    dt_expt=dt_motion(idx1:idx2);
    dt_expt=dt_expt-dt_expt(1);
    dof_expt=dof_expt-dof_expt(1);
-   
 
 
 %% Interpolate to match the timestep
 dof_foamstar1=interp1(dt_motion_foamstar,dof_foamstar,dt_expt,'cubic');
 
 %% PLot the Time series
-%    figure()
-%     plot(dt_expt,dof_foamstar1,'LineWidth',3)
-%     hold on
-%     plot(dt_expt,dof_expt,'LineWidth',3)
-%     xlim([0 phaseshift+25])
-%     ylabel('Heave FD ','interpreter','latex','FontSize',32)
-%     xlabel('Time [s]','interpreter','latex','FontSize',32)
-%     set(gca,'Fontsize',32)
-%     % title (titl{:,i},'interpreter','latex','FontSize',32);
-%     % legend ('foamStar','SWENSE CoarseMesh','SWENSE SameMesh','Experiment','FontSize',32);
-%     legend ('foamStar','Experiment','interpreter','latex','FontSize',32,'Location','southwest');
-%     grid on;
-%     pause();
+   figure()
+    plot(dt_expt,dof_foamstar1,'LineWidth',3)
+    plot(dt_expt,dof_expt,'LineWidth',3)
+    xlim([phaseshift phaseshift+20])
+    ylabel('Heave FD ','interpreter','latex','FontSize',32)
+    xlabel('Time [s]','interpreter','latex','FontSize',32)
+    set(gca,'Fontsize',32)
+    % title (titl{:,i},'interpreter','latex','FontSize',32);
+    % legend ('foamStar','SWENSE CoarseMesh','SWENSE SameMesh','Experiment','FontSize',32);
+    legend ('foamStar','Experiment','interpreter','latex','FontSize',32,'Location','southwest');
+    grid on;
+    pause();
 
 %% 
 
-    N=3; % Number of peaks to be compared for every one peak or every 2 peaks
+    N=1; % Number of peaks to be compared for every one peak or every 2 peaks
     
     [Tn,X,zeta]=logDecrement(dt_expt,dof_foamstar1,N);
-  
+    hold on;
 
     Nat_period=Tn;
-    
     figure()
     
     plot(X,zeta,'--','LineWidth',3) 
      hold on;
-     
     [Tn,X,zeta]=logDecrement(dt_expt,dof_expt,N);
+    hold on;
 
     Nat_period_expt=Tn;
     
@@ -74,11 +71,11 @@ dof_foamstar1=interp1(dt_motion_foamstar,dof_foamstar,dt_expt,'cubic');
     ylabel('\zeta[%]','FontSize',32)
     xlabel('Time [s]','interpreter','latex','FontSize',32)
     set(gca,'Fontsize',32)
-    xlim([0 25]);
+    xlim([0 20]);
     title ('Damping Ratio','interpreter','latex','FontSize',32);
-    legend ('foamStar','Experiment','interpreter','latex','FontSize',32,'Location','northeast');
+    legend (lgd6{:},'interpreter','latex','FontSize',32,'Location','northeast');
     grid on;
     hold off
-    % saveas(FigH, titlDecay{:,1},'png');
+    saveas(FigH, titlDecay{:,1},'png');
     
     

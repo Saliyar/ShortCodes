@@ -13,19 +13,19 @@ D_spar=0.45;
 D_tower=0.28;
 Coning_height=0.2;
 L_Spar=1.95;
-Mass_entered=338.8;
+
 
 
 %% VaryingInput
 Overall_Draft=2.285;
-OF_alphafieldVolume=3.6110504e+01;
+OF_alphafieldVolume=3.6110482e+01;
 Domain_Length=2.7;
 Domain_width=2.7;
 Domain_Waterdepth=5;
 Density=1000;
-
+Mass_entered=329.4;
 %% Solid Volume calucaltion
-Diff_height=Overall_Draft-L_Spar;
+Diff_height=Overall_Draft-L_Spar
 r_spar=D_spar/2;
 r_tower=D_tower/2;
 Vol_SPAR= pi/4 * D_spar^2 * L_Spar;
@@ -42,7 +42,7 @@ if (Diff_height>0.2)
 
 else
    Coning_height=Diff_height;
-    Vol_cone= 1/3 * pi * Coning_height * (r^2+r*R+R^2);
+    Vol_cone= 1/3 * pi * Coning_height * (r_tower^2+r_tower*r_spar+r_spar^2);
     Total_Volume= Vol_cone+Vol_SPAR;
 end
 
