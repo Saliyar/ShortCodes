@@ -5,37 +5,52 @@ function  HeaveFDCourantNumberstudy(Exptpath,SPAR_Postprocessing_foamStar,titl,y
    dt_motion=data4CFD.time;
    pp_linear=data4CFD.CoG_motion;
    pp_rotation=data4CFD.CoG_rotation;
-   motion_Experiment=[pp_linear pp_rotation];
+   % Removing Ramp time 
+   dt_motion=dt_motion(1260:end,:);
+   length(dt_motion)
+   motion_Experiment=[pp_linear(1260:end,:) pp_rotation(1260:end,:)];
+
+   motion_Experiment(:,3)= motion_Experiment(:,3)- motion_Experiment(1,3);
+
+   % Finding the first peak
+   [pks_expt,locs_expt] = findpeaks(motion_Experiment(:,3),'MinPeakHeight',0.01,'MinPeakDistance',1000);
+  
+   Start_index=locs_expt(1)+3
+    
+   
+   dt_motion=dt_motion(Start_index:end,:);
+   dt_motion=dt_motion-dt_motion(1);
  
+   Heave_Experiment=motion_Experiment(Start_index:end,3);
+
 %% Loading Numerical results 
 n=0;
-
+diff_timestep=0;
+Endlimit=11500;
 for j=nStart:nEnd
    n=n+1;
     SPAR_Postprocessing=[SPAR_Postprocessing_foamStar,num2str(j)];
-    foamStarfullfile=fullfile(SPAR_Postprocessing,'/postProcessing/motionInfo/0/cylinder1.dat');
+    foamStarfullfile=fullfile(SPAR_Postprocessing,'/postProcessing/motionInfo/0/cylinder1.dat')
     data=readtable(foamStarfullfile); 
-    dt_motion_foamstar{:,n}=data{1:17000,1}+phaseshift; % This number is case specific to be updated
-    pp=data{1:17000,2:end};
-    pp1=pp(:,1)+16.95;
-    pp2=pp(:,2)+14.84;
-    pp3=pp(:,3)-1.584; % For Heave Free decay -1.535 moved 0.045  
+    endtime=data{end,1}
+    [pks,locs] = findpeaks(data{:,4},'MinPeakHeight',0.0075,'MinPeakDistance',200);
+
+    if (n>1)
+        
+            diff_timestep=locs(1)-len;              
+    end
+    foamstar_time=data{locs(1):Endlimit+diff_timestep,1};
+    foamstar_time=foamstar_time-foamstar_time(1);
+    dt_motion_foamstar{:,n}= foamstar_time;% This number is case specific to be updated
     
-     Y=fft(pp3);
-     L=length(dt_motion_foamstar{:,n});
-     P2 = abs(Y/L);
-%      P1 = P2(1:L/2+1);
-%      P1(2:end-1) = 2*P1(2:end-1);
-%      Fs=100;
-%      f = Fs*(0:(L/2))/L;
-%      figure()
-%      plot(P2) 
-%     title('Single-Sided Amplitude Spectrum of X(t)')
-%     xlabel('f (Hz)')
-%     ylabel('|P1(f)|')
+    pp=data{locs(1):Endlimit+diff_timestep,2:end};
+    pp3=pp(:,3); % For Heave Free decay -1.535 moved 0.045  
     
-    pp4=[pp1 pp2 pp3 pp(:,4) pp(:,5) pp(:,6)];
-    
+    % Find the Difference in the peak
+    diff=motion_Experiment(locs_expt(1)+3,3)-pks(1);
+    pp3=pp3+diff;
+    pp4=[pp(:,1) pp(:,2) pp3 pp(:,4) pp(:,5) pp(:,6)];
+    len=locs(1);
     motion_foamStar(:,:,n)=pp4;
     % Adding for surge, Sway, Heave
     
@@ -45,29 +60,28 @@ end
 % 
 % 
 %% Plotting motions
-for i=1:6
+for i=3
     
      clear n
      n=0;
       FigH = figure('Position', get(0, 'Screensize'));
 for j=nStart:nEnd   
-    
+
     n=n+1;
     dof6=motion_foamStar(:,i,n); 
     plot(dt_motion_foamstar{:,n},dof6,'LineWidth',3)
     hold on;
 end
     
-    dof6=motion_Experiment(:,i); 
-
-    plot(dt_motion,dof6,'LineWidth',3)
-    xlim([6 26])
+  
+    plot(dt_motion,Heave_Experiment,'LineWidth',3)
+    xlim([0 10])
     ylabel(ylbl{:,i},'interpreter','latex','FontSize',32)
-    xlabel('Time [s]','FontSize',32)
+    xlabel('Time [s]','interpreter','latex','FontSize',32)
     set(gca,'Fontsize',32)
     title (titl{:,i},'interpreter','latex','FontSize',32);
-    % legend ('foamStar','SWENSE CoarseMesh','SWENSE SameMesh','Experiment','FontSize',32);
-    legend (lgd3{:},'interpreter','latex','FontSize',32,'Location','southwest');
+    legend ('Laminar','k-w SST','Experiment','interpreter','latex','FontSize',32);
+    %legend (lgd3{:},'interpreter','latex','FontSize',32,'Location','southwest');
     grid on;
     hold off
     

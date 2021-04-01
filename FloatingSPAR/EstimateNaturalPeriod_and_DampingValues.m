@@ -19,13 +19,13 @@ function EstimateNaturalPeriod_and_DampingValues(Exptpath,SPAR_Postprocessing_fo
          Ref_dt_Time(ii) = abs(dt_motion(ii) - phaseshift);
    end
 
-   idx1=find((Ref_dt_Time)<0.005&(Ref_dt_Time)>0);
-   
+   idx1=find((Ref_dt_Time)<0.005&(Ref_dt_Time)>0)
+
    for ii = 1:length(dt_motion)
-         Ref_dt_Time(ii) = abs(dt_motion(ii) - (dt_motion_foamstar(end)+phaseshift));
+         Ref_dt_Time(ii) = abs(dt_motion(ii) - round(dt_motion_foamstar(end)+phaseshift));
    end
    
-   idx2=find((Ref_dt_Time)<0.0005&(Ref_dt_Time)>0);
+   idx2=find((Ref_dt_Time)<0.0005&(Ref_dt_Time)>0)
    
    dof_expt=motion_Experiment(idx1:idx2,dof);
    dt_expt=dt_motion(idx1:idx2);
@@ -74,7 +74,7 @@ dof_foamstar1=interp1(dt_motion_foamstar,dof_foamstar,dt_expt,'cubic');
     ylabel('\zeta[%]','FontSize',32)
     xlabel('Time [s]','interpreter','latex','FontSize',32)
     set(gca,'Fontsize',32)
-    xlim([0 25]);
+    xlim([8.66 25]);
     title ('Damping Ratio','interpreter','latex','FontSize',32);
     legend ('foamStar','Experiment','interpreter','latex','FontSize',32,'Location','northeast');
     grid on;

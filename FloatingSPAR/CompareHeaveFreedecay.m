@@ -14,7 +14,7 @@ function  CompareHeaveFreedecay(Exptpath,SPAR_Postprocessing_foamStar,titl,ylbl,
 %% Loading Numerical results 
     foamStarfullfile=fullfile(SPAR_Postprocessing_foamStar,'/postProcessing/motionInfo/0/cylinder1.dat');
     data=readtable(foamStarfullfile); 
-    dt_motion_foamstar=data{:,1}+phaseshift;
+    dt_motion_foamstar=data{:,1}+phaseshift+0.124;
     pp=data{:,2:end};
     pp1=pp(:,1);%+16.95;
     pp2=pp(:,2);%+14.84;
@@ -54,7 +54,7 @@ for i=3
     end
     
     if (i==3)
-        dof6=dof6-0.045;
+        dof6=dof6-0.045+0.00776;
     end
     
     FigH = figure('Position', get(0, 'Screensize'));
@@ -68,7 +68,7 @@ for i=3
     hold on;
 
     plot(dt_motion,dof6,'LineWidth',3)
-    xlim([phaseshift phaseshift+25])
+    xlim([8.66 phaseshift+22])
     ylabel(ylbl{:,i},'interpreter','latex','FontSize',32)
     xlabel('Time [s]','interpreter','latex','FontSize',32)
     set(gca,'Fontsize',32)

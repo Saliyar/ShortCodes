@@ -18,7 +18,7 @@ close all
 clear
 
 %% Load foamStar focussing wave probe details 
-data1=load(['/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/Revision1/FreeDecay/HeaveFD/Heave_ppcd35_Rev1/postProcessing/waveProbe/0/surfaceElevation1.dat']);
+data1=load(['/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/Revision1/FreeDecay/HeaveFD/Heave_ppcd35_Rev2/postProcessing/waveProbe/0/surfaceElevation1.dat']);
 dt_foamStar1=data1(:,1);
 Eta_foamStar1=data1(:,2:end);
 %% Find the wave probe location of Second line
@@ -39,40 +39,43 @@ Fs=1/(dt_foamStar1(2)-dt_foamStar1(1));
 
 FigH = figure('Position', get(0, 'Screensize'));
 
-for i=6500:row1
-    i
-   subplot(3,1,1)
-   plot(1:col1,surfaceElevation1(i,:),'LineWidth',3)
-   xlim([0 110])
-   ff=fft(surfaceElevation1(i,:));
-   fff=ff(1:round(length(ff)/2));
-   xfft1=Fs*(0:round(length(ff)/2-1))/round(length(ff));
-   Abs_xfft1 = abs(fff)/length(xfft1);
-%    ylabel('Surface Elevation(m)','interpreter','latex','FontSize',32)
-%    xlabel('Time [s]','interpreter','latex','FontSize',32)
-%    set(gca,'Fontsize',32)
-%    title ('WaveProbe-Straightline','interpreter','latex','FontSize',32);
+%     plot(dt_foamStar1,surfaceElevation2(:,100),'LineWidth',3);
+
+for i=1:row1
    
-   subplot(3,1,2)
-   plot(1:col2,surfaceElevation2(i,:),'LineWidth',3)
-   xlim([0 110])
-   ff=fft(surfaceElevation2(i,:));
-   fff=ff(1:round(length(ff)/2));
-   xfft2=Fs*(0:round(length(ff)/2-1))/round(length(ff));
-   Abs_xfft2 = abs(fff)/length(xfft2);
+    i
+subplot(2,1,1)
+   plot(1:col1,surfaceElevation1(i,:),'LineWidth',3)
+    xlim([0 110])
+%    ff=fft(surfaceElevation1(i,:));
+%    fff=ff(1:round(length(ff)/2));
+%    xfft1=Fs*(0:round(length(ff)/2-1))/round(length(ff));
+%    Abs_xfft1 = abs(fff)/length(xfft1);
 %    ylabel('Surface Elevation(m)','interpreter','latex','FontSize',32)
 %    xlabel('Time [s]','interpreter','latex','FontSize',32)
 %    set(gca,'Fontsize',32)
-%    title ('WaveProbe-Diagonalline','interpreter','latex','FontSize',32);
-   subplot(3,1,3)
-   plot(xfft1,Abs_xfft1,'LineWidth',3)
-   hold on
-   plot(xfft2,Abs_xfft2,'LineWidth',3)
-   hold off
-   legend('ProbeLine StraightLine','ProbeLine Diagonal')
-    %xlim([0 100])
-    xlabel('Frequency (Hz)')
-    ylabel('Amplitude')
-    title('Frequency Domain signal')
-    pause(0.01)
+% %    title ('WaveProbe-Straightline','interpreter','latex','FontSize',32);
+subplot(2,1,2)
+     plot(1:col2,surfaceElevation2(i,:),'LineWidth',3)
+  xlim([0 110])
+%        ff=fft(surfaceElevation2(i,:));
+%        fff=ff(1:round(length(ff)/2));
+%        xfft2=Fs*(0:round(length(ff)/2-1))/round(length(ff));
+%        Abs_xfft2 = abs(fff)/length(xfft2);
+    %    ylabel('Surface Elevation(m)','interpreter','latex','FontSize',32)
+    %    xlabel('Time [s]','interpreter','latex','FontSize',32)
+    %    set(gca,'Fontsize',32)
+    %    title ('WaveProbe-Diagonalline','interpreter','latex','FontSize',32);
+    hold off;
+%    subplot(3,1,3)
+%    plot(xfft1,Abs_xfft1,'LineWidth',3)
+%    hold on
+%    plot(xfft2,Abs_xfft2,'LineWidth',3)
+%    hold off
+ legend('ProbeLine StraightLine','ProbeLine Diagonal')
+%     %xlim([0 100])
+%     xlabel('Frequency (Hz)')
+%     ylabel('Amplitude')
+%     title('Frequency Domain signal')
+    pause(0.001)
 end

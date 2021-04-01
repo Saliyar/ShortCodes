@@ -5,7 +5,7 @@ data=load(foamStarfullfile);
 dt_foamStar=data(:,1);
 Eta_foamStar=data(:,2:end);
 [m,n]=size(Eta_foamStar)
-probelocation=round(n/2)
+probelocation=7;
 Y_axis=Eta_foamStar(:,probelocation);
 
 %% Getting the input from CN Stream
