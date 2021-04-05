@@ -9,8 +9,8 @@ clear
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Input details
-number = '1'; % Choose the number stages 
-parameter = 'C'; % Chose the parameters to be compared
+number = '3'; % Choose the number stages 
+parameter = 'B'; % Chose the parameters to be compared
 
 %%Experiment  details
 Exptpath_mac=fullfile('/Users/sithikaliyar/Documents/PhD_testcases/SPAR/Experimental_Data/Decays/Experimental_Data/Decays/','Export4CFD_SW_SPAR_ramp_steps_0_50_p_10.mat');
@@ -50,7 +50,7 @@ nStart_Line=1;
 nEnd_Line=3;
 NumberofSegments=50;
 %% Any random 6 DOF case 
-Filelocation1=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/Revision1/AnyFloatingCase');
+Filelocation1=fullfile('/home/saliyar/Documents/PhD_testCases/FloatingSPAR/SPAR_FreeDecay/Pitch_ppcd35');
 
 %% Regular wave path
 foamstar2DRegularwavePath=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/Revision1/FreeDecay/Pitch_FD/Pitch_ppcd35/');
