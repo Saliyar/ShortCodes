@@ -9,23 +9,23 @@ clear
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Input details
-number = '3'; % Choose the number stages 
-parameter = 'B'; % Chose the parameters to be compared
+number = '1'; % Choose the number stages 
+parameter = 'C'; % Chose the parameters to be compared
 
 %%Experiment  details
-Exptpath_mac=fullfile('/Users/sithikaliyar/Documents/PhD_testcases/SPAR/Experimental_Data/Decays/Experimental_Data/Decays/','Export4CFD_SW_SPAR_ramp_steps_0_50_p_10.mat');
-Exptpath_office=fullfile('/home/saliyar/PhD_SithikAliyar/SPAR/Experimental_Data/Decays','Export4CFD_SW_SPAR_ramp_steps_0_50_p_10.mat');
+Exptpath_mac=fullfile('/Users/sithikaliyar/Documents/PhD_testcases/SPAR/Experimental_Data/Decays/Experimental_Data/Decays/','Export4CFD_SW_SPAR_decay_yaw_01_roll.mat');
+Exptpath_office=fullfile('/home/saliyar/PhD_SithikAliyar/SPAR/Experimental_Data/Decays','Export4CFD_SW_SPAR_decay_yaw_01_roll.mat');
 % ExptIndices=355212:403205;
 
 SPAR_Postprocessing_foamStar=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/Revision1/FreeDecay/HeaveFD/Heave_ppcd35_Rev');
 
 nStart=4;
 nEnd=5;
-phaseshift=6.14;
+phaseshift=30.35;
 DOF=3;
 %% Oscillation comparision 
 A=1;
-office_SPAR_Postprocessing_foamStar=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/Revision1/FreeDecay/HeaveFD/Heave_ppcd35_Rev4');
+office_SPAR_Postprocessing_foamStar=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/Revision1/FreeDecay/Pitch_FD/Pitch_ppcd35/');
 mac_SPAR_Postprocessing_foamStar=fullfile('/Users/sithikaliyar/Documents/PhD_testcases/SPAR/Floating_Body_Simulation/SPAR_FreeDecay/HeaveFD/HeaveFD');
     if (A==1)
         FileLocation=office_SPAR_Postprocessing_foamStar;
@@ -119,6 +119,8 @@ switch(number)
                  AnyWaveProbePlot(foamstar2DRegularwavePath)  
              case 'B'
                  plotanycase_6DOFmotion(Filelocation1,titl,ylbl_deg,lgd1)
+             case 'C'
+                ComparePitchFreedecay(Exptpath,FileLocation,titl,ylbl,nStart,nEnd,lgd2,phaseshift)
             end
     otherwise
     disp('Select Properly');
