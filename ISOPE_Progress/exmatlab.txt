@@ -1,0 +1,11 @@
+II = find(Signal> threshold)
+time_old = time
+
+time(II)=[];
+Signal(II)= [];
+
+
+Signal = interp1(time,Signal,time_old,'spline');
+
+figure(1)
+plot...

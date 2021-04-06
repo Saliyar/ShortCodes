@@ -1,0 +1,42 @@
+\select@language {english}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Staggered Grid}}{6}{figure.caption.4}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Multilevel Grid and Quadtree}}{8}{figure.caption.5}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Morton Keys}}{8}{figure.caption.6}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Local, Inner and Outer Blocks}}{9}{figure.caption.7}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Numerical Fluxes}}{10}{figure.caption.8}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Left and Right Fluxes}}{11}{figure.caption.9}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Weno Stencils}}{12}{figure.caption.10}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Regularized Heaviside function}}{15}{figure.caption.11}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Volume of Fluid}}{17}{figure.caption.12}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces level Set curve}}{18}{figure.caption.13}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Staggered Grid 4 cells}}{22}{figure.caption.14}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Zalesak Disk}}{26}{figure.caption.15}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Zalesak Results}}{27}{figure.caption.16}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Reinitialization CPU Time cost}}{28}{figure.caption.17}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Reinitialization CPU Time cost}}{29}{figure.caption.18}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Hydrostatic Test Case Setup}}{30}{figure.caption.19}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Hydrostatic Test Density Viscosity}}{30}{figure.caption.20}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Poisson equation convergence study}}{31}{figure.caption.21}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Linear Sloshing, interface vs. time}}{32}{figure.caption.22}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Linear Sloshing, t=4}}{32}{figure.caption.23}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Dambreak Test Setup}}{33}{figure.caption.24}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Dambreak AMR Grid}}{33}{figure.caption.25}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Dambreak AMR 2019}}{34}{figure.caption.26}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Dambreak 2019 Level Set Diffusion}}{35}{figure.caption.27}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Dambreak 2019 Denser fluid volume vs. time}}{35}{figure.caption.28}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Dambreak 2020 MUSCL - WENO Pressure field}}{36}{figure.caption.32}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Dambreak 2020 MUSCL - MUSCL Pressure field}}{37}{figure.caption.34}
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Dambreak 2020 Code t=0s}}{37}{figure.caption.35}
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Dambreak 2020 Code t=0.2s}}{38}{figure.caption.36}
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Dambreak 2020 Code t=0.5s}}{38}{figure.caption.37}
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Dambreak 2020 Code t=1s}}{39}{figure.caption.38}
+\contentsline {figure}{\numberline {5.21}{\ignorespaces Dambreak 2020 Code t=2.5s}}{39}{figure.caption.39}
+\contentsline {figure}{\numberline {5.22}{\ignorespaces Dambreak 2020 Code t=5s}}{40}{figure.caption.40}
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Dambreak 2020 Code t=7.5s}}{40}{figure.caption.41}
+\contentsline {figure}{\numberline {5.24}{\ignorespaces Dambreak 2020 Code t=10s}}{41}{figure.caption.42}
+\addvspace {10\p@ }

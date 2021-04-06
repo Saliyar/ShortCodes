@@ -1,0 +1,176 @@
+\begin{thebibliography}{10}
+
+\bibitem{petsc-user-ref}
+Satish Balay, Shrirang Abhyankar, Mark~F. Adams, Jed Brown, Peter Brune, Kris
+  Buschelman, Lisandro Dalcin, Alp Dener, Victor Eijkhout, William~D. Gropp,
+  Dmitry Karpeyev, Dinesh Kaushik, Matthew~G. Knepley, Dave~A. May,
+  Lois~Curfman McInnes, Richard~Tran Mills, Todd Munson, Karl Rupp, Patrick
+  Sanan, Barry~F. Smith, Stefano Zampini, Hong Zhang, and Hong Zhang.
+\newblock {PETS}c users manual.
+\newblock Technical Report ANL-95/11 - Revision 3.13, Argonne National
+  Laboratory, 2020.
+
+\bibitem{petsc-web-page}
+Satish Balay, Shrirang Abhyankar, Mark~F. Adams, Jed Brown, Peter Brune, Kris
+  Buschelman, Lisandro Dalcin, Alp Dener, Victor Eijkhout, William~D. Gropp,
+  Dmitry Karpeyev, Dinesh Kaushik, Matthew~G. Knepley, Dave~A. May,
+  Lois~Curfman McInnes, Richard~Tran Mills, Todd Munson, Karl Rupp, Patrick
+  Sanan, Barry~F. Smith, Stefano Zampini, Hong Zhang, and Hong Zhang.
+\newblock {PETS}c {W}eb page.
+\newblock \url{https://www.mcs.anl.gov/petsc}, 2019.
+
+\bibitem{Bardin2014}
+A.~Bardin, G.~Oger, and D.~{Le Touze}.
+\newblock {Simulation of interfacial flows using a cartesian explicit finite
+  volume solver}.
+\newblock {\em 11th World Congress on Computational Mechanics, WCCM 2014, 5th
+  European Conference on Computational Mechanics, ECCM 2014 and 6th European
+  Conference on Computational Fluid Dynamics, ECFD 2014}, (Wccm Xi):5402--5414,
+  2014.
+
+\bibitem{Bardin2015}
+Am{\'{e}}lie Bardin.
+\newblock {\em {D{\'{e}}veloppement de m{\'{e}}thodes d'interface dans un
+  solveur hydrodynamique bas{\'{e}} sur une r{\'{e}}solution volumes finis sur
+  maillage cart{\'{e}}sien en hypoth{\`{e}}se faiblement compressible}}.
+\newblock PhD thesis, 2015.
+
+\bibitem{Bigay2014}
+P~Bigay, A~Bardin, G~Oger, and D~Le~Touz{\'e}.
+\newblock {A cartesian explicit solver for complex hydrodynamic applications}.
+\newblock {\em Proceedings of the International Conference on Offshore
+  Mechanics and Arctic Engineering - OMAE}, 2:1--10, 2014.
+
+\bibitem{Bigay2015}
+Pierre Bigay.
+\newblock {\em {D{\'{e}}veloppement d'un solveur faiblement compressible sur
+  maillage cart{\'{e}}sien pour les {\'{e}}coulements hydrodynamiques autour de
+  corps}}.
+\newblock PhD thesis, 2015.
+
+\bibitem{BIHS2016191}
+Hans Bihs, Arun Kamath, Mayilvahanan~[Alagan Chella], Ankit Aggarwal, and
+  Øivind A.~Arntsen.
+\newblock A new level set numerical wave tank with improved density
+  interpolation for complex wave hydrodynamics.
+\newblock {\em Computers \& Fluids}, 140:191 -- 208, 2016.
+
+\bibitem{Brown2001}
+David~L. Brown, Ricardo Cortez, and Michael~L. Minion.
+\newblock {Accurate Projection Methods for the Incompressible Navier-Stokes
+  Equations}.
+\newblock {\em Journal of Computational Physics}, 168(2):464--499, 2001.
+
+\bibitem{chorin1968numerical}
+Alexandre~Joel Chorin.
+\newblock Numerical solution of the navier-stokes equations.
+\newblock {\em Mathematics of computation}, 22(104):745--762, 1968.
+
+\bibitem{fedkiw1999non}
+Ronald~P Fedkiw, Tariq Aslam, Barry Merriman, Stanley Osher, et~al.
+\newblock A non-oscillatory eulerian approach to interfaces in multimaterial
+  flows (the ghost fluid method).
+\newblock {\em Journal of computational physics}, 152(2):457--492, 1999.
+
+\bibitem{Grenier2013}
+N~Grenier, J.-P. Vila, and P~Villedieu.
+\newblock {An accurate low-Mach scheme for a compressible two-fluid model
+  applied to free-surface flows}.
+\newblock {\em Journal of Computational Physics}, 252:1--19, 2013.
+
+\bibitem{guermond2006overview}
+Jean-Luc Guermond, Peter Minev, and Jie Shen.
+\newblock An overview of projection methods for incompressible flows.
+\newblock {\em Computer methods in applied mechanics and engineering},
+  195(44-47):6011--6045, 2006.
+
+\bibitem{harlow1965numerical}
+Francis~H Harlow and J~Eddie Welch.
+\newblock Numerical calculation of time-dependent viscous incompressible flow
+  of fluid with free surface.
+\newblock {\em The physics of fluids}, 8(12):2182--2189, 1965.
+
+\bibitem{hartmann2008differential}
+Daniel Hartmann, Matthias Meinke, and Wolfgang Schr{\"o}der.
+\newblock Differential equation based constrained reinitialization for level
+  set methods.
+\newblock {\em Journal of Computational Physics}, 227(14):6821--6845, 2008.
+
+\bibitem{hirt1981volume}
+Cyril~W Hirt and Billy~D Nichols.
+\newblock Volume of fluid (vof) method for the dynamics of free boundaries.
+\newblock {\em Journal of computational physics}, 39(1):201--225, 1981.
+
+\bibitem{kang2000boundary}
+Myungjoo Kang, Ronald~P Fedkiw, and Xu-Dong Liu.
+\newblock A boundary condition capturing method for multiphase incompressible
+  flow.
+\newblock {\em Journal of Scientific Computing}, 15(3):323--360, 2000.
+
+\bibitem{Li2020}
+Zhe Li, Guillaume Oger, and David Le~Touzé.
+\newblock A finite volume weno scheme for immiscible inviscid two-phase flows.
+\newblock {\em Journal of Computational Physics}, page 109601, 05 2020.
+
+\bibitem{liu2000boundary}
+Xu-Dong Liu, Ronald~P Fedkiw, and Myungjoo Kang.
+\newblock A boundary condition capturing method for poisson's equation on
+  irregular domains.
+\newblock {\em Journal of computational Physics}, 160(1):151--178, 2000.
+
+\bibitem{Liu1994}
+Xu-Dong Liu, Stanley Osher, and Tony Chan.
+\newblock {Weighted Essentially Non-oscillatory Schemes}.
+\newblock {\em Journal of Computational Physics}, 115(1):200--212, 1994.
+
+\bibitem{Menard2007}
+Thibaut M{\'{e}}nard.
+\newblock {D{\'{e}}veloppement d'une m{\'{e}}thode Level Set pour le suivi
+  d'interface. Application de la rupture de jet liquide}.
+\newblock 2007.
+
+\bibitem{osher2001level}
+Stanley Osher and Ronald~P Fedkiw.
+\newblock Level set methods: an overview and some recent results.
+\newblock {\em Journal of Computational physics}, 169(2):463--502, 2001.
+
+\bibitem{osher1988fronts}
+Stanley Osher and James~A Sethian.
+\newblock Fronts propagating with curvature-dependent speed: algorithms based
+  on hamilton-jacobi formulations.
+\newblock {\em Journal of computational physics}, 79(1):12--49, 1988.
+
+\bibitem{pilliod2004second}
+James~Edward Pilliod~Jr and Elbridge~Gerry Puckett.
+\newblock Second-order accurate volume-of-fluid algorithms for tracking
+  material interfaces.
+\newblock {\em Journal of Computational Physics}, 199(2):465--502, 2004.
+
+\bibitem{temam1969approximation}
+Roger Temam.
+\newblock Sur l'approximation de la solution des {\'e}quations de navier-stokes
+  par la m{\'e}thode des pas fractionnaires (ii).
+\newblock {\em Archive for rational mechanics and analysis}, 33(5):377--385,
+  1969.
+
+\bibitem{Vittoz2018}
+Louis Vittoz.
+\newblock {\em {Contributions au d{\'{e}}veloppement d'un solveur volumes finis
+  sur grille cart{\'{e}}sienne localement raffin{\'{e}}e en vue d'application
+  {\`{a}} l'hydrodynamique navale}}.
+\newblock PhD thesis, 2018.
+
+\bibitem{Zalesak1979}
+Steven~T. Zalesak.
+\newblock {Fully Multidimensional Flux-Corrected Transport Algorithms for
+  Fluids}.
+\newblock {\em Journal of computational physics}, 31(3):335--362, 1979.
+
+\bibitem{Zuzio2020}
+Davide Zuzio, Annagrazia Orazzo, Jean~Luc Estival{\`{e}}zes, and Isabelle
+  Lagrange.
+\newblock {A new efficient momentum preserving Level-Set/VOF method for high
+  density and momentum ratio incompressible two-phase flows}.
+\newblock {\em Journal of Computational Physics}, 410:109342, 2020.
+
+\end{thebibliography}

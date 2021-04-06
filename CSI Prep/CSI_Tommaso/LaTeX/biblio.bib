@@ -1,0 +1,352 @@
+@phdthesis{Vittoz2018,
+  author = {Vittoz, Louis},
+  pages = {272},
+  title = {{Contributions au d{\'{e}}veloppement d'un solveur volumes finis sur grille cart{\'{e}}sienne localement raffin{\'{e}}e en vue d'application {\`{a}} l'hydrodynamique navale}},
+  year = {2018}
+  school={Ecole centrale de Nantes}
+}
+
+@phdthesis{Bigay2015,
+  author = {Bigay, Pierre},
+  number = {498},
+  pages = {183},
+  title = {{D{\'{e}}veloppement d'un solveur faiblement compressible sur maillage cart{\'{e}}sien pour les {\'{e}}coulements hydrodynamiques autour de corps}},
+  year = {2015}
+}
+
+@phdthesis{Bardin2015,
+  author = {Bardin, Am{\'{e}}lie},
+  pages = {167},
+  title = {{D{\'{e}}veloppement de m{\'{e}}thodes d'interface dans un solveur hydrodynamique bas{\'{e}} sur une r{\'{e}}solution volumes finis sur maillage cart{\'{e}}sien en hypoth{\`{e}}se faiblement compressible}},
+  year = {2015}
+}
+
+@article{Bigay2014,
+  abstract = {Copyright {\textcopyright} 2014 by ASME. In order to efficiently address complex problems in hydrodynamics, the advances in the development of a new method are presented here. This method aims at finding a good compromise between computational efficiency, accuracy, and easy handling of complex geometries. The chosen method is an Explicit Cartesian Finite Volume method for Hydrodynamics (ECFVH) based on a compressible (hyperbolic) solver, with a ghost-cell method for geometry handling and a Level-set method for the treatment of biphase-flows. The explicit nature of the solver is obtained through a weakly-compressible approach chosen to simulate nearly-incompressible flows. The explicit cell-centered resolution allows for an efficient solving of very large simulations together with a straightforward handling of multi-physics. A characteristic flux method for solving the hyperbolic part of the Navier-Stokes equations is used. The treatment of arbitrary geometries is addressed in the hyperbolic and viscous framework. Viscous effects are computed via a finite difference computation of viscous fluxes and turbulent effects are addressed via a Large-Eddy Simulation method (LES). The Level-Set solver used to handle biphase flows is also presented. The solver is validated on 2-D test cases (flow past a cylinder, 2-D dam break) and future improvements are discussed.},
+  doi = {10.1115/OMAE2014-24680},
+  file = {:home/tzanelli/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Bigay et al. - 2014 - A cartesian explicit solver for complex hydrodynamic applications.pdf:pdf},
+  isbn = {9780791845400},
+  journal = {Proceedings of the International Conference on Offshore Mechanics and Arctic Engineering - OMAE},
+mendeley-groups = {BiblioAmelieBardinMultphase},
+  pages = {1--10},
+  volume = {2},
+  title = {{A cartesian explicit solver for complex hydrodynamic applications}},
+  title={A cartesian explicit solver for complex hydrodynamic applications},
+  author={Bigay, P and Bardin, A and Oger, G and Le Touz{\'e}, D},
+  year={2014},
+}
+
+@article{Bardin2014,
+  abstract = {An explicit Cartesian finite volume method is currently under development in trhe LHEEA Lab. [1] [2] . These developments are based on a weakly compressible cell centered scheme where second-order accuracy is provided by using a MUSCL [3] scheme together with various limiters for the hyperbolic part. This paper deals with introducing the method retained for simulating interfacial flows with this model. Among the various Eulerian methods available for the simulation of interfacial flows, we compare the Level Set (LS) method [4] and the Accurate Conservative Level Set (ACLS) method [5] . These techniques are both based on the convection of a distance function following the velocity field. The LS method has many advantages in terms of interface description, access to interface properties (normal and curvature). Its main drawback relies on the possible lack of mass conservation. In order to address this problem, the ACLS method uses a hyperbolic tangent function instead of the distance function, ensuring a reduction of errors. In this paper, these two methods are compared, through four criteria: diffusion of the interface, mass conservation, accuracy and CPU performances.},
+  author = {Bardin, A. and Oger, G. and {Le Touze}, D.},
+file = {:home/tzanelli/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Bardin, Oger, Le Touze - 2014 - Simulation of interfacial flows using a cartesian explicit finite volume solver.pdf:pdf},
+  isbn = {9788494284472},
+  journal = {11th World Congress on Computational Mechanics, WCCM 2014, 5th European Conference on Computational Mechanics, ECCM 2014 and 6th European Conference on Computational Fluid Dynamics, ECFD 2014},
+keywords = {ACLS,Interfacial flows,Level-Set,Multiphase Level Set,Pseudo-compressible},
+mendeley-groups = {BiblioAmelieBardinMultphase},
+mendeley-tags = {Multiphase Level Set},
+  number = {Wccm Xi},
+  pages = {5402--5414},
+  title = {{Simulation of interfacial flows using a cartesian explicit finite volume solver}},
+  year = {2014}
+}
+
+@article{Menard2007,
+abstract = {Ce m{\'{e}}moire pr{\'{e}}sente des d{\'{e}}veloppements d'une simulation num{\'{e}}rique directe pour l'{\'{e}}tude de l'atomisation des jets liquides. Une m{\'{e}}thode Level Set, pour d{\'{e}}crire l'interface, est coupl{\'{e}}e {\`{a}} la m{\'{e}}thode Ghost Fluid, pour prendre en compte les discontinuit{\'{e}}s {\`{a}} sa travers{\'{e}}e. Cette approche est appliqu{\'{e}}e {\`{a}} l'{\'{e}}tude de jets liquides dans le r{\'{e}}gime de Rayleigh. L'accord entre les simulations et diff{\'{e}}rents r{\'{e}}sultats th{\'{e}}oriques et exp{\'{e}}rimentaux montre l'int{\'{e}}r{\^{e}}t d'une telle approche. Cependant, la m{\'{e}}thode Level Set pr{\'{e}}sente comme principale contrainte de ne pas {\^{e}}tre conservative en masse et voit son domaine d'application limit{\'{e}} {\`{a}} l'{\'{e}}tude des jets {\`{a}} faible vitesse. Le couplage VOF/Level Set est ici d{\'{e}}velopp{\'{e}} et permet de palier ce d{\'{e}}faut. Ce couplage est test{\'{e}} dans des configurations acad{\'{e}}miques afin d'{\^{e}}tre valid{\'{e}} et de lui apporter diff{\'{e}}rentes am{\'{e}}liorations. Le code de calcul est alors appliqu{\'{e}} {\`{a}} une {\'{e}}tude sur l'atomisation d'un jet liquide haute vitesse. Des donn{\'{e}}es statistiques sont extraites afin d'aider {\`{a}} la mod{\'{e}}lisation de l'atomisation primaire o{\`{u}} des {\'{e}}tudes ont {\'{e}}t{\'{e}} men{\'{e}}es en collaboration avec des {\'{e}}quipes d{\'{e}}veloppant de tels outils. Des simulations sont extraits des s{\'{e}}quences d'images montrant diff{\'{e}}rents m{\'{e}}canismes de formation de gouttes montrant la diversit{\'{e}} et la complexit{\'{e}} de ces m{\'{e}}canismes dans les conditions {\'{e}}tudi{\'{e}}es. Les limitations et les apports d'une telle approche sont finalement discut{\'{e}}s},
+author = {M{\'{e}}nard, Thibaut},
+file = {:home/tzanelli/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/M{\'{e}}nard - 2007 - D{\'{e}}veloppement d'une m{\'{e}}thode Level Set pour le suivi d'interface. Application de la rupture de jet liquide.pdf:pdf},
+mendeley-groups = {BiblioAmelieBardinMultphase},
+title = {{D{\'{e}}veloppement d'une m{\'{e}}thode Level Set pour le suivi d'interface. Application de la rupture de jet liquide}},
+url = {http://www.coria.fr/spip.php?article468{\&}lang=en},
+year = {2007}
+}
+
+@article{kang2000boundary,
+  abstract = {In [6], the Ghost Fluid Method (GFM) was developed to capture the boundary conditions at a contact discontinuity in the inviscid compressible Euler equations. In [11], related techniques were used to develop a boundary condition capturing approach for the variable coefficient Poisson equation on domains with an embedded interface. In this paper, these new numerical techniques are extended to treat multiphase incompressible flow including the effects of viscosity, surface tension and gravity. While the most notable finite difference techniques for multiphase incompressible flow involve numerical smearing of the equations near the interface, see, e.g., [19, 17, 1], this new approach treats the interface in a sharp fashion.},
+  file = {:home/tzanelli/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Kang, Ronald P. Fedkiw - 2000 - A boundary condition capturing method for multiphase flow.pdf:pdf},
+  isbn = {1563478072},
+keywords = {incompressible flow,interfaces,mixtures,poisson equation,two-phase flow,water 6 air},
+  title={A boundary condition capturing method for multiphase incompressible flow},
+  author={Kang, Myungjoo and Fedkiw, Ronald P and Liu, Xu-Dong},
+  journal={Journal of Scientific Computing},
+  volume={15},
+  number={3},
+  pages={323--360},
+  year={2000},
+  publisher={Springer}    
+}
+
+@article{liu2000boundary,
+  abstract = {Interfaces have a variety of boundary conditions (or jump conditions) that need to be enforced. The Ghost Fluid Method (GFM) was developed to capture the boundary conditions at a contact discontinuity in the inviscid Euler equations and has been extended to treat more general discontinuities such as shocks, detonations, and deflagrations and compressible viscous flows. In this paper, a similar boundary condition capturing approach is used to develop a new numerical method for the variable coefficient Poisson equation in the presence of interfaces where both the variable coefficients and the solution itself may be discontinuous. This new method is robust and easy to implement even in three spatial dimensions. Furthermore, the coefficient matrix of the associated linear system is the standard symmetric matrix for the variable coefficient Poisson equation in the absence of interfaces allowing for straightforward application of standard "black box" solvers. {\textcopyright} 2000 Academic Press.},
+  doi = {10.1006/jcph.2000.6444},
+  file = {:home/tzanelli/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Liu, Fedkiw, Kang - 2000 - A Boundary Condition Capturing Method for Poisson's Equation on Irregular Domains.pdf:pdf},
+  issn = {00219991},
+  title={A boundary condition capturing method for Poisson's equation on irregular domains},
+  author={Liu, Xu-Dong and Fedkiw, Ronald P and Kang, Myungjoo},
+  journal={Journal of computational Physics},
+  volume={160},
+  number={1},
+  pages={151--178},
+  year={2000},
+  publisher={Elsevier}
+}
+
+@article{osher2001level,
+  file = {:home/tzanelli/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Osher, Fedkiw - 2001 - Level set methods overview and recent results.pdf:pdf},
+keywords = {Multiphase Level Set},
+mendeley-tags = {Multiphase Level Set},
+  title = {Level set methods: an overview and some recent results},
+  author={Osher, Stanley and Fedkiw, Ronald P},
+  journal={Journal of Computational physics},
+  volume={169},
+  number={2},
+  pages={463--502},
+  year={2001},
+  publisher={Elsevier}
+  url = {http://www.ipam.ucla.edu/publications/gbm2001/gbmtut{\_}sosher.pdf},
+}
+
+@article{osher1988fronts,
+  abstract = {Mycotoxins are small (MW approximately 700), toxic chemical products formed as secondary metabolites by a few fungal species that readily colonise crops and contaminate them with toxins in the field or after harvest. Ochratoxins and Aflatoxins are mycotoxins of major significance and hence there has been significant research on broad range of analytical and detection techniques that could be useful and practical. Due to the variety of structures of these toxins, it is impossible to use one standard technique for analysis and/or detection. Practical requirements for high-sensitivity analysis and the need for a specialist laboratory setting create challenges for routine analysis. Several existing analytical techniques, which offer flexible and broad-based methods of analysis and in some cases detection, have been discussed in this manuscript. There are a number of methods used, of which many are lab-based, but to our knowledge there seems to be no single technique that stands out above the rest, although analytical liquid chromatography, commonly linked with mass spectroscopy is likely to be popular. This review manuscript discusses (a) sample pre-treatment methods such as liquid-liquid extraction (LLE), supercritical fluid extraction (SFE), solid phase extraction (SPE), (b) separation methods such as (TLC), high performance liquid chromatography (HPLC), gas chromatography (GC), and capillary electrophoresis (CE) and (c) others such as ELISA. Further currents trends, advantages and disadvantages and future prospects of these methods have been discussed.},
+archivePrefix = {arXiv},
+arxivId = {arXiv:1011.1669v3},
+  author={Osher, Stanley and Sethian, James A},
+  doi = {10.1007/s13398-014-0173-7.2},
+  eprint = {arXiv:1011.1669v3},
+  file = {:home/tzanelli/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Stanley Osher - Unknown - Fronts Propagating with Curvature Dependent Speed Algorithms Based on Hamilton-Jacobi Formulations.pdf:pdf},
+  isbn = {9780874216561},
+  issn = {0717-6163},
+  journal={Journal of computational physics},
+  keywords = {Bott},
+  mendeley-groups = {BiblioAmelieBardinMultphase},
+  number = {1},
+  pages={12--49},
+  pmid = {15003161},
+  title = {Fronts propagating with curvature-dependent speed: algorithms based on Hamilton-Jacobi formulations},
+  volume = {79},
+  year = {1988}
+}
+
+@article{Zalesak1979,
+  author = {Zalesak, Steven T.},
+  file = {:home/tzanelli/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Computational - 1979 - Axi = {\$}(x{\~{}}{\~{}}-.pdf:pdf},
+  mendeley-groups = {BiblioAmelieBardinMultphase},
+  title = {{Fully Multidimensional Flux-Corrected Transport Algorithms for Fluids}},
+  journal={Journal of computational physics},
+  volume={31},
+  number={3},
+  pages={335--362},
+  year={1979},
+  publisher={Academic Press}
+}
+
+@article{chorin1968numerical,
+  title={Numerical solution of the Navier-Stokes equations},
+  author={Chorin, Alexandre Joel},
+  journal={Mathematics of computation},
+  volume={22},
+  number={104},
+  pages={745--762},
+  year={1968}
+}
+
+@article{temam1969approximation,
+  title={Sur l'approximation de la solution des {\'e}quations de Navier-Stokes par la m{\'e}thode des pas fractionnaires (II)},
+  author={Temam, Roger},
+  journal={Archive for rational mechanics and analysis},
+  volume={33},
+  number={5},
+  pages={377--385},
+  year={1969},
+  publisher={Springer}
+}
+
+@Misc{petsc-web-page,
+  author = {Satish Balay and Shrirang Abhyankar and Mark~F. Adams and Jed Brown and Peter Brune and Kris Buschelman and Lisandro Dalcin and Alp Dener and Victor Eijkhout and William~D. Gropp and Dmitry Karpeyev and Dinesh Kaushik and Matthew~G. Knepley and Dave~A. May and Lois Curfman McInnes and Richard Tran Mills and Todd Munson and Karl Rupp and Patrick Sanan and Barry~F. Smith and Stefano Zampini and Hong Zhang and Hong Zhang},
+  title =  {{PETS}c {W}eb page},
+  url =    {https://www.mcs.anl.gov/petsc},
+  howpublished = {\url{https://www.mcs.anl.gov/petsc}},
+  year = {2019}
+}
+
+@TechReport{petsc-user-ref,
+  author = {Satish Balay and Shrirang Abhyankar and Mark~F. Adams and Jed Brown and Peter Brune and Kris Buschelman and Lisandro Dalcin and Alp Dener and Victor Eijkhout and William~D. Gropp and Dmitry Karpeyev and Dinesh Kaushik and Matthew~G. Knepley and Dave~A. May and Lois Curfman McInnes and Richard Tran Mills and Todd Munson and Karl Rupp and Patrick Sanan and Barry~F. Smith and Stefano Zampini and Hong Zhang and Hong Zhang},
+  title  = {{PETS}c Users Manual},
+  institution = {Argonne National Laboratory},
+  year   = 2020,
+  number = {ANL-95/11 - Revision 3.13},
+  url    = {https://www.mcs.anl.gov/petsc}
+}
+
+%----VOF references-------------------------------------------------------------------------------
+
+@article{hirt1981volume,
+  title={Volume of fluid (VOF) method for the dynamics of free boundaries},
+  author={Hirt, Cyril W and Nichols, Billy D},
+  journal={Journal of computational physics},
+  volume={39},
+  number={1},
+  pages={201--225},
+  year={1981},
+  publisher={Citeseer}
+}
+
+@article{pilliod2004second,
+  title={Second-order accurate volume-of-fluid algorithms for tracking material interfaces},
+  author={Pilliod Jr, James Edward and Puckett, Elbridge Gerry},
+  journal={Journal of Computational Physics},
+  volume={199},
+  number={2},
+  pages={465--502},
+  year={2004},
+  publisher={Elsevier}
+}
+
+%-------------------------------------------------------------------------------------------------
+
+@article{harlow1965numerical,
+  title={Numerical calculation of time-dependent viscous incompressible flow of fluid with free surface},
+  author={Harlow, Francis H and Welch, J Eddie},
+  journal={The physics of fluids},
+  volume={8},
+  number={12},
+  pages={2182--2189},
+  year={1965},
+  publisher={American Institute of Physics}
+}
+
+@article{guermond2006overview,
+  title={An overview of projection methods for incompressible flows},
+  author={Guermond, Jean-Luc and Minev, Peter and Shen, Jie},
+  journal={Computer methods in applied mechanics and engineering},
+  volume={195},
+  number={44-47},
+  pages={6011--6045},
+  year={2006},
+  publisher={Elsevier}
+}
+
+@article{hartmann2008differential,
+  title={Differential equation based constrained reinitialization for level set methods},
+  author={Hartmann, Daniel and Meinke, Matthias and Schr{\"o}der, Wolfgang},
+  journal={Journal of Computational Physics},
+  volume={227},
+  number={14},
+  pages={6821--6845},
+  year={2008},
+  publisher={Elsevier}
+}
+
+% Ghost fluid method
+@article{fedkiw1999non,
+  title={A non-oscillatory Eulerian approach to interfaces in multimaterial flows (the ghost fluid method)},
+  author={Fedkiw, Ronald P and Aslam, Tariq and Merriman, Barry and Osher, Stanley and others},
+  journal={Journal of computational physics},
+  volume={152},
+  number={2},
+  pages={457--492},
+  year={1999},
+  publisher={Citeseer}
+}
+
+% The discontinuous Poisson eqt.
+@article{liu2000boundary,
+  title={A boundary condition capturing method for Poisson's equation on irregular domains},
+  author={Liu, Xu-Dong and Fedkiw, Ronald P and Kang, Myungjoo},
+  journal={Journal of computational Physics},
+  volume={160},
+  number={1},
+  pages={151--178},
+  year={2000},
+  publisher={Elsevier}
+}
+
+% Mentions delta functions. Discusses whether to interpolate the density or the level-set at the cell faces
+@article{BIHS2016191,
+  title = "A new level set numerical wave tank with improved density interpolation for complex wave hydrodynamics",
+  journal = "Computers \& Fluids",
+  volume = "140",
+  pages = "191 - 208",
+  year = "2016",
+  issn = "0045-7930",
+  doi = "https://doi.org/10.1016/j.compfluid.2016.09.012",
+  url = "http://www.sciencedirect.com/science/article/pii/S0045793016302729",
+  author = "Hans Bihs and Arun Kamath and Mayilvahanan [Alagan Chella] and Ankit Aggarwal and Øivind A. Arntsen",
+keywords = "Numerical wave tank, Wave propagation, Wave hydrodynamics, Breaking waves, Wave forces",
+abstract = "A new three-dimensional numerical wave tank is developed for the calculation of wave propagation and wave hydrodynamics by solving the incompressible Navier–Stokes equations. The free surface is modeled with the level set method based on a two-phase flow approximation, allowing for the simulation of complex phenomena such as wave breaking. The convection terms of the momentum and the level set equations are discretized with the finite difference version of the fifth-order WENO scheme. Time stepping is handled with the third-order TVD Runge–Kutta scheme. The equations are solved on a staggered Cartesian grid, with a ghost cell immersed boundary method for the treatment of irregular cells. Waves are generated at the inlet and dissipated at the numerical beach with the relaxation method. The choice of the numerical grid and discretization methods leads to excellent accuracy and stability for the challenging calculation of free surface waves. The performance of the numerical model is validated and verified through several benchmark cases: solitary wave interaction with a rectangular abutment, wave forces on a vertical cylinder, wave propagation over a submerged bar and plunging breaking waves on a sloping bed."
+}
+
+% Mentions conservative/non-conservative formulations of the transport eqt. for the level-set
+@article{Zuzio2020,
+  abstract = {Many two-phase flows relevant to natural and industrial applications are characterized by high density ratios and high shears at the interface. These peculiarities make numerical simulations of such kind of flows still challenging. In particular, incompressible Level-Set/Volume-of-Fluid-based solvers are affected by the onset of diverging spurious velocities close to the interface. In this paper a new strategy, able to overcome these numerical instabilities, is described for staggered Cartesian grids. In order to achieve a consistent mass-momentum advection, a new auxiliary continuity equation is introduced and resolved along the momentum equations in the velocity control volumes. The mass fluxes are evaluated through the Volume-of-Fluid color function and directly used to calculate the momentum convective term. Several high-density test cases (the density ratio going from 103 to 106) are presented: the new algorithm shows significant improvements in stability and accuracy over the standard velocity based advection methods, together with a very low increase in computational time, estimated at 5{\%}÷10{\%}. Therefore, it is suitable to simulate more complex and realistic high density ratio two-phase flows, such as the       breakup of a liquid jet in cross-flow here described.},
+  author = {Zuzio, Davide and Orazzo, Annagrazia and Estival{\`{e}}zes, Jean Luc and Lagrange, Isabelle},
+  doi = {10.1016/j.jcp.2020.109342},
+  file = {:media/tzanelli/USB DISK/Academic/OtherArticles/2018-D{\_}Zuzio{\_}A{\_}Orazzo{\_}JL{\_}Estivalezes{\_}I{\_}Lagrange.pdf:pdf},
+  issn = {10902716},
+  journal = {Journal of Computational Physics},
+  keywords = {Coupled Level-Set Volume of Fluid,High density ratio,Mass-momentum consistency,Momentum conservation,Navier-Stokes,Two-phase flows},
+  pages = {109342},
+  publisher = {Elsevier Inc.},
+  title = {{A new efficient momentum preserving Level-Set/VOF method for high density and momentum ratio incompressible two-phase flows}},
+  url = {https://doi.org/10.1016/j.jcp.2020.109342},
+  volume = {410},
+  year = {2020}
+}
+
+% On the multiphase in the weakly-compressible version
+@article{Li2020,
+  author = {Li, Zhe and Oger, Guillaume and Le Touzé, David},
+  year = {2020},
+  month = {05},
+  pages = {109601},
+  title = {A finite volume WENO scheme for immiscible inviscid two-phase flows},
+  journal = {Journal of Computational Physics},
+  doi = {10.1016/j.jcp.2020.109601}
+}
+
+@article{Liu1994,
+	abstract = {In this paper we introduce a new version of ENO (essentially non-oscillatory) shock-capturing schemes which we call weighted ENO. The main new idea is that, instead of choosing the "smoothest" stencil to pick one interpolating polynomial for the ENO reconstruction, we use a convex combination of all candidates to achieve the essentially non-oscillatory property, while additionally obtaining one order of improvement in accuracy. The resulting weighted ENO schemes are based on cell averages and a TVD Runge-Kutta time discretization. Preliminary encouraging numerical experiments are given.},
+	author = {Liu, Xu-Dong and Osher, Stanley and Chan, Tony},
+	doi = {https://doi.org/10.1006/jcph.1994.1187},
+	issn = {0021-9991},
+	journal = {Journal of Computational Physics},
+	number = {1},
+	pages = {200--212},
+	title = {{Weighted Essentially Non-oscillatory Schemes}},
+	url = {http://www.sciencedirect.com/science/article/pii/S0021999184711879},
+	volume = {115},
+	year = {1994}
+}
+
+% Linear Sloshing
+@article{Grenier2013,
+	abstract = {Classical approximate Riemann solvers are known to be too much dissipative in the low-Mach number regime. For this reason, since the Mach number in liquids is generally very small, usual upwind schemes may provide inaccurate solutions when applied to the simulation of two-phase flows. In this paper, to circumvent this difficulty while keeping a compressible model for the description of both gas and liquid, an original accurate low-Mach scheme is introduced and theoretically studied. Extending some ideas already used for the gas dynamics system, the proposed scheme is based on a centred formulation for the pressure gradient term in the momentum equation and on the introduction of a stabilising term proportional to the pressure difference between two neighbouring cells. The scheme stability is ensured, and theoretically proved under a convective CFL-like condition, by using a semi-implicit time discretisation algorithm. Finally, the correct asymptotic behaviour of the scheme in the limit of small Mach numbers is assessed on several academic test cases.},
+	author = {Grenier, N and Vila, J.-P. and Villedieu, P},
+	doi = {https://doi.org/10.1016/j.jcp.2013.06.008},
+	file = {:media/tzanelli/USB DISK/Academic/OtherArticles/Suggested/2013{\_}N{\_}Grenier{\_}J{\_}P{\_}Vila{\_}P{\_}Villedieu.pdf:pdf},
+	issn = {0021-9991},
+	journal = {Journal of Computational Physics},
+	keywords = {Free-surface flows,Low-Mach number,Relaxation scheme,Two-fluid flows},
+	pages = {1--19},
+	title = {{An accurate low-Mach scheme for a compressible two-fluid model applied to free-surface flows}},
+	url = {http://www.sciencedirect.com/science/article/pii/S0021999113004312},
+	volume = {252},
+	year = {2013}
+}
+
+% Projection methods (Zhe suggestion)
+@article{Brown2001,
+	abstract = {This paper considers the accuracy of projection method approximations to the initial-boundary-value problem for the incompressible Navier-Stokes equations. The issue of how to correctly specify numerical boundary conditions for these methods has been outstanding since the birth of the second-order methodology a decade and a half ago. It has been observed that while the velocity can be reliably computed to second-order accuracy in time and space, the pressure is typically only first-order accurate in the L∞-norm. This paper identifies the source of this problem in the interplay of the global pressure-update formula with the numerical boundary conditions and presents an improved projection algorithm which is fully second-order accurate, as demonstrated by a normal mode analysis and numerical experiments. In addition, a numerical method based on a gauge variable formulation of the incompressible Navier-Stokes equations, which provides another option for obtaining fully second-order convergence in both velocity and pressure, is discussed. The connection between the boundary conditions for projection methods and the gauge method is explained in detail. {\textcopyright} 2001 Academic Press.},
+	author = {Brown, David L. and Cortez, Ricardo and Minion, Michael L.},
+	doi = {10.1006/jcph.2001.6715},
+	file = {:media/tzanelli/USB DISK/Academic/OtherArticles/Suggested/2001{\_}D{\_}L{\_}Brown{\_}R{\_}Cortez{\_}M{\_}L{\_}Minion.pdf:pdf},
+	issn = {00219991},
+	journal = {Journal of Computational Physics},
+	keywords = {Boundary conditions,Incompressible flow,Projection method},
+	mendeley-groups = {BibliograpyLouisThesis},
+	number = {2},
+	pages = {464--499},
+	title = {{Accurate Projection Methods for the Incompressible Navier-Stokes Equations}},
+	volume = {168},
+	year = {2001}
+}

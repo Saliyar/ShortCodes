@@ -5,7 +5,7 @@ data=load(foamStarfullfile);
 dt_foamStar=data(:,1);
 Eta_foamStar=data(:,2:end);
 [m,n]=size(Eta_foamStar)
-probelocation=7;
+probelocation=100;
 Y_axis=Eta_foamStar(:,probelocation);
 
 %% Getting the input from CN Stream
@@ -23,7 +23,7 @@ ylabel('Elevation(m)','FontSize',32,'interpreter','latex')
 xlabel('Time [s]','FontSize',32,'interpreter','latex')
 % xlim([0.5 15])
 set(gca,'Fontsize',32)
-title('Radiated wave' ,'FontSize',32,'interpreter','latex')
+title('Incident wave' ,'FontSize',32,'interpreter','latex')
 % legend ('foamStar','Experiment','FontSize',32,'interpreter','latex');
 grid on;
 hold off;

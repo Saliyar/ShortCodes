@@ -1,0 +1,68 @@
+This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: Report.aux
+The style file: plain.bst
+Database file #1: biblio.bib
+I was expecting a `,' or a `}'---line 6 of file biblio.bib
+ :   
+ :   school={Ecole centrale de Nantes}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--I'm ignoring Bigay2014's extra "title" field
+--line 34 of file biblio.bib
+I was expecting a `,' or a `}'---line 106 of file biblio.bib
+ :   
+ :   url = {http://www.ipam.ucla.edu/publications/gbm2001/gbmtut{\_}sosher.pdf},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 253 of file biblio.bib
+ : @article{liu2000boundary
+ :                         ,
+I'm skipping whatever remains of this entry
+Warning--there's a number but no volume in Bardin2014
+Warning--empty school in Bardin2015
+Warning--empty school in Bigay2015
+Warning--empty journal in Menard2007
+Warning--empty school in Vittoz2018
+You've used 27 entries,
+            2118 wiz_defined-function locations,
+            683 strings with 9505 characters,
+and the built_in function-call counts, 10108 in all, are:
+= -- 975
+> -- 614
+< -- 2
++ -- 249
+- -- 216
+* -- 837
+:= -- 1754
+add.period$ -- 81
+call.type$ -- 27
+change.case$ -- 185
+chr.to.int$ -- 0
+cite$ -- 32
+duplicate$ -- 297
+empty$ -- 660
+format.name$ -- 216
+if$ -- 1984
+int.to.chr$ -- 0
+int.to.str$ -- 27
+missing$ -- 22
+newline$ -- 138
+num.names$ -- 54
+pop$ -- 155
+preamble$ -- 1
+purify$ -- 161
+quote$ -- 0
+skip$ -- 204
+stack$ -- 0
+substring$ -- 648
+swap$ -- 39
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 108
+warning$ -- 5
+while$ -- 93
+width$ -- 29
+write$ -- 293
+(There were 3 error messages)
