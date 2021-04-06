@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!-- WEC-Sim Visualization using ParaView -->
+<!--   model: Catenary Mooring single case - ran on 06-Apr-2021 -->
+<!--   mooring:  MoorDyn -->
+<!--   time:  99.99 -->
+<VTKFile type="PolyData" version="0.1">
+  <PolyData>
+    <Piece NumberOfPoints="11" NumberOfLines="10">
+      <Points>
+        <DataArray type="Float32" NumberOfComponents="3" format="ascii">
+          -325.00000 0.00000 -350.00000
+          -275.93700 0.00000 -340.34800
+          -230.15300 0.00000 -320.24500
+          -188.80800 0.00000 -292.12100
+          -152.00700 0.00000 -258.26700
+          -119.39000 0.00000 -220.36400
+          -90.34210 0.00000 -179.66100
+          -64.31480 0.00000 -136.96300
+          -40.82860 0.00000 -92.81470
+          -19.49930 0.00000 -47.58450
+          0.00000 0.00000 -1.53500
+        </DataArray>
+      </Points>
+      <Lines>
+        <DataArray type="Int32" Name="connectivity" format="ascii">
+          0 1
+          1 2
+          2 3
+          3 4
+          4 5
+          5 6
+          6 7
+          7 8
+          8 9
+          9 10
+        </DataArray>
+        <DataArray type="Int32" Name="offsets" format="ascii">
+          2 4 6 8 10 12 14 16 18 20
+        </DataArray>
+      </Lines>
+      <CellData>
+        <DataArray type="Float32" Name="Segment Tension" NumberOfComponents="1" format="ascii">
+          606582          649900          719873          809436          912889          1026060          1146000          1270810          1399220          1530340
+        </DataArray>
+      </CellData>
+    </Piece>
+  </PolyData>
+</VTKFile>

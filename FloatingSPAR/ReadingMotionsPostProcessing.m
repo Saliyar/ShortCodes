@@ -10,7 +10,7 @@ clear
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Input details
 number = '3'; % Choose the number stages 
-parameter = 'C'; % Chose the parameters to be compared
+parameter = 'B'; % Chose the parameters to be compared
 
 %%Experiment  details
 Exptpath_mac=fullfile('/Users/sithikaliyar/Documents/PhD_testcases/SPAR/Experimental_Data/Decays/Experimental_Data/Decays/','Export4CFD_SW_SPAR_ramp_steps_0_50_p_10.mat');
@@ -25,7 +25,7 @@ phaseshift=6.14;
 DOF=3;
 %% Oscillation comparision 
 A=1;
-office_SPAR_Postprocessing_foamStar=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/Revision1/FreeDecay/HeaveFD/ForcedOscillation_omega/omega1_3');
+office_SPAR_Postprocessing_foamStar=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/Revision1/FreeDecay/HeaveFD/Heave_ppcd35_Rev4');
 mac_SPAR_Postprocessing_foamStar=fullfile('/Users/sithikaliyar/Documents/PhD_testcases/SPAR/Floating_Body_Simulation/SPAR_FreeDecay/HeaveFD/HeaveFD');
     if (A==1)
         FileLocation=office_SPAR_Postprocessing_foamStar;
@@ -50,7 +50,7 @@ nStart_Line=1;
 nEnd_Line=3;
 NumberofSegments=50;
 %% Any random 6 DOF case 
-Filelocation1=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/Revision1/FreeDecay/Pitch_FD/Pitch_ppcd35');
+Filelocation1=fullfile('/home/saliyar/Documents/PhD_testCases/FloatingSPAR/SPAR_FreeDecay/Pitch_ppcd35');
 
 %% Regular wave path
 foamstar2DRegularwavePath=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/Revision1/FreeDecay/Pitch_FD/Pitch_ppcd35/');
@@ -116,11 +116,9 @@ switch(number)
     case '3'
          switch(parameter)
             case 'A'
-                 AnyWaveProbePlot(Filelocation1)  
+                 AnyWaveProbePlot(foamstar2DRegularwavePath)  
              case 'B'
                  plotanycase_6DOFmotion(Filelocation1,titl,ylbl_deg,lgd1)
-             case 'C'
-                 RegularWaveMotion(Filelocation1,ylbl)
             end
     otherwise
     disp('Select Properly');
