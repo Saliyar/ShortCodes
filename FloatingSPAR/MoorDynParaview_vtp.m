@@ -2,20 +2,24 @@ clc
 close all
 clear all
 
-numLines=1;
-nline=1;
-nnode=11; %
-model='Catenary Mooring single case';
-
-nsegment=nnode-1;
+%% MoorDyn parameters 
+numLines=9;
+nline=numLines;
+model='Catenary Mooring SPAR case';
 simdate=date;
-dtParaview=0.01;
+dt_MoorDynInput=0.1;
+Time_MoorDynInput=10;
+NumberOfTimesteps=Time_MoorDynInput/dt_MoorDynInput;
+Moordyn_time_vector=0:dt_MoorDynInput:Time_MoorDynInput;
+dtParaview=dt_MoorDynInput;
+ParaviewdataStoring=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/Revision1/FreeDecay/HeaveFD/');
 
+%% Generating number of nodes and number of segments 
  % load Lines.out
-            filename = '/home/saliyar/Documents/MoorDyn/Mooring/Lines.out';
+            filename = '/home/saliyar/OpenFOAM/MoorDynV2/MoorDyn/Mooring/Lines.out';
             fid = fopen(filename, 'r');
             header = strsplit(fgetl(fid));
-            data = dlmread(filename,'',2,0)
+            data = dlmread(filename,'',3,0);
             tmp = size(data);
             ncol = tmp(2);clear tmp
             for icol=1:ncol
@@ -25,7 +29,7 @@ dtParaview=0.01;
             % load Line#.out
             for iline=1:numLines
                 eval(['obj.moorDyn.Line' num2str(iline) '=struct();']);
-                filename = ['/home/saliyar/Documents/MoorDyn/Mooring/Line' num2str(iline) '.out'];
+                filename = ['/home/saliyar/OpenFOAM/MoorDynV2/MoorDyn/Mooring/Line' num2str(iline) '.out'];
                 try
                     fid = fopen(filename);
                     header = strsplit(strtrim(fgetl(fid)));
@@ -40,22 +44,31 @@ dtParaview=0.01;
                     fprintf('\n No moorDyn *.out file saved for Line%u\n',iline); 
                 end
             end
- 
+            
+            
+%% Generating nnodes and nsegments from obj struct
 
-for i=1:100
-TimeBodyParav(i)=i-1*dtParaview;
+fn=fieldnames(obj.moorDyn);
+
+for k=2:numel(fn)  % From 2 because we are reading only nodes and segments file from org
+    Fields=obj.moorDyn.(fn{k});
+    Linefieldnames=fieldnames(Fields);
+    OverallLength=length(Linefieldnames)-1;
+    nnode(k-1)=(OverallLength+1)/4;
+    nsegment(k-1)=nnode(k-1)-1;    
 end
-
-for it = 1:length(TimeBodyParav)
+ 
+%% Writing in vtp format
+for it = 1:length(Moordyn_time_vector)
     % open file
-    filename = 'ParaviewMooring.vtp';
+     filename = [ParaviewdataStoring, filesep 'mooring' filesep 'mooring_' num2str(it) '.vtp'];
     fid = fopen(filename, 'w');
     % write header
     fprintf(fid, '<?xml version="1.0"?>\n');
-    fprintf(fid, ['<!-- WEC-Sim Visualization using ParaView -->\n']);
+    fprintf(fid, ['<!-- foamStar Visualization using ParaView -->\n']);
     fprintf(fid, ['<!--   model: ' model ' - ran on ' simdate ' -->\n']);
     fprintf(fid, ['<!--   mooring:  MoorDyn -->\n']);
-    fprintf(fid, ['<!--   time:  ' num2str(TimeBodyParav(it)) ' -->\n']);
+    fprintf(fid, ['<!--   time:  ' num2str(Moordyn_time_vector(it)) ' -->\n']);
     fprintf(fid, '<VTKFile type="PolyData" version="0.1">\n');
     fprintf(fid, '  <PolyData>\n');
     % write line info
@@ -94,18 +107,18 @@ for it = 1:length(TimeBodyParav)
         fprintf(fid,'        <DataArray type="Float32" Name="Segment Tension" NumberOfComponents="1" format="ascii">\n');
         for isegment = 0:nsegment(iline)-1
             fprintf(fid, '          %i', obj.moorDyn.(['Line' num2str(iline)]).(['Seg' num2str(isegment) 'Te'])(it));
-        end; 
+        end 
         fprintf(fid, '\n');
         fprintf(fid,'        </DataArray>\n');
         fprintf(fid,'      </CellData>\n');
         % end file
         fprintf(fid, '    </Piece>\n');        
-    end;
+    end
     % close file
     fprintf(fid, '  </PolyData>\n');
     fprintf(fid, '</VTKFile>');
     fclose(fid);
-end; 
+end 
 clear it iline nline nnode nsegment model t
 
 
