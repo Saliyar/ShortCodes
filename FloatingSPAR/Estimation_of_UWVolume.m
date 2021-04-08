@@ -17,8 +17,8 @@ L_Spar=1.95;
 
 
 %% VaryingInput
-Overall_Draft=2.33;
-OF_alphafieldVolume=3.6109970e+01;
+Overall_Draft=2.285;
+OF_alphafieldVolume=3.6110593e+01;
 Domain_Length=2.7;
 Domain_width=2.7;
 Domain_Waterdepth=5;

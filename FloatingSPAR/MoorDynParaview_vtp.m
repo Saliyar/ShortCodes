@@ -7,7 +7,7 @@ numLines=9;
 nline=numLines;
 model='Catenary Mooring SPAR case';
 simdate=date;
-dt_MoorDynInput=0.1;
+dt_MoorDynInput=0.01;
 Time_MoorDynInput=10;
 NumberOfTimesteps=Time_MoorDynInput/dt_MoorDynInput;
 Moordyn_time_vector=0:dt_MoorDynInput:Time_MoorDynInput;
@@ -60,8 +60,9 @@ end
  
 %% Writing in vtp format
 for it = 1:length(Moordyn_time_vector)
+    current_time=Moordyn_time_vector(it)
     % open file
-     filename = [ParaviewdataStoring, filesep 'mooring' filesep 'mooring_' num2str(it) '.vtp'];
+     filename = [ParaviewdataStoring, filesep 'mooring' filesep 'mooring_.' sprintf('%4.2f',current_time)  '.vtp'];
     fid = fopen(filename, 'w');
     % write header
     fprintf(fid, '<?xml version="1.0"?>\n');
