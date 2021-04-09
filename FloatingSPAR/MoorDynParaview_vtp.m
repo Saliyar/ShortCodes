@@ -62,7 +62,9 @@ end
 for it = 1:length(Moordyn_time_vector)
     current_time=Moordyn_time_vector(it)
     % open file
-     filename = [ParaviewdataStoring, filesep 'mooring' filesep 'mooring_.' sprintf('%4.2f',current_time)  '.vtp'];
+   % filename = [ParaviewdataStoring, filesep 'mooring' filesep 'mooring_.' sprintf('%4.2f',current_time)  '.vtp'];
+     filename = [ParaviewdataStoring, filesep 'mooring' filesep 'mooring_' num2str(it)  '.vtp'];
+
     fid = fopen(filename, 'w');
     % write header
     fprintf(fid, '<?xml version="1.0"?>\n');
@@ -120,6 +122,29 @@ for it = 1:length(Moordyn_time_vector)
     fprintf(fid, '</VTKFile>');
     fclose(fid);
 end 
+
+%% To create a pvd file to view the Mooring lines as matching with timestep!! 
+
+filename = [ParaviewdataStoring, filesep 'mooring' filesep 'Mooring.pvd'];
+fid = fopen(filename, 'w');
+% write header
+    fprintf(fid, '<?xml version="1.0"?>\n');
+    fprintf(fid, ' <VTKFile type="Collection" version="0.1" \n');
+    fprintf(fid, ' byte_order="LittleEndian" \n');
+    fprintf(fid, ' compressor="vtkZLibDataCompressor"> \n');
+    fprintf(fid, '  <Collection>\n');
+% Bunching the Timestep together
+for it = 1:length(Moordyn_time_vector)
+    current_time=Moordyn_time_vector(it);
+    
+    fprintf(fid, ['<DataSet timestep="' num2str(current_time) '" group="" part="0" \n']);
+    fprintf(fid, ['file="' ParaviewdataStoring,'mooring' filesep 'mooring_' num2str(it) '.vtp"/>  \n']);
+    
+end   
+    fprintf(fid, '  </Collection>\n');
+    fprintf(fid, '</VTKFile>');
+    fclose(fid);
+
 clear it iline nline nnode nsegment model t
 
 
