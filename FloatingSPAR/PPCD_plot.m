@@ -9,7 +9,7 @@ clc
     FigH = figure('Position', get(0, 'Screensize'));
     
     plot(ppcd,Error,'-o','LineWidth',3,'MarkerSize',10)
-    ylabel('Mesh Volume Error ($\%$)','interpreter','latex','FontWeight', 'bold','FontSize',30)
+    ylabel('Error ($\%$)','interpreter','latex','FontWeight', 'bold','FontSize',30)
     xlabel('P.P.S.D(Points per Spar diameter)','interpreter','latex','FontSize',30)
     ax=gca;
     ax.XTick=10:20:80;

@@ -1,10 +1,13 @@
-function  ComparePitchFreedecay(Exptpath,SPAR_Postprocessing_foamStar,titl,ylbl,nStart,nEnd,lgd2,phaseshift)
+function  ComparePitchFreedecay(Exptpath,SPAR_Postprocessing_foamStar,titl,ylbl,nStart,nEnd,lgd2,phaseshift,xlbl)
 
 %% Loading Experimental Details 
    load(Exptpath)
    dt_motion=data4CFD.time;
    pp_linear=data4CFD.CoG_motion;
    pp_rotation=data4CFD.CoG_rotation;
+   
+   T_Pitch=5.00;
+   Pitch_amp=0.11;
    
    
    %% Modifying the Experiment resutls for starting point matching with CFD
@@ -66,12 +69,13 @@ for i=5
     plot(dt_motion,dof6,'LineWidth',3)
     xlim([phaseshift phaseshift+40])
     ylabel(ylbl{:,i},'interpreter','latex','FontSize',32)
-    xlabel('Time [s]','interpreter','latex','FontSize',32)
+   xlabel(xlbl,'interpreter','latex','FontSize',32)
     set(gca,'Fontsize',32)
     title (titl{:,i},'interpreter','latex','FontSize',32);
     % legend ('foamStar','SWENSE CoarseMesh','SWENSE SameMesh','Experiment','FontSize',32);
     legend (lgd2{:},'interpreter','latex','FontSize',32,'Location','southwest');
     grid on;
+    grid minor;
     hold on
 end
 end

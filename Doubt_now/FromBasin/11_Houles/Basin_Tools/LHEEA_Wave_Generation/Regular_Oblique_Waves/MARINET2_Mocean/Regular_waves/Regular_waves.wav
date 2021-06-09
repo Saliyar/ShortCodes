@@ -1,0 +1,734 @@
+experiment "Regular waves for MARINET2/ECN-LHEEA/OSCILLA campaign" with ("nantes_main_posn/default.ttf")
+
+int i;
+int harmo;
+real ampli;
+real angl;
+real phas;
+
+/* Wave data read from .dat files prepared with MatLab routine LHEEA_build_waves_OSCILLA.m */
+
+/* Read and build poly-chromatic wave */
+wave the_wave1 = null;
+wave the_wave1_1 = null;
+real data1_1[] = [
+#include "data\Regular_waves_1_1.dat"
+0];
+for i=1 to (sizeof(data1_1[])-1)/5 do
+   harmo = floor(data1_1[5*(i-1)+1]);
+   ampli = data1_1[5*(i-1)+3];
+   angl = data1_1[5*(i-1)+4];
+   phas = data1_1[5*(i-1)+5];
+   the_wave1_1 = the_wave1_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave1 = the_wave1 + the_wave1_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave2 = null;
+wave the_wave2_1 = null;
+real data2_1[] = [
+#include "data\Regular_waves_2_1.dat"
+0];
+for i=1 to (sizeof(data2_1[])-1)/5 do
+   harmo = floor(data2_1[5*(i-1)+1]);
+   ampli = data2_1[5*(i-1)+3];
+   angl = data2_1[5*(i-1)+4];
+   phas = data2_1[5*(i-1)+5];
+   the_wave2_1 = the_wave2_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave2 = the_wave2 + the_wave2_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave3 = null;
+wave the_wave3_1 = null;
+real data3_1[] = [
+#include "data\Regular_waves_3_1.dat"
+0];
+for i=1 to (sizeof(data3_1[])-1)/5 do
+   harmo = floor(data3_1[5*(i-1)+1]);
+   ampli = data3_1[5*(i-1)+3];
+   angl = data3_1[5*(i-1)+4];
+   phas = data3_1[5*(i-1)+5];
+   the_wave3_1 = the_wave3_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave3 = the_wave3 + the_wave3_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave4 = null;
+wave the_wave4_1 = null;
+real data4_1[] = [
+#include "data\Regular_waves_4_1.dat"
+0];
+for i=1 to (sizeof(data4_1[])-1)/5 do
+   harmo = floor(data4_1[5*(i-1)+1]);
+   ampli = data4_1[5*(i-1)+3];
+   angl = data4_1[5*(i-1)+4];
+   phas = data4_1[5*(i-1)+5];
+   the_wave4_1 = the_wave4_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave4 = the_wave4 + the_wave4_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave5 = null;
+wave the_wave5_1 = null;
+real data5_1[] = [
+#include "data\Regular_waves_5_1.dat"
+0];
+for i=1 to (sizeof(data5_1[])-1)/5 do
+   harmo = floor(data5_1[5*(i-1)+1]);
+   ampli = data5_1[5*(i-1)+3];
+   angl = data5_1[5*(i-1)+4];
+   phas = data5_1[5*(i-1)+5];
+   the_wave5_1 = the_wave5_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave5 = the_wave5 + the_wave5_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave6 = null;
+wave the_wave6_1 = null;
+real data6_1[] = [
+#include "data\Regular_waves_6_1.dat"
+0];
+for i=1 to (sizeof(data6_1[])-1)/5 do
+   harmo = floor(data6_1[5*(i-1)+1]);
+   ampli = data6_1[5*(i-1)+3];
+   angl = data6_1[5*(i-1)+4];
+   phas = data6_1[5*(i-1)+5];
+   the_wave6_1 = the_wave6_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave6 = the_wave6 + the_wave6_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave7 = null;
+wave the_wave7_1 = null;
+real data7_1[] = [
+#include "data\Regular_waves_7_1.dat"
+0];
+for i=1 to (sizeof(data7_1[])-1)/5 do
+   harmo = floor(data7_1[5*(i-1)+1]);
+   ampli = data7_1[5*(i-1)+3];
+   angl = data7_1[5*(i-1)+4];
+   phas = data7_1[5*(i-1)+5];
+   the_wave7_1 = the_wave7_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave7 = the_wave7 + the_wave7_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave8 = null;
+wave the_wave8_1 = null;
+real data8_1[] = [
+#include "data\Regular_waves_8_1.dat"
+0];
+for i=1 to (sizeof(data8_1[])-1)/5 do
+   harmo = floor(data8_1[5*(i-1)+1]);
+   ampli = data8_1[5*(i-1)+3];
+   angl = data8_1[5*(i-1)+4];
+   phas = data8_1[5*(i-1)+5];
+   the_wave8_1 = the_wave8_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave8 = the_wave8 + the_wave8_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave9 = null;
+wave the_wave9_1 = null;
+real data9_1[] = [
+#include "data\Regular_waves_9_1.dat"
+0];
+for i=1 to (sizeof(data9_1[])-1)/5 do
+   harmo = floor(data9_1[5*(i-1)+1]);
+   ampli = data9_1[5*(i-1)+3];
+   angl = data9_1[5*(i-1)+4];
+   phas = data9_1[5*(i-1)+5];
+   the_wave9_1 = the_wave9_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave9 = the_wave9 + the_wave9_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave10 = null;
+wave the_wave10_1 = null;
+real data10_1[] = [
+#include "data\Regular_waves_10_1.dat"
+0];
+for i=1 to (sizeof(data10_1[])-1)/5 do
+   harmo = floor(data10_1[5*(i-1)+1]);
+   ampli = data10_1[5*(i-1)+3];
+   angl = data10_1[5*(i-1)+4];
+   phas = data10_1[5*(i-1)+5];
+   the_wave10_1 = the_wave10_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave10 = the_wave10 + the_wave10_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave11 = null;
+wave the_wave11_1 = null;
+real data11_1[] = [
+#include "data\Regular_waves_11_1.dat"
+0];
+for i=1 to (sizeof(data11_1[])-1)/5 do
+   harmo = floor(data11_1[5*(i-1)+1]);
+   ampli = data11_1[5*(i-1)+3];
+   angl = data11_1[5*(i-1)+4];
+   phas = data11_1[5*(i-1)+5];
+   the_wave11_1 = the_wave11_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave11 = the_wave11 + the_wave11_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave12 = null;
+wave the_wave12_1 = null;
+real data12_1[] = [
+#include "data\Regular_waves_12_1.dat"
+0];
+for i=1 to (sizeof(data12_1[])-1)/5 do
+   harmo = floor(data12_1[5*(i-1)+1]);
+   ampli = data12_1[5*(i-1)+3];
+   angl = data12_1[5*(i-1)+4];
+   phas = data12_1[5*(i-1)+5];
+   the_wave12_1 = the_wave12_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave12 = the_wave12 + the_wave12_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave13 = null;
+wave the_wave13_1 = null;
+real data13_1[] = [
+#include "data\Regular_waves_13_1.dat"
+0];
+for i=1 to (sizeof(data13_1[])-1)/5 do
+   harmo = floor(data13_1[5*(i-1)+1]);
+   ampli = data13_1[5*(i-1)+3];
+   angl = data13_1[5*(i-1)+4];
+   phas = data13_1[5*(i-1)+5];
+   the_wave13_1 = the_wave13_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave13 = the_wave13 + the_wave13_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave14 = null;
+wave the_wave14_1 = null;
+real data14_1[] = [
+#include "data\Regular_waves_14_1.dat"
+0];
+for i=1 to (sizeof(data14_1[])-1)/5 do
+   harmo = floor(data14_1[5*(i-1)+1]);
+   ampli = data14_1[5*(i-1)+3];
+   angl = data14_1[5*(i-1)+4];
+   phas = data14_1[5*(i-1)+5];
+   the_wave14_1 = the_wave14_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave14 = the_wave14 + the_wave14_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave15 = null;
+wave the_wave15_1 = null;
+real data15_1[] = [
+#include "data\Regular_waves_15_1.dat"
+0];
+for i=1 to (sizeof(data15_1[])-1)/5 do
+   harmo = floor(data15_1[5*(i-1)+1]);
+   ampli = data15_1[5*(i-1)+3];
+   angl = data15_1[5*(i-1)+4];
+   phas = data15_1[5*(i-1)+5];
+   the_wave15_1 = the_wave15_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave15 = the_wave15 + the_wave15_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave16 = null;
+wave the_wave16_1 = null;
+real data16_1[] = [
+#include "data\Regular_waves_16_1.dat"
+0];
+for i=1 to (sizeof(data16_1[])-1)/5 do
+   harmo = floor(data16_1[5*(i-1)+1]);
+   ampli = data16_1[5*(i-1)+3];
+   angl = data16_1[5*(i-1)+4];
+   phas = data16_1[5*(i-1)+5];
+   the_wave16_1 = the_wave16_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave16 = the_wave16 + the_wave16_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave17 = null;
+wave the_wave17_1 = null;
+real data17_1[] = [
+#include "data\Regular_waves_17_1.dat"
+0];
+for i=1 to (sizeof(data17_1[])-1)/5 do
+   harmo = floor(data17_1[5*(i-1)+1]);
+   ampli = data17_1[5*(i-1)+3];
+   angl = data17_1[5*(i-1)+4];
+   phas = data17_1[5*(i-1)+5];
+   the_wave17_1 = the_wave17_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave17 = the_wave17 + the_wave17_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave18 = null;
+wave the_wave18_1 = null;
+real data18_1[] = [
+#include "data\Regular_waves_18_1.dat"
+0];
+for i=1 to (sizeof(data18_1[])-1)/5 do
+   harmo = floor(data18_1[5*(i-1)+1]);
+   ampli = data18_1[5*(i-1)+3];
+   angl = data18_1[5*(i-1)+4];
+   phas = data18_1[5*(i-1)+5];
+   the_wave18_1 = the_wave18_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave18 = the_wave18 + the_wave18_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave19 = null;
+wave the_wave19_1 = null;
+real data19_1[] = [
+#include "data\Regular_waves_19_1.dat"
+0];
+for i=1 to (sizeof(data19_1[])-1)/5 do
+   harmo = floor(data19_1[5*(i-1)+1]);
+   ampli = data19_1[5*(i-1)+3];
+   angl = data19_1[5*(i-1)+4];
+   phas = data19_1[5*(i-1)+5];
+   the_wave19_1 = the_wave19_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave19 = the_wave19 + the_wave19_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave20 = null;
+wave the_wave20_1 = null;
+real data20_1[] = [
+#include "data\Regular_waves_20_1.dat"
+0];
+for i=1 to (sizeof(data20_1[])-1)/5 do
+   harmo = floor(data20_1[5*(i-1)+1]);
+   ampli = data20_1[5*(i-1)+3];
+   angl = data20_1[5*(i-1)+4];
+   phas = data20_1[5*(i-1)+5];
+   the_wave20_1 = the_wave20_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave20 = the_wave20 + the_wave20_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave21 = null;
+wave the_wave21_1 = null;
+real data21_1[] = [
+#include "data\Regular_waves_21_1.dat"
+0];
+for i=1 to (sizeof(data21_1[])-1)/5 do
+   harmo = floor(data21_1[5*(i-1)+1]);
+   ampli = data21_1[5*(i-1)+3];
+   angl = data21_1[5*(i-1)+4];
+   phas = data21_1[5*(i-1)+5];
+   the_wave21_1 = the_wave21_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave21 = the_wave21 + the_wave21_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave22 = null;
+wave the_wave22_1 = null;
+real data22_1[] = [
+#include "data\Regular_waves_22_1.dat"
+0];
+for i=1 to (sizeof(data22_1[])-1)/5 do
+   harmo = floor(data22_1[5*(i-1)+1]);
+   ampli = data22_1[5*(i-1)+3];
+   angl = data22_1[5*(i-1)+4];
+   phas = data22_1[5*(i-1)+5];
+   the_wave22_1 = the_wave22_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave22 = the_wave22 + the_wave22_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave23 = null;
+wave the_wave23_1 = null;
+real data23_1[] = [
+#include "data\Regular_waves_23_1.dat"
+0];
+for i=1 to (sizeof(data23_1[])-1)/5 do
+   harmo = floor(data23_1[5*(i-1)+1]);
+   ampli = data23_1[5*(i-1)+3];
+   angl = data23_1[5*(i-1)+4];
+   phas = data23_1[5*(i-1)+5];
+   the_wave23_1 = the_wave23_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave23 = the_wave23 + the_wave23_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave24 = null;
+wave the_wave24_1 = null;
+real data24_1[] = [
+#include "data\Regular_waves_24_1.dat"
+0];
+for i=1 to (sizeof(data24_1[])-1)/5 do
+   harmo = floor(data24_1[5*(i-1)+1]);
+   ampli = data24_1[5*(i-1)+3];
+   angl = data24_1[5*(i-1)+4];
+   phas = data24_1[5*(i-1)+5];
+   the_wave24_1 = the_wave24_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave24 = the_wave24 + the_wave24_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave25 = null;
+wave the_wave25_1 = null;
+real data25_1[] = [
+#include "data\Regular_waves_25_1.dat"
+0];
+for i=1 to (sizeof(data25_1[])-1)/5 do
+   harmo = floor(data25_1[5*(i-1)+1]);
+   ampli = data25_1[5*(i-1)+3];
+   angl = data25_1[5*(i-1)+4];
+   phas = data25_1[5*(i-1)+5];
+   the_wave25_1 = the_wave25_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave25 = the_wave25 + the_wave25_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave26 = null;
+wave the_wave26_1 = null;
+real data26_1[] = [
+#include "data\Regular_waves_26_1.dat"
+0];
+for i=1 to (sizeof(data26_1[])-1)/5 do
+   harmo = floor(data26_1[5*(i-1)+1]);
+   ampli = data26_1[5*(i-1)+3];
+   angl = data26_1[5*(i-1)+4];
+   phas = data26_1[5*(i-1)+5];
+   the_wave26_1 = the_wave26_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave26 = the_wave26 + the_wave26_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave27 = null;
+wave the_wave27_1 = null;
+real data27_1[] = [
+#include "data\Regular_waves_27_1.dat"
+0];
+for i=1 to (sizeof(data27_1[])-1)/5 do
+   harmo = floor(data27_1[5*(i-1)+1]);
+   ampli = data27_1[5*(i-1)+3];
+   angl = data27_1[5*(i-1)+4];
+   phas = data27_1[5*(i-1)+5];
+   the_wave27_1 = the_wave27_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave27 = the_wave27 + the_wave27_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave28 = null;
+wave the_wave28_1 = null;
+real data28_1[] = [
+#include "data\Regular_waves_28_1.dat"
+0];
+for i=1 to (sizeof(data28_1[])-1)/5 do
+   harmo = floor(data28_1[5*(i-1)+1]);
+   ampli = data28_1[5*(i-1)+3];
+   angl = data28_1[5*(i-1)+4];
+   phas = data28_1[5*(i-1)+5];
+   the_wave28_1 = the_wave28_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave28 = the_wave28 + the_wave28_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave29 = null;
+wave the_wave29_1 = null;
+real data29_1[] = [
+#include "data\Regular_waves_29_1.dat"
+0];
+for i=1 to (sizeof(data29_1[])-1)/5 do
+   harmo = floor(data29_1[5*(i-1)+1]);
+   ampli = data29_1[5*(i-1)+3];
+   angl = data29_1[5*(i-1)+4];
+   phas = data29_1[5*(i-1)+5];
+   the_wave29_1 = the_wave29_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave29 = the_wave29 + the_wave29_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave30 = null;
+wave the_wave30_1 = null;
+real data30_1[] = [
+#include "data\Regular_waves_30_1.dat"
+0];
+for i=1 to (sizeof(data30_1[])-1)/5 do
+   harmo = floor(data30_1[5*(i-1)+1]);
+   ampli = data30_1[5*(i-1)+3];
+   angl = data30_1[5*(i-1)+4];
+   phas = data30_1[5*(i-1)+5];
+   the_wave30_1 = the_wave30_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave30 = the_wave30 + the_wave30_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave31 = null;
+wave the_wave31_1 = null;
+real data31_1[] = [
+#include "data\Regular_waves_31_1.dat"
+0];
+for i=1 to (sizeof(data31_1[])-1)/5 do
+   harmo = floor(data31_1[5*(i-1)+1]);
+   ampli = data31_1[5*(i-1)+3];
+   angl = data31_1[5*(i-1)+4];
+   phas = data31_1[5*(i-1)+5];
+   the_wave31_1 = the_wave31_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave31 = the_wave31 + the_wave31_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave32 = null;
+wave the_wave32_1 = null;
+real data32_1[] = [
+#include "data\Regular_waves_32_1.dat"
+0];
+for i=1 to (sizeof(data32_1[])-1)/5 do
+   harmo = floor(data32_1[5*(i-1)+1]);
+   ampli = data32_1[5*(i-1)+3];
+   angl = data32_1[5*(i-1)+4];
+   phas = data32_1[5*(i-1)+5];
+   the_wave32_1 = the_wave32_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave32 = the_wave32 + the_wave32_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave33 = null;
+wave the_wave33_1 = null;
+real data33_1[] = [
+#include "data\Regular_waves_33_1.dat"
+0];
+for i=1 to (sizeof(data33_1[])-1)/5 do
+   harmo = floor(data33_1[5*(i-1)+1]);
+   ampli = data33_1[5*(i-1)+3];
+   angl = data33_1[5*(i-1)+4];
+   phas = data33_1[5*(i-1)+5];
+   the_wave33_1 = the_wave33_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave33 = the_wave33 + the_wave33_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave34 = null;
+wave the_wave34_1 = null;
+real data34_1[] = [
+#include "data\Regular_waves_34_1.dat"
+0];
+for i=1 to (sizeof(data34_1[])-1)/5 do
+   harmo = floor(data34_1[5*(i-1)+1]);
+   ampli = data34_1[5*(i-1)+3];
+   angl = data34_1[5*(i-1)+4];
+   phas = data34_1[5*(i-1)+5];
+   the_wave34_1 = the_wave34_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave34 = the_wave34 + the_wave34_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave35 = null;
+wave the_wave35_1 = null;
+real data35_1[] = [
+#include "data\Regular_waves_35_1.dat"
+0];
+for i=1 to (sizeof(data35_1[])-1)/5 do
+   harmo = floor(data35_1[5*(i-1)+1]);
+   ampli = data35_1[5*(i-1)+3];
+   angl = data35_1[5*(i-1)+4];
+   phas = data35_1[5*(i-1)+5];
+   the_wave35_1 = the_wave35_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave35 = the_wave35 + the_wave35_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave36 = null;
+wave the_wave36_1 = null;
+real data36_1[] = [
+#include "data\Regular_waves_36_1.dat"
+0];
+for i=1 to (sizeof(data36_1[])-1)/5 do
+   harmo = floor(data36_1[5*(i-1)+1]);
+   ampli = data36_1[5*(i-1)+3];
+   angl = data36_1[5*(i-1)+4];
+   phas = data36_1[5*(i-1)+5];
+   the_wave36_1 = the_wave36_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave36 = the_wave36 + the_wave36_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave37 = null;
+wave the_wave37_1 = null;
+real data37_1[] = [
+#include "data\Regular_waves_37_1.dat"
+0];
+for i=1 to (sizeof(data37_1[])-1)/5 do
+   harmo = floor(data37_1[5*(i-1)+1]);
+   ampli = data37_1[5*(i-1)+3];
+   angl = data37_1[5*(i-1)+4];
+   phas = data37_1[5*(i-1)+5];
+   the_wave37_1 = the_wave37_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave37 = the_wave37 + the_wave37_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave38 = null;
+wave the_wave38_1 = null;
+real data38_1[] = [
+#include "data\Regular_waves_38_1.dat"
+0];
+for i=1 to (sizeof(data38_1[])-1)/5 do
+   harmo = floor(data38_1[5*(i-1)+1]);
+   ampli = data38_1[5*(i-1)+3];
+   angl = data38_1[5*(i-1)+4];
+   phas = data38_1[5*(i-1)+5];
+   the_wave38_1 = the_wave38_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave38 = the_wave38 + the_wave38_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave39 = null;
+wave the_wave39_1 = null;
+real data39_1[] = [
+#include "data\Regular_waves_39_1.dat"
+0];
+for i=1 to (sizeof(data39_1[])-1)/5 do
+   harmo = floor(data39_1[5*(i-1)+1]);
+   ampli = data39_1[5*(i-1)+3];
+   angl = data39_1[5*(i-1)+4];
+   phas = data39_1[5*(i-1)+5];
+   the_wave39_1 = the_wave39_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave39 = the_wave39 + the_wave39_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave40 = null;
+wave the_wave40_1 = null;
+real data40_1[] = [
+#include "data\Regular_waves_40_1.dat"
+0];
+for i=1 to (sizeof(data40_1[])-1)/5 do
+   harmo = floor(data40_1[5*(i-1)+1]);
+   ampli = data40_1[5*(i-1)+3];
+   angl = data40_1[5*(i-1)+4];
+   phas = data40_1[5*(i-1)+5];
+   the_wave40_1 = the_wave40_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave40 = the_wave40 + the_wave40_1;
+
+/* End of wave data */
+
+begin
+   run "WC-R1 T=1.07s, H=0.0356m" with (15)
+      makewave the_wave1 on 1;
+   end;
+   run "WC-R2 T=1.1s, H=0.038m" with (15)
+      makewave the_wave2 on 1;
+   end;
+   run "WC-R3 T=1.14s, H=0.0408m" with (15)
+      makewave the_wave3 on 1;
+   end;
+   run "WC-R4 T=1.19s, H=0.0438m" with (15)
+      makewave the_wave4 on 1;
+   end;
+   run "WC-R5 T=1.23s, H=0.0472m" with (15)
+      makewave the_wave5 on 1;
+   end;
+   run "WC-R6 T=1.28s, H=0.0512m" with (15)
+      makewave the_wave6 on 1;
+   end;
+   run "WC-R7 T=1.33s, H=0.0554m" with (15)
+      makewave the_wave7 on 1;
+   end;
+   run "WC-R8 T=1.39s, H=0.0604m" with (15)
+      makewave the_wave8 on 1;
+   end;
+   run "WC-R9 T=1.45s, H=0.066m" with (15)
+      makewave the_wave9 on 1;
+   end;
+   run "WC-R10 T=1.52s, H=0.0724m" with (15)
+      makewave the_wave10 on 1;
+   end;
+   run "WC-R11 T=1.6s, H=0.08m" with (15)
+      makewave the_wave11 on 1;
+   end;
+   run "WC-R12 T=1.68s, H=0.0886m" with (15)
+      makewave the_wave12 on 1;
+   end;
+   run "WC-R13 T=1.78s, H=0.0986m" with (15)
+      makewave the_wave13 on 1;
+   end;
+   run "WC-R14 T=1.88s, H=0.111m" with (15)
+      makewave the_wave14 on 1;
+   end;
+   run "WC-R15 T=2s, H=0.125m" with (15)
+      makewave the_wave15 on 1;
+   end;
+   run "WC-R16 T=2.13s, H=0.142m" with (15)
+      makewave the_wave16 on 1;
+   end;
+   run "WC-R17 T=2.29s, H=0.163m" with (15)
+      makewave the_wave17 on 1;
+   end;
+   run "WC-R18 T=2.46s, H=0.189m" with (15)
+      makewave the_wave18 on 1;
+   end;
+   run "WC-R19 T=2.67s, H=0.22m" with (15)
+      makewave the_wave19 on 1;
+   end;
+   run "WC-R20 T=2.91s, H=0.26m" with (15)
+      makewave the_wave20 on 1;
+   end;
+   run "WC-R21 T=1.07s, H=0.0178m" with (15)
+      makewave the_wave21 on 1;
+   end;
+   run "WC-R22 T=1.1s, H=0.019m" with (15)
+      makewave the_wave22 on 1;
+   end;
+   run "WC-R23 T=1.14s, H=0.0204m" with (15)
+      makewave the_wave23 on 1;
+   end;
+   run "WC-R24 T=1.19s, H=0.0219m" with (15)
+      makewave the_wave24 on 1;
+   end;
+   run "WC-R25 T=1.23s, H=0.0236m" with (15)
+      makewave the_wave25 on 1;
+   end;
+   run "WC-R26 T=1.28s, H=0.0256m" with (15)
+      makewave the_wave26 on 1;
+   end;
+   run "WC-R27 T=1.33s, H=0.0277m" with (15)
+      makewave the_wave27 on 1;
+   end;
+   run "WC-R28 T=1.39s, H=0.0302m" with (15)
+      makewave the_wave28 on 1;
+   end;
+   run "WC-R29 T=1.45s, H=0.033m" with (15)
+      makewave the_wave29 on 1;
+   end;
+   run "WC-R30 T=1.52s, H=0.0362m" with (15)
+      makewave the_wave30 on 1;
+   end;
+   run "WC-R31 T=1.6s, H=0.04m" with (15)
+      makewave the_wave31 on 1;
+   end;
+   run "WC-R32 T=1.68s, H=0.0443m" with (15)
+      makewave the_wave32 on 1;
+   end;
+   run "WC-R33 T=1.78s, H=0.0493m" with (15)
+      makewave the_wave33 on 1;
+   end;
+   run "WC-R34 T=1.88s, H=0.0553m" with (15)
+      makewave the_wave34 on 1;
+   end;
+   run "WC-R35 T=2s, H=0.0624m" with (15)
+      makewave the_wave35 on 1;
+   end;
+   run "WC-R36 T=2.13s, H=0.071m" with (15)
+      makewave the_wave36 on 1;
+   end;
+   run "WC-R37 T=2.29s, H=0.0814m" with (15)
+      makewave the_wave37 on 1;
+   end;
+   run "WC-R38 T=2.46s, H=0.0943m" with (15)
+      makewave the_wave38 on 1;
+   end;
+   run "WC-R39 T=2.67s, H=0.11m" with (15)
+      makewave the_wave39 on 1;
+   end;
+   run "WC-R40 T=2.91s, H=0.13m" with (15)
+      makewave the_wave40 on 1;
+   end;
+end;

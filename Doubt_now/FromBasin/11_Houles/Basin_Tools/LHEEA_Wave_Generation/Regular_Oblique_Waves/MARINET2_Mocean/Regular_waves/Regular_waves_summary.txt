@@ -1,0 +1,202 @@
+experiment "Regular waves for MARINET2/ECN-LHEEA/OSCILLA campaign" with ("nantes_main_posn/default.ttf")
+/* Wave data read from .dat files prepared with MatLab routine LHEEA_build_waves_OSCILLA.m */
+/* Poly-chromatic wave data*/
+wave (or run) 1;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.06667	0.9375	0.019046	0.038092	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 2;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.10345	0.90625	0.02033	0.04066	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 3;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.14286	0.875	0.021828	0.043656	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 4;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.18519	0.84375	0.023433	0.046866	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 5;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.23077	0.8125	0.025252	0.050504	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 6;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.28	0.78125	0.027392	0.054784	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 7;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.33333	0.75	0.029639	0.059278	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 8;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.3913	0.71875	0.032314	0.064628	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 9;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.45455	0.6875	0.03531	0.07062	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 10;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.52381	0.65625	0.038734	0.077468	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 11;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.6	0.625	0.0428	0.0856	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 12;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.68421	0.59375	0.047401	0.094802	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 13;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.77778	0.5625	0.052751	0.105502	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 14;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.88235	0.53125	0.059171	0.118342	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 15;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+2	0.5	0.066768	0.133536	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 16;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+2.13333	0.46875	0.07597	0.15194	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 17;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+2.28571	0.4375	0.087098	0.174196	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 18;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+2.46154	0.40625	0.100901	0.201802	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 19;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+2.66667	0.375	0.117914	0.235828	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 20;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+2.90909	0.34375	0.138993	0.277986	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 21;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.06667	0.9375	0.009523	0.019046	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 22;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.10345	0.90625	0.010165	0.02033	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 23;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.14286	0.875	0.010914	0.021828	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 24;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.18519	0.84375	0.0117165	0.023433	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 25;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.23077	0.8125	0.012626	0.025252	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 26;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.28	0.78125	0.013696	0.027392	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 27;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.33333	0.75	0.0148195	0.029639	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 28;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.3913	0.71875	0.016157	0.032314	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 29;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.45455	0.6875	0.017655	0.03531	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 30;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.52381	0.65625	0.019367	0.038734	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 31;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.6	0.625	0.0214	0.0428	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 32;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.68421	0.59375	0.0237005	0.047401	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 33;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.77778	0.5625	0.0263755	0.052751	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 34;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+1.88235	0.53125	0.0295855	0.059171	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 35;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+2	0.5	0.033384	0.066768	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 36;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+2.13333	0.46875	0.037985	0.07597	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 37;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+2.28571	0.4375	0.043549	0.087098	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 38;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+2.46154	0.40625	0.0504505	0.100901	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 39;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+2.66667	0.375	0.058957	0.117914	0	0
+/* Poly-chromatic wave data*/
+wave (or run) 40;
+Period	Frequency	Amplitude	Height	Direction	Phase
+s	Hz	m	m	deg	rad
+2.90909	0.34375	0.0694965	0.138993	0	0

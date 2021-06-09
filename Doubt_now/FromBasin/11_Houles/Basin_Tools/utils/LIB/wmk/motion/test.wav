@@ -1,0 +1,22 @@
+experiment "test du spectre jonswap" with ("nantes_main_posn/default.ttf")
+ 
+real fp = 0.5;     /* Fréquence de pic en Hz */
+real gamma = 3.3;  /* facteur gamma */
+real Hs = 2.0;     /* Hauteur significative cible en mètre */
+real beta = 1.307; /* Coefficient alpha corrigé à évaluer sous Matlab */
+                   /* il dépend de fp et de gamma */
+
+/* wave spectrum = Hs * jonswap(fp,beta,gamma,0.09,0.07); unused here */
+
+/* Runs */
+/* jonswap(real peakFreq, real alpha=8.1e3, real gamma=1, real sigma_a=0.07, real sigma_b=0.09) */
+begin
+ 
+   run "Regular waves with Hs" with (11)
+      makewave single(fp,Hs) on 1;
+   end;
+   run "Corrected Jonswap with Hs" with (11)
+      makewave Hs * jonswap(fp,beta,gamma,0.09,0.07) on 1;
+   end;
+ 
+end;

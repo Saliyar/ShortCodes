@@ -1,0 +1,32 @@
+experiment "Irregular waves for ECN campaign SOFTWIND SPAR" with ("nantes_main_posn/default.ttf")
+
+int i;
+int harmo;
+real ampli;
+real angl;
+real phas;
+
+/* Wave data read from .dat files prepared with MatLab routine LHEEA_irrwave_generation_SW_SPAR_additionnal.m */
+
+/* Read and build poly-chromatic wave */
+wave the_wave1 = null;
+wave the_wave1_1 = null;
+real data1_1[] = [
+#include "data\Test_cases_SW_SPAR_additionnal_1_1.dat"
+0];
+for i=1 to (sizeof(data1_1[])-1)/5 do
+   harmo = floor(data1_1[5*(i-1)+1]);
+   ampli = data1_1[5*(i-1)+3];
+   angl = data1_1[5*(i-1)+4];
+   phas = data1_1[5*(i-1)+5];
+   the_wave1_1 = the_wave1_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave1 = the_wave1 + the_wave1_1;
+
+/* End of wave data */
+
+begin
+   run "Run1, Bret, Tp=11s, Hs=2.6m, ph=01" with (15)
+      makewave the_wave1 on 1;
+   end;
+end;

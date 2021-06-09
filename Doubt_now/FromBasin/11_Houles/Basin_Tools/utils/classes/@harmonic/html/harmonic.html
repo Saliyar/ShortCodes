@@ -1,0 +1,250 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>harmonic</title><meta name="generator" content="MATLAB 8.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2014-02-27"><meta name="DC.source" content="harmonic.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, tt, code { font-size:12px; }
+pre { margin:0px 0px 20px; }
+pre.error { color:red; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="keyword">function</span> wv = harmonic(harmo, ampli, phase, angle)
+<span class="comment">% wv = harmonic(harmo, ampli, phase, angle)</span>
+<span class="comment">% @HARMONIC\HARMONIC harmonic class constructor</span>
+<span class="comment">%    (equivalent to "front" in 'wave' language).</span>
+<span class="comment">%</span>
+<span class="comment">%    wv = HARMONIC() returns a default wave.</span>
+<span class="comment">%</span>
+<span class="comment">%    wv = HARMONIC(harmo, ampli) returns a wave with an harmonic number so that</span>
+<span class="comment">%    the frequency will be defined later in wave_2D object where T_repeat</span>
+<span class="comment">%    must be defined. The amplitude ampli is in m.</span>
+<span class="comment">%</span>
+<span class="comment">%    wv = HARMONIC(harmo, ampli, phase) same with initial phase in</span>
+<span class="comment">%    radians (default 0)</span>
+<span class="comment">%</span>
+<span class="comment">%    wv = HARMONIC(harmo, ampli, phase, angle) same with angle in degrees from the</span>
+<span class="comment">%    normal to the wavemaker(default 0)</span>
+<span class="comment">%</span>
+<span class="comment">%    default values may be used by empty arguments []</span>
+<span class="comment">%</span>
+<span class="comment">%   (please see also the pdf file classes.pdf on the objects designed in MatLab)</span>
+<span class="comment">%</span>
+<span class="comment">%    See also get, plus, display, rotate, times, convert2nondim,</span>
+<span class="comment">%    convert2dim, length, isempty, uminus, minus</span>
+
+<span class="comment">% default phase</span>
+phase_def = 0;
+<span class="comment">% default direction</span>
+angle_def = 0;
+<span class="comment">%</span>
+<span class="keyword">switch</span> nargin
+    <span class="keyword">case</span> 0 <span class="comment">% default object</span>
+        wv.dim      = 1;
+        wv.n_harmo  = 0;
+        wv.harmo    = [];
+        wv.ampli    = [];
+        wv.phase    = [];
+        wv.angle    = [];
+        <span class="comment">% telling matlab wv the class of the build object</span>
+        wv          = class(wv,<span class="string">'harmonic'</span>);
+    <span class="keyword">case</span> 1
+        <span class="keyword">if</span> isa(harmo,<span class="string">'harmonic'</span>)
+            wv = harmo;
+        <span class="keyword">else</span>
+            error(<span class="string">'Wrong argument type'</span>)
+        <span class="keyword">end</span>
+    <span class="keyword">case</span> {2,3,4}
+        <span class="comment">% input must be in dimensional form</span>
+        wv.dim      = 1;
+        <span class="comment">% evaluating and storing the number of components</span>
+        s = max([length(harmo),length(ampli)]);
+        <span class="keyword">if</span> nargin &gt;= 3
+            s = max([s,length(phase)]);
+            <span class="keyword">if</span> isempty(phase)
+                phase = phase_def;
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> nargin == 4
+            s = max([s,length(angle)]);
+            <span class="keyword">if</span> isempty(angle)
+                angle = angle_def;
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+        wv.n_harmo  = s;
+        <span class="comment">% harmonic numbers</span>
+        wv.harmo    = complete_vector(make_it_row(harmo),s);
+        <span class="comment">% amplitudes</span>
+        wv.ampli    = complete_vector(make_it_row(ampli),s);
+        <span class="comment">% phases (optional)</span>
+        <span class="keyword">if</span> nargin &gt;= 3
+            wv.phase = complete_vector(make_it_row(phase),s);
+        <span class="keyword">else</span>
+            wv.phase = complete_vector(phase_def,s);
+        <span class="keyword">end</span>
+        <span class="comment">% angles (optional)</span>
+        <span class="keyword">if</span> nargin == 4
+            wv.angle = complete_vector(make_it_row(angle),s);
+        <span class="keyword">else</span>
+            wv.angle = complete_vector(angle_def,s);
+        <span class="keyword">end</span>
+        <span class="comment">% telling matlab wv the class of the build object</span>
+        wv              = class(wv,<span class="string">'harmonic'</span>);
+    <span class="keyword">otherwise</span>
+        error(<span class="string">'Wrong number of input arguments'</span>)
+<span class="keyword">end</span>
+</pre><pre class="codeoutput"> 
+ans = 
+ 
+   dim      = 1
+   n_harmo  = 0
+   harmo    = 
+   ampli    = 
+   phase    = 
+   angle    = 
+ 
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2013a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+function wv = harmonic(harmo, ampli, phase, angle)
+% wv = harmonic(harmo, ampli, phase, angle)
+% @HARMONIC\HARMONIC harmonic class constructor 
+%    (equivalent to "front" in 'wave' language).
+%
+%    wv = HARMONIC() returns a default wave.
+%
+%    wv = HARMONIC(harmo, ampli) returns a wave with an harmonic number so that
+%    the frequency will be defined later in wave_2D object where T_repeat
+%    must be defined. The amplitude ampli is in m.
+%
+%    wv = HARMONIC(harmo, ampli, phase) same with initial phase in
+%    radians (default 0)
+%
+%    wv = HARMONIC(harmo, ampli, phase, angle) same with angle in degrees from the
+%    normal to the wavemaker(default 0)
+%
+%    default values may be used by empty arguments []
+%
+%   (please see also the pdf file classes.pdf on the objects designed in MatLab)
+%
+%    See also get, plus, display, rotate, times, convert2nondim,
+%    convert2dim, length, isempty, uminus, minus
+
+% default phase
+phase_def = 0;
+% default direction
+angle_def = 0;
+%
+switch nargin
+    case 0 % default object
+        wv.dim      = 1;
+        wv.n_harmo  = 0;
+        wv.harmo    = [];
+        wv.ampli    = [];
+        wv.phase    = []; 
+        wv.angle    = [];
+        % telling matlab wv the class of the build object
+        wv          = class(wv,'harmonic');
+    case 1
+        if isa(harmo,'harmonic')
+            wv = harmo;
+        else
+            error('Wrong argument type')
+        end
+    case {2,3,4}
+        % input must be in dimensional form
+        wv.dim      = 1;
+        % evaluating and storing the number of components
+        s = max([length(harmo),length(ampli)]);
+        if nargin >= 3
+            s = max([s,length(phase)]);
+            if isempty(phase)
+                phase = phase_def;
+            end
+        end
+        if nargin == 4
+            s = max([s,length(angle)]);
+            if isempty(angle)
+                angle = angle_def;
+            end
+        end
+        wv.n_harmo  = s;
+        % harmonic numbers
+        wv.harmo    = complete_vector(make_it_row(harmo),s);
+        % amplitudes
+        wv.ampli    = complete_vector(make_it_row(ampli),s);
+        % phases (optional)
+        if nargin >= 3
+            wv.phase = complete_vector(make_it_row(phase),s);
+        else
+            wv.phase = complete_vector(phase_def,s);
+        end
+        % angles (optional)
+        if nargin == 4
+            wv.angle = complete_vector(make_it_row(angle),s);
+        else
+            wv.angle = complete_vector(angle_def,s);
+        end
+        % telling matlab wv the class of the build object
+        wv              = class(wv,'harmonic');
+    otherwise
+        error('Wrong number of input arguments')
+end
+
+##### SOURCE END #####
+--></body></html>

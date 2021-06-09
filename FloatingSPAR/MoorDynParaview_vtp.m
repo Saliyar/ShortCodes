@@ -1,6 +1,7 @@
+
 clc
 close all
-clear all
+clear
 
 %% MoorDyn parameters 
 numLines=9;
@@ -8,15 +9,15 @@ nline=numLines;
 model='Catenary Mooring SPAR case';
 simdate=date;
 dt_MoorDynInput=0.01;
-Time_MoorDynInput=10;
+Time_MoorDynInput=3.7;
 NumberOfTimesteps=Time_MoorDynInput/dt_MoorDynInput;
 Moordyn_time_vector=0:dt_MoorDynInput:Time_MoorDynInput;
 dtParaview=dt_MoorDynInput;
-ParaviewdataStoring=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/Revision1/FreeDecay/HeaveFD/');
+ParaviewdataStoring=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/MoorDynCoupling/SPAR_Hydrostatics_R3');
 
 %% Generating number of nodes and number of segments 
  % load Lines.out
-            filename = '/home/saliyar/OpenFOAM/MoorDynV2/MoorDyn/Mooring/Lines.out';
+            filename = '/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/MoorDynCoupling/SPAR_Hydrostatics_R3/Mooring/Lines.out';
             fid = fopen(filename, 'r');
             header = strsplit(fgetl(fid));
             data = dlmread(filename,'',3,0);
@@ -29,7 +30,7 @@ ParaviewdataStoring=fullfile('/mnt/data2/saliyar/Spece_constraint/Files_from_LIG
             % load Line#.out
             for iline=1:numLines
                 eval(['obj.moorDyn.Line' num2str(iline) '=struct();']);
-                filename = ['/home/saliyar/OpenFOAM/MoorDynV2/MoorDyn/Mooring/Line' num2str(iline) '.out'];
+                filename = ['/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Floating_Body_Simulation/MoorDynCoupling/SPAR_Hydrostatics_R3/Mooring/Line' num2str(iline) '.out'];
                 try
                     fid = fopen(filename);
                     header = strsplit(strtrim(fgetl(fid)));
@@ -63,7 +64,7 @@ for it = 1:length(Moordyn_time_vector)
     current_time=Moordyn_time_vector(it)
     % open file
    % filename = [ParaviewdataStoring, filesep 'mooring' filesep 'mooring_.' sprintf('%4.2f',current_time)  '.vtp'];
-     filename = [ParaviewdataStoring, filesep 'mooring' filesep 'mooring_' num2str(it)  '.vtp'];
+     filename = [ParaviewdataStoring, filesep 'Mooring' filesep 'mooring_' num2str(it)  '.vtp']
 
     fid = fopen(filename, 'w');
     % write header
@@ -125,7 +126,7 @@ end
 
 %% To create a pvd file to view the Mooring lines as matching with timestep!! 
 
-filename = [ParaviewdataStoring, filesep 'mooring' filesep 'Mooring.pvd'];
+filename = [ParaviewdataStoring, filesep 'Mooring' filesep 'Mooring.pvd'];
 fid = fopen(filename, 'w');
 % write header
     fprintf(fid, '<?xml version="1.0"?>\n');
@@ -138,7 +139,7 @@ for it = 1:length(Moordyn_time_vector)
     current_time=Moordyn_time_vector(it);
     
     fprintf(fid, ['<DataSet timestep="' num2str(current_time) '" group="" part="0" \n']);
-    fprintf(fid, ['file="' ParaviewdataStoring,'mooring' filesep 'mooring_' num2str(it) '.vtp"/>  \n']);
+    fprintf(fid, ['file="' ParaviewdataStoring, filesep 'Mooring' filesep 'mooring_' num2str(it) '.vtp"/>  \n']);
     
 end   
     fprintf(fid, '  </Collection>\n');
@@ -146,6 +147,3 @@ end
     fclose(fid);
 
 clear it iline nline nnode nsegment model t
-
-
-

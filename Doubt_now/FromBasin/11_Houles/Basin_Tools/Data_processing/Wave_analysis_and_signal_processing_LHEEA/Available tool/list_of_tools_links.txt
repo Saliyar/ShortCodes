@@ -1,0 +1,8 @@
+- Wafo, WaveAR, OCEANLYZ
+http://www.maths.lth.se/matstat/wafo/download/index.html
+
+http://www.sciencedirect.com/science/article/pii/S0098300417306489
+http://www.arashkarimpour.com/oceanlyz.html
+
+https://www.researchgate.net/publication/235625893_WaveAR_A_software_tool_for_calculating_parameters_for_water_waves_with_incident_and_reflected_components
+ 

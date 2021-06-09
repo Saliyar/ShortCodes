@@ -1,0 +1,54 @@
+function Sig = readTDMSFile(pathTDMS,fileTDMS,GoodChannels)
+
+if nargin==3
+    TestName=1;
+else
+    TestName =0;
+    GoodChannels='';
+end
+
+temp          = TDMS_readTDMSFile(fullfile(pathTDMS,fileTDMS));
+
+
+[C,IA,IC] =  unique(temp.numberDataPointsRaw) % Look number different frequencies
+II = find(C > 0 );
+iSampFound=0;
+for iSampling=II
+    iSampFound = iSampFound +1;
+    Indexi = find (IC == iSampling);
+    
+    Sig{iSampFound}.dataa =[];
+    kk=0;
+    
+    for k = 1:length(Indexi)
+        iCh = Indexi(k);
+        wesh =temp.propValues{1,iCh};
+        
+        iName = strcmp(temp.propNames{iCh},'NI_ChannelName');
+        names_t{k}= wesh{iName};
+        iDt = strcmp(temp.propNames{iCh},'wf_increment');
+        deltaT(k) = wesh{iDt};
+        
+        
+        if (~isempty(find(strcmp(names_t{k},GoodChannels))) || TestName ==0)
+            
+            kk=kk+1;
+            names{kk} =names_t{k};
+            Sig{iSampFound}.dataa =[ Sig{iSampFound}.dataa temp.data{iCh}'];
+            cleanName =cleanString(names{kk},{'-', ' ','[',']'});
+            
+            eval(['Sig{iSampFound}.II' cleanName  '=kk;']);
+        end
+        
+    end
+    
+    if (max(deltaT)==min(deltaT))    
+        Sig{iSampFound}.time = [1:C(iSampling)]'*deltaT(1);
+        Sig{iSampFound}.names=names;
+        %Sig{iSampFound}.II =JJ;
+    else
+        error('DeltaT are not the same in the channels grouped together');
+    end
+end
+
+

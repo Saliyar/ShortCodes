@@ -1,0 +1,16 @@
+convert2dim.m
+convert2nondim.m
+display.m
+get.m
+length.m
+set.m
+subsasgn.m
+subsref.m
+private
+old
+harmonic.m
+plus.m
+times.m
+rotate.m
+mtimes.m
+list_method.txt

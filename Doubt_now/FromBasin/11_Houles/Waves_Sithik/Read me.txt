@@ -1,0 +1,2 @@
+1. TEST MATRIX VECTOR folder contains test cases of 5 waves with single phase set. Also it has HOS frequency files to be input for HOS-NWT
+2. TEST_CASE_3_15seeds folder contains test case of single wave with 15 different seeds along with its .wav and HOS files

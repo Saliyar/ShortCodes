@@ -1,0 +1,104 @@
+experiment "Irregular waves for ECN campaigns" with ("nantes_main_posn/default.ttf")
+
+int i;
+int harmo;
+real ampli;
+real angl;
+real phas;
+
+/* Wave data read from .dat files prepared with MatLab routine LHEEA_irrwave_generation_MAIN_SW_SPAR.m */
+
+/* Read and build poly-chromatic wave */
+wave the_wave1 = null;
+wave the_wave1_1 = null;
+real data1_1[] = [
+#include "data\Test_cases_SW_SPAR_1_1.dat"
+0];
+for i=1 to (sizeof(data1_1[])-1)/5 do
+   harmo = floor(data1_1[5*(i-1)+1]);
+   ampli = data1_1[5*(i-1)+3];
+   angl = data1_1[5*(i-1)+4];
+   phas = data1_1[5*(i-1)+5];
+   the_wave1_1 = the_wave1_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave1 = the_wave1 + the_wave1_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave2 = null;
+wave the_wave2_1 = null;
+real data2_1[] = [
+#include "data\Test_cases_SW_SPAR_2_1.dat"
+0];
+for i=1 to (sizeof(data2_1[])-1)/5 do
+   harmo = floor(data2_1[5*(i-1)+1]);
+   ampli = data2_1[5*(i-1)+3];
+   angl = data2_1[5*(i-1)+4];
+   phas = data2_1[5*(i-1)+5];
+   the_wave2_1 = the_wave2_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave2 = the_wave2 + the_wave2_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave3 = null;
+wave the_wave3_1 = null;
+real data3_1[] = [
+#include "data\Test_cases_SW_SPAR_3_1.dat"
+0];
+for i=1 to (sizeof(data3_1[])-1)/5 do
+   harmo = floor(data3_1[5*(i-1)+1]);
+   ampli = data3_1[5*(i-1)+3];
+   angl = data3_1[5*(i-1)+4];
+   phas = data3_1[5*(i-1)+5];
+   the_wave3_1 = the_wave3_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave3 = the_wave3 + the_wave3_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave4 = null;
+wave the_wave4_1 = null;
+real data4_1[] = [
+#include "data\Test_cases_SW_SPAR_4_1.dat"
+0];
+for i=1 to (sizeof(data4_1[])-1)/5 do
+   harmo = floor(data4_1[5*(i-1)+1]);
+   ampli = data4_1[5*(i-1)+3];
+   angl = data4_1[5*(i-1)+4];
+   phas = data4_1[5*(i-1)+5];
+   the_wave4_1 = the_wave4_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave4 = the_wave4 + the_wave4_1;
+
+/* Read and build poly-chromatic wave */
+wave the_wave5 = null;
+wave the_wave5_1 = null;
+real data5_1[] = [
+#include "data\Test_cases_SW_SPAR_5_1.dat"
+0];
+for i=1 to (sizeof(data5_1[])-1)/5 do
+   harmo = floor(data5_1[5*(i-1)+1]);
+   ampli = data5_1[5*(i-1)+3];
+   angl = data5_1[5*(i-1)+4];
+   phas = data5_1[5*(i-1)+5];
+   the_wave5_1 = the_wave5_1 + front(harmo,ampli,angl,phas);
+end;
+the_wave5 = the_wave5 + the_wave5_1;
+
+/* End of wave data */
+
+begin
+   run "Run1, Bret, Tp=1.11s, Hs=0.02m, ph=01" with (14)
+      makewave the_wave1 on 1;
+   end;
+   run "Run2, Bret, Tp=1.23s, Hs=0.0475m, ph=01" with (14)
+      makewave the_wave2 on 1;
+   end;
+   run "Run3, Bret, Tp=1.72s, Hs=0.145m, ph=01" with (14)
+      makewave the_wave3 on 1;
+   end;
+   run "Run4, Bret, Tp=1.96s, Hs=0.193m, ph=01" with (14)
+      makewave the_wave4 on 1;
+   end;
+   run "Run5, Bret, Tp=2.37s, Hs=0.273m, ph=01" with (14)
+      makewave the_wave5 on 1;
+   end;
+end;

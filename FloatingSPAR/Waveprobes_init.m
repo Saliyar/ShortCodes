@@ -7,23 +7,23 @@ switch Dimension
         clear;
 %% Major Inputs below:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        negative_z=-0.1;            % The Probe negative z axis location for start of the block
-        postive_z=0.1;              % The positive z axis location for end of the block
+        negative_z=-0.25;            % The Probe negative z axis location for start of the block
+        postive_z=0.25;              % The positive z axis location for end of the block
         y_axis=0;                % The y axis location where the grid is developed
-        x_axis_starting=0.145;  % The Probe - X axis starting location 
-        x_axis_end=1.35;% Assuming the grid is oriented at centre
+        x_axis_starting=-17;  % The Probe - X axis starting location 
+        x_axis_end=17;% Assuming the grid is oriented at centre
         delta_x= 0.01;             % Mesh spacing in x direction
         
  %% Diagonal Probes Placing
-        theta=45;
-        radius=0.14;
-        y_diag_start=radius*sind(theta); 
-        x_diag_start=radius*cosd(theta) %negative sign for -x direction
-        x_diag_end=x_axis_end;
-        y_diag_end=x_axis_end;
-        
-        x_diag=x_diag_start;
-        y_diag=y_diag_start;
+%         theta=45;
+%         radius=0.14;
+%         y_diag_start=radius*sind(theta); 
+%         x_diag_start=radius*cosd(theta) %negative sign for -x direction
+%         x_diag_end=x_axis_end;
+%         y_diag_end=x_axis_end;
+%         
+%         x_diag=x_diag_start;
+%         y_diag=y_diag_start;
         
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         x=x_axis_starting;
@@ -50,16 +50,16 @@ switch Dimension
         end
         
     % For diagonal terms 
-        deltaX=0;
-       for i=1:iter
-           N(iter+i,1)=(iter+n)+i;
-           X(iter+i,1)=x_diag+deltaX;
-           Y(iter+i,1)=y_diag+deltaX;
-           negative_Z(iter+i,1)=negative_z;
-           positive_Z(iter+i,1)=postive_z;
-           deltaX=i*delta_x;    
-           
-       end
+%         deltaX=0;
+%        for i=1:iter
+%            N(iter+i,1)=(iter+n)+i;
+%            X(iter+i,1)=x_diag+deltaX;
+%            Y(iter+i,1)=y_diag+deltaX;
+%            negative_Z(iter+i,1)=negative_z;
+%            positive_Z(iter+i,1)=postive_z;
+%            deltaX=i*delta_x;    
+%            
+%        end
         
         
          Final_Matrix=[N X Y negative_Z X Y positive_Z];
