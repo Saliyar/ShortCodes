@@ -89,13 +89,13 @@ Expt_yaxis=PP_Expt(ExptPressureIndices,i);
         Q4(i-1,j)=Q3(j);
       end
       
-   FigH = figure('Position', get(0, 'Screensize'));
+ %  FigH = figure('Position', get(0, 'Screensize'));
    % figure()
-   fontsize=32;
+   fontsize=36;
    hhh=2;
    markerSet='osp^>v<d*';
 % colorOrder = get(gca,'ColorOrder');
-cOrder = colormap(cbrewer('qual', 'Dark2', 8));
+cOrder = colormap(cbrewer('qual', 'Dark2',numfoamStar+nSWENSE));
 markersize = 32;
 linewidth = 4;
 rect = [3 5 30 18];
@@ -109,44 +109,44 @@ rect3 = [3 5 20 16];
        else
            Gtype=2;
        end
-    plot(ccost(j),Q3(j),'Marker',mkrs(Gtype),'MarkerSize',markersize,'linewidth',linewidth-1,'color',cOrder(j,:)) 
-    % plot(cost2D(:,hhh),ampli(fi,:,hhh),[markerSet(hhh)],'MarkerSize',markersize,'linewidth',linewidth-1,'color',cOrder(hhh,:))
-    %set(gca, 'XScale', 'log', 'YScale', 'log');
- 
-  
-    set(gca,'fontsize',fontsize)
-    ylim1 = [10^(-0.04) 10^(0)];
-%     ytick1 = [10^(-2) 10^(-1) 1.0 ];  
-    ylim(ylim1)
-%     set(gca,'Ytick',ytick1)
-    xlim([10^3 10^7])
-    set(gca, 'YScale', 'log')
-    set(gca, 'XScale', 'log')
-    % set(gca,'xgrid','on','ygrid','on','gridlinestyle','-')
-%     set(gca,'ygrid','on','gridlinestyle','-')
-    set(gca,'xgrid','on','ygrid','on','gridlinestyle','-')
-   % set(gcf,'Units','Centimeter','OuterPosition',rect3)
-    % set(gca,'tickLabelInterpreter','latex')
-    
-    ylabalis =sprintf('Cross Correlation  Coefficient');
-    ylabel(ylabalis,'fontsize',fontsize,'interpreter','latex')
-    
-    xlabalis =sprintf('Computational cost (s)');
-    xlabel(xlabalis,'fontsize',fontsize,'interpreter','latex')
-    hold on
+%     plot(ccost(j),Q3(j),'Marker',mkrs(Gtype),'MarkerSize',markersize,'linewidth',linewidth-1,'color',cOrder(j,:)) 
+%     % plot(cost2D(:,hhh),ampli(fi,:,hhh),[markerSet(hhh)],'MarkerSize',markersize,'linewidth',linewidth-1,'color',cOrder(hhh,:))
+%     %set(gca, 'XScale', 'log', 'YScale', 'log');
+%  
+%   
+%     set(gca,'fontsize',fontsize)
+%     ylim1 = [10^(-0.04) 10^(0)];
+% %     ytick1 = [10^(-2) 10^(-1) 1.0 ];  
+%     ylim(ylim1)
+% %     set(gca,'Ytick',ytick1)
+%     xlim([10^3 10^7])
+%     set(gca, 'YScale', 'log')
+%     set(gca, 'XScale', 'log')
+%     % set(gca,'xgrid','on','ygrid','on','gridlinestyle','-')
+% %     set(gca,'ygrid','on','gridlinestyle','-')
+%     set(gca,'xgrid','on','ygrid','on','gridlinestyle','-')
+%    % set(gcf,'Units','Centimeter','OuterPosition',rect3)
+%     % set(gca,'tickLabelInterpreter','latex')
+%     
+%     ylabalis =sprintf('Cross Correlation  Coefficient');
+%     ylabel(ylabalis,'fontsize',fontsize,'interpreter','latex')
+%     
+%     xlabalis =sprintf('Computational cost (s)');
+%     xlabel(xlabalis,'fontsize',fontsize,'interpreter','latex')
+%     hold on
    end     
-       
-       % saveas(FigH, ['PP ',num2str(i)],'png');
-        hold off
-       legend (lgd{:},'interpreter','latex','FontSize',32,'Location','southeast','NumColumns',2);
-   % legend(legendCell,...
-          % 'interpreter','latex','Location','SouthWest','Orientation','vertical','NumColumns',2,'fontsize',fontsize-4)
-    legend('boxon')
-    % text(2400,0.016,'\textbf{foamStar }','Color','black','fontsize',fontsize+3,'interpreter','latex')
-    title(['PP ',num2str(i) ],'fontsize',fontsize,'interpreter','latex')
-    % saveas(gcf,fullfile(graphFolder,sprintf('Efficiency_foamStar_space_%d_%s.png',fi,num2str(timeindex))))
-   fname = '/home/saliyar/ownCloud3/Documents/owncloud-My sharing folder/Error_figures/PressureError/CrossCorrleationError/';
-   saveas(FigH, fullfile(fname, ['PP ',num2str(i)]), 'jpeg');
+%        
+%        % saveas(FigH, ['PP ',num2str(i)],'png');
+%         hold off
+%        legend (lgd{:},'interpreter','latex','FontSize',32,'Location','southeast','NumColumns',2);
+%    % legend(legendCell,...
+%           % 'interpreter','latex','Location','SouthWest','Orientation','vertical','NumColumns',2,'fontsize',fontsize-4)
+%     legend('boxon')
+%     % text(2400,0.016,'\textbf{foamStar }','Color','black','fontsize',fontsize+3,'interpreter','latex')
+%     title(['PP ',num2str(i) ],'fontsize',fontsize,'interpreter','latex')
+%     % saveas(gcf,fullfile(graphFolder,sprintf('Efficiency_foamStar_space_%d_%s.png',fi,num2str(timeindex))))
+% %    fname = '/home/saliyar/ownCloud3/Documents/owncloud-My sharing folder/Error_figures/PressureError/CrossCorrleationError/';
+% %    saveas(FigH, fullfile(fname, ['PP ',num2str(i)]), 'jpeg');
    
 end
 
@@ -159,7 +159,8 @@ end
            Gtype=1;
        else
            Gtype=2;
-      end
+     end
+      
     plot(ccost(i),mean(Q4(:,i)),'Marker',mkrs(Gtype),'MarkerSize',markersize,'linewidth',linewidth-1,'color',cOrder(i,:))  
      set(gca,'fontsize',fontsize)
      ylim1 = [10^(-0.03) 10^(0)];
@@ -178,12 +179,12 @@ end
        
         hold off
         % legend ('foamStar','SWENSE CoarseMesh','FontSize',32);
-         legend (lgd{:},'interpreter','latex','FontSize',32,'Location','southeast','NumColumns',2);
+         legend ('fsB-F','fsS-F','fsS-M','fsS-C','SwB-F','SwS-F','SwS-M','SwS-C','SwS-RL4','interpreter','latex','FontSize',32,'Location','southeast','NumColumns',2);
    % legend(legendCell,...
           % 'interpreter','latex','Location','SouthWest','Orientation','vertical','NumColumns',2,'fontsize',fontsize-4)
     legend('boxon')
     % text(2400,0.016,'\textbf{foamStar }','Color','black','fontsize',fontsize+3,'interpreter','latex')
     title(['Pressure Probe -MeanError Vs Computational Cost' ],'fontsize',fontsize,'interpreter','latex')
     % saveas(gcf,fullfile(graphFolder,sprintf('Efficiency_foamStar_space_%d_%s.png',fi,num2str(timeindex))))
-    fname = '/home/saliyar/ownCloud3/Documents/owncloud-My sharing folder/Error_figures/PressureError/CrossCorrleationError/';
-   saveas(FigH, fullfile(fname, ['PPmean ']), 'jpeg');
+%     fname = '/home/saliyar/ownCloud3/Documents/owncloud-My sharing folder/Error_figures/PressureError/CrossCorrleationError/';
+%    saveas(FigH, fullfile(fname, ['PPmean ']), 'jpeg');

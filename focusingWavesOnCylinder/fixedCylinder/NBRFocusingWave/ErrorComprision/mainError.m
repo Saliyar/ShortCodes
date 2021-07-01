@@ -18,17 +18,17 @@ clear all
 %parameter - D for comparing everything together 
 %parameter - E for generating drag coefficient
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%6%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Input details
 number = '3'; % Choose the number stages 
-parameter = 'B'; % Chose the parameters to be compared
-ErrorValue = 'E3'; 
+parameter = 'A'; % Chose the parameters to be compared
+ErrorValue = 'E2'; 
 
 %%Experiment  details
 Exptforcepath=fullfile('/home/saliyar/Documents/Working/ISOPEtestcase/CategoryA/Case23003/','cylinnonbreak23003_2ndorder_9600Hz.MAT');
 ExptIndices=355212:403205;
 
-Exptpressurepath=fullfile('/home/saliyar/Documents/Working/ISOPEtestcase/CategoryA/Case23003/','catA_23003.mat');
+Exptpressurepath=fullfile('/home/sithik/Documents/PhDTestCases/CylinderFocusingWave/FinalResults/3DFixedNBRCylinder/Experiment/Case23003/','catA_23003.mat');
 ExptPressureIndices=3702:4202;
 
 %%foamStar Test case path
@@ -52,22 +52,21 @@ V=0.33; %Moving cylinder speed
 
 %% For N Number of cases
 %% Number of cases for foamStar 
-numfoamStar=4;
+numfoamStar=3;
 nSWENSE=4;
-BaseName_foamStar='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Fixed_NBR_focusing/foamStar/foamStarTestCase';
-BaseName_SWENSE='/mnt/data2/saliyar/Spece_constraint/Files_from_LIGER/Fixed_NBR_focusing/SWENSE/SWENSETestCase';
+BaseName_foamStar='/home/sithik/Documents/PhDTestCases/CylinderFocusingWave/FinalResults/3DFixedNBRCylinder/foamStar/foamStarTestCase';
+BaseName_SWENSE='/home/sithik/Documents/PhDTestCases/CylinderFocusingWave/FinalResults/3DFixedNBRCylinder/SWENSE/SWENSETestCase';
 
 nstart=0.1;
 nend=2.5; 
 
 %%Computational cost
-CPUTime=[38703.84 18053.67 10890 4507 54216.35 31932 24720 22062];
-Np=[80 80 6 6 80 80 6 1];
-T_sim=[5 2.5 2.5 2.5 5 3 4 2.5];
+CPUTime=[38703.84 18053.67 10890 4507 54216.35 31932 24720 22062 14304];
+Np=[80 80 6 6 80 80 6 1 6];
+T_sim=[5 2.5 2.5 2.5 5 3 4 2.5 2.5];
 
-for i=1:numfoamStar+nSWENSE
-ccost(:,i)=CPUTime(i)*Np(i)/T_sim(i);
-end
+ccost=(CPUTime.*Np)./T_sim;
+
 
 lgd ={'foamStar-BF','foamStar-SF','foamStar-SM','foamStar-SF','SWENSE-BF','SWENSE-SF','SWENSE-SM', 'SWENSE-SC'};
 mkrs=['o';'d'];                  % the desired markers lookup table

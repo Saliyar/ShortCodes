@@ -105,7 +105,7 @@ rect3 = [3 5 20 16];
 % fontsize = 18;
 
    for j=1:numfoamStar+nSWENSE
-   if(j<=numfoamStar)
+   if(j<=numfoamStar-1)
            Gtype=1;
        else
            Gtype=2;
@@ -148,8 +148,8 @@ rect3 = [3 5 20 16];
     % saveas(gcf,fullfile(graphFolder,sprintf('Efficiency_foamStar_space_%d_%s.png',fi,num2str(timeindex))))
     % saveas(FigH, ['PP ',num2str(i)],'png');
     
-   fname = '/home/saliyar/ownCloud3/Documents/owncloud-My sharing folder/Error_figures/SurfaceElevationError/CrossCorrleationError/';
-    saveas(FigH, fullfile(fname, ['WP ',num2str(i+4)]), 'jpeg');
+%    fname = '/home/saliyar/ownCloud3/Documents/owncloud-My sharing folder/Error_figures/SurfaceElevationError/CrossCorrleationError/';
+%     saveas(FigH, fullfile(fname, ['WP ',num2str(i+4)]), 'jpeg');
    
 end
 
@@ -166,14 +166,17 @@ rect = [3 5 30 18];
 rect2 = [3 5 30 18];
 rect3 = [3 5 20 16];
 
+
   for i=1:numfoamStar+nSWENSE  
       
        if(i<=numfoamStar)
            Gtype=1;
+           k=i;
        else
            Gtype=2;
+           k=i+1;
       end
-    plot(ccost(i),mean(Q4(:,i)),'Marker',mkrs(Gtype),'MarkerSize',markersize,'linewidth',linewidth-1,'color',cOrder(i,:))  
+    plot(ccost(k),mean(Q4(:,i)),'Marker',mkrs(Gtype),'MarkerSize',markersize,'linewidth',linewidth-1,'color',cOrder(i,:))  
     
     set(gca,'fontsize',fontsize)
  ylim1 = [10^(-0.03) 10^(0)];
@@ -193,13 +196,13 @@ rect3 = [3 5 20 16];
   end 
        
         hold off
-            legend (lgd{:},'interpreter','latex','FontSize',32,'Location','southwest','NumColumns',2);
+            legend ('fsB-F','fsS-F','fsS-M','SwB-F','SwS-F','SwS-M','SwS-C','interpreter','latex','FontSize',32,'Location','southwest','NumColumns',2);
    % legend(legendCell,...
           % 'interpreter','latex','Location','SouthWest','Orientation','vertical','NumColumns',2,'fontsize',fontsize-4)
     legend('boxon')
     % text(2400,0.016,'\textbf{foamStar }','Color','black','fontsize',fontsize+3,'interpreter','latex')
     title(['Wave Probe -MeanError Vs Computational Cost' ],'fontsize',fontsize,'interpreter','latex')
     % saveas(gcf,fullfile(graphFolder,sprintf('Efficiency_foamStar_space_%d_%s.png',fi,num2str(timeindex))))
-    fname = '/home/saliyar/ownCloud3/Documents/owncloud-My sharing folder/Error_figures/SurfaceElevationError/CrossCorrleationError/';
-    saveas(FigH, fullfile(fname, ['WPmean ']), 'jpeg');
+%     fname = '/home/saliyar/ownCloud3/Documents/owncloud-My sharing folder/Error_figures/SurfaceElevationError/CrossCorrleationError/';
+%     saveas(FigH, fullfile(fname, ['WPmean ']), 'jpeg');
     

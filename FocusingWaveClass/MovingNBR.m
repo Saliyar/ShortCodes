@@ -123,7 +123,7 @@ classdef MovingNBR
                 Expt_yaxis= filtfilt(sos,g,Expt_force_N(obj.ExptForce033Index,1));
                 Expt_yaxis=fft_And_Ifft(Expt_yaxis,length(Expt_yaxis),1/(Expt_time_corrected_filtered(2)-Expt_time_corrected_filtered(1)));
                 figure()
-                plot(Expt_time_corrected,Expt_yaxis,'LineWidth',3);
+                plot(Expt_time_corrected,Expt_yaxis,'LineWidth',4);
                 hold on
 
               % Load foamStar data 
@@ -135,19 +135,20 @@ classdef MovingNBR
                 foamStar_dtPP=data{100:end,1};
                 foamStar_force=data{100:end,2}+data{100:end,5};
                 
-                plot(foamStar_dtPP,foamStar_force,'LineWidth',3); 
+                plot(foamStar_dtPP,foamStar_force,'LineWidth',4); 
                 hold on;
               end
 
                 %% Plot - Uncomment if required
                 
-                ylabel('Force(N)','FontSize',32)
-                xlabel('Time [s]','FontSize',32)
+                ylabel('Force(N)','interpreter','latex','FontSize',32)
+                xlabel('Time [s]','interpreter','latex','FontSize',32)
                 xlim([0.5 15])
-                set(gca,'Fontsize',32)
-                title('Totalforce X - 0.33 m/s' ,'FontSize',32)
-                legend(['Experiment',obj.FolderNames])
+                set(gca,'FontSize',32)
+                title('Totalforce X' ,'interpreter','latex','FontSize',32)
+                legend(['Experiment',obj.FolderNames],'interpreter','latex','FontSize',32)
                 grid on;
+                grid minor;
                 
         end
         
